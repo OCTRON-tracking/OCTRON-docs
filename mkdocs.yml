@@ -22,6 +22,7 @@ nav:
     - analysing.md
     - access-data.md
   - troubleshooting.md
+  - file-system.md
 
 # Configuration
 theme:
