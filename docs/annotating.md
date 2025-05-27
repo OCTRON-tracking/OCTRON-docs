@@ -116,7 +116,18 @@ All layers can be toggled visible/invisible by clicking the 👁️ symbol on th
     ??? note "If the predictions become much slower than they were in the beginning"
          This sometimes happens when the model is basing its predictions on a large number of annotated frames. Click the **Reset** button under *Label manager* to make it forget what it's learned so far and then create annotations for **all** your labels in a single frame before you start predicting again (if you do not annotate them all, the model won't be able to predict them all either).
 
+6. Ready to move onto the next video? Delete the video layer (this will remove all the other layers too) and [add a new video file](create-project.md/#add-new-video-file). The *Label...* drop-down menu will remain unchanged, so you save some time [creating labels](#create-labels) and can quickly [start annotating](#start-annotating) again.
+
+    !!! warning "Always use the same label names"
+        Make sure to be consistent when naming labels across videos (e.g. if you start with 'stone', don't use 'rock' later). If the names are not identical then OCTRON will assume that you're annotating different objects and treat them as such.
+
+    ??? tip "Re-opening a previously annotated video"
+        In the [*Existing data*](create-project.md/#existing-data) section in the **Manage project** tab, you can double-click any of the listed videos to re-open one with all its associated layers and annotations.
+
+
+
 <video width="100%"  muted controls>
-  <source src="../assets/videos/tutorial/6_batchpredict-fast.mp4" type="video/mp4">
-  Your browser does not support the video tag.
+<source src="../assets/videos/tutorial/6_batchpredict-fast.mp4" type="video/mp4">
+Your browser does not support the video tag.
 </video> 
+
