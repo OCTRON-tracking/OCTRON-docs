@@ -24,21 +24,16 @@ Once the training data has been generated, OCTRON is ready to train your model. 
         
         - **YOLO11m-seg:** the 'medium' model (the smallest one) 
         - **YOLO11l-seg:** the 'large' model
-        - **YOLO11x-seg:** the 'extra large' model (the largest one)
 
-- **Img. size:** choose which image size OCTRON should work with.
+- **Img. size:** choose which image size OCTRON should train on. If your input videos have a high native resolution (for example 1920x1080 pixels), then training OCTRON with an image size of 1024 makes sense to get higher resolution out of your predictions. This especially helps with smaller labeled structures that cover only a minute fraction of your field of view. However, if your input videos have smaller resolution (for example 640x480 or smaller), then training the model atr 1024 image size makes little sense and might even make training worse. 
 
-    ??? question "Which image size should I choose?"
-        - **x:** details 
-        - **y:** details 
+- **Epochs:** decide how many epochs the model should train for. The higher the number, the longer the training will take, but if no significant improvement is detected across 100 epochs then the training will automatically stop.
 
-- **Epochs:** decide how many epochs the model should train for. The higher the number, the longer the training will take, but if no significant improvement is detected across x number of epochs then the training will automatically stop.
+- **Save period:** decide how often (in number of epochs) to save the training results.
 
-- **Save period:** decide how often (in number of ephocs) to save the training results.
-
-- **Resume:** if you've previously started training a model but had to abort for some reason, you can continue from where the training stopped by selecting this option *[this feature has not been implemented yet]*.
+- **Resume:** *[this feature has not been implemented yet]*. if you've previously started training a model but had to abort for some reason, you can continue from where the training stopped by selecting this option 
 - **Overwrite:** if you've previously trained a model and want to replace it, select this option.
-- **Tensorboard:** select this if you want to follow the training progress live in your browser. Once you click *Train*, a new browser tab should open automatically, but if it does not you can copy the link that appears in your terminal window and open it manually.
+- **Tensorboard:** select this if you want to follow the training progress live in your browser via [tensorboard](https://www.tensorflow.org/tensorboard). After the training has started you can open a new terminal, conda activate your OCTRON environment, and do `tensorboard --logdir "YOUR_TRAINING_FOLDER"`. This will then show you a link you can click or copy+paste into your browser to view a tensorboard instance showing the training progress.
 
 When you're happy with your training settings, click *Train*.
 

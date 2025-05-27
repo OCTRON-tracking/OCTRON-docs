@@ -22,6 +22,7 @@ Octron is built on [napari](https://www.napari.org), [segment anything](https://
 !!! info "Attributions"
     - Interface button and icon images were created by user [Arkinasi](https://thenounproject.com/browse/collection-icon/marketing-agency-239829/) from Noun Project (CC BY 3.0)
     - Logo font: [datalegreya](https://datalegreya.figs-lab.com/?lang=en)
+    - OCTRON mp4 video reading is based on [napari-pyav](https://github.com/danionella/napari-pyav)
     - OCTRON training is accomplished via ultralytics: 
     ```{bibtex}
     @software{yolo11_ultralytics,
