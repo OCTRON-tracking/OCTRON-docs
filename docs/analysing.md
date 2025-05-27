@@ -8,10 +8,10 @@ OCTRON by default only accepts MP4 transcoded videos. You can use OCTRON to tran
     ```
     ffmpeg -ss 20 -i "your_video_path.mp4" -t 60 -c:v libx264 -preset superfast -crf 23 -an "your_video_path_snippet.mp4" 
     ```
-    where 
-    - `-ss` indicates the start of the snippet in seconds from the start of the video.
-    - `-t 60` indicates that you want to extract 60 seconds from the video.
-    - `-c:v libx264 -preset superfast -crf 23 -an` specifies the codec (**do not change this!**) and that you do not want any audio in the output.
+    where<br>
+    - `-ss` indicates the start of the snippet in seconds from the start of the video.<br>
+    - `-t 60` indicates that you want to extract 60 seconds from the video.<br>
+    - `-c:v libx264 -preset superfast -crf 23 -an` specifies the codec (**do not change this!**) and that you do not want any audio in the output.<br>
 
 
 <img src="../assets/annotated_images/analysis.png"/>

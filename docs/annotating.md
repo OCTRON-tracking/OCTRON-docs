@@ -10,12 +10,9 @@ Select the model you would like to use for your annotations and click *Load mode
     Rule of thumb: the larger the model, the more resources (GPU) it demands. Start with the smallest, SAM2 Base Plus, and work your way up from there if that is insufficient.<br>
 
     Models in order of resource demands (*SAM2 Base Plus* is the least demanding, *SAM2 Large HQ* the most demanding):<br>
-    **SAM2 Base Plus**  <br>
-    **SAM2 Tiny**  <br>
-    **SAM2 Small**  <br>
-    **SAM2 Large**  <br>
-    **SAM2 Large HQ** 
-
+    **SAM2 Base Plus** (original SAM2 model)<br>
+    **SAM2 Large** (original SAM2 model) <br>
+    **SAM2 Large HQ (SAM2 HQ model)** 
 
 ## Create labels
 This is where you create the labels for the animals/item/structure you want to track. 
@@ -111,7 +108,7 @@ All layers can be toggled visible/invisible by clicking the 👁️ symbol on th
         ![a screenshot of the 'Manage project' tab](assets/screenshots/start_screen_loaded.png)
 
     ??? question "How many frames should I annotate?"
-        This depends on xyz
+        Rule of thumb: 100-150 per video are a solid number. It depends mostly on how varied your annotation is, i.e. how much variability is covered by your annotation, allowing the model to generalize well in the end.  
 
     ??? note "If the predictions become much slower than they were in the beginning"
          This sometimes happens when the model is basing its predictions on a large number of annotated frames. Click the **Reset** button under *Label manager* to make it forget what it's learned so far and then create annotations for **all** your labels in a single frame before you start predicting again (if you do not annotate them all, the model won't be able to predict them all either).
