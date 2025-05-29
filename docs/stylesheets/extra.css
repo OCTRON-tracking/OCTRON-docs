@@ -1,7 +1,6 @@
-/* .md-header__title {
-    color: transparent;
-  } */
-/* Hide the entire header specifically on the index.md page */
-body[data-md-page="index.md"] .md-header {
+body .md-content__inner h1 {
     display: none;
+}
+.md-content__inner {
+    padding-top: 0rem;
 }

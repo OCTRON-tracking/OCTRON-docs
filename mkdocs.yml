@@ -15,14 +15,14 @@ nav:
   - index.md
   - installation.md
   - How to use:
-    - gui.md
+    - GUI.md
     - create-project.md
     - annotating.md
     - training.md
     - analysing.md
     - access-data.md
-  - troubleshooting.md
   - file-system.md
+  #- troubleshooting.md
 
 # Configuration
 theme:
@@ -39,14 +39,13 @@ theme:
     - navigation.indexes
     - navigation.sections
     - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.top
     - navigation.tracking
-    - search.highlight
+    #- search.highlight
     - search.share
     - search.suggest
     - toc.follow
-    # - toc.integrate
+    - toc.integrate
   palette:
     # Light mode (default)
     - scheme: default
@@ -58,7 +57,7 @@ theme:
     # Dark mode
     - scheme: slate
       primary: black
-      accent: purple
+      accent: slate
       toggle:
         icon: material/toggle-switch-off 
         name: Switch to light mode

@@ -1,4 +1,5 @@
-# Create a project
+We recommend organizing your OCTRON projects in a certain, standardized way. The basis of all your projects should be a project folder which contains both the training data (videos and annotation data) and some test data. This project folder will also contain the trained model files in the end. 
+
 ## Start by organising your project
 
 1. Decide which videos to use and make sure they are *.mp4* files.
