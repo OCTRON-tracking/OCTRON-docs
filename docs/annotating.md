@@ -88,7 +88,7 @@ All layers can be toggled visible/invisible by clicking the 👁️ symbol on th
     ??? note "What to do if the predicted masks look bad"
         If this happens then you need to refine the predicted mask: 
 
-          - If you used the *points* type, then you just need to add a few more left- and right-clicks on the new frame to helpt the model recognise the object. 
+          - If you used the *points* type, then you just need to add a few more left- and right-clicks on the new frame to help the model recognise the object. 
           - If you used the the *shapes* type it's often easiest to redraw the shape in the new frame. 
 
 2. If you're happy with the prediction, continue clicking ▶️ to see if the predictions continue to look good for the following frames, adjusting the masks if necessary.
