@@ -15,7 +15,6 @@
 
     Then start over by recreating the environment using the *.yaml* file again (see steps below).
 
-## Follow these steps to install OCTRON
 
 1. Make sure **ffmpeg** is installed on the system. Some packages rely on it.
     - Open a terminal window/command prompt

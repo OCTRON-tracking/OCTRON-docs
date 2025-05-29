@@ -21,7 +21,8 @@ nav:
     - training.md
     - analysing.md
     - access-data.md
-  - file-system.md
+  - The file sytem:
+    - file-system.md
   #- troubleshooting.md
 
 # Configuration
