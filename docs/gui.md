@@ -1,3 +1,4 @@
+# Using the GUI
 To open OCTRON together with napari, first conda activate your newly created environment. Then open the OCTRON gui together with napari. 
 
 ```sh
