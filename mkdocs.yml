@@ -15,7 +15,7 @@ nav:
   - index.md
   - installation.md
   - How to use:
-    - GUI.md
+    - gui.md
     - create-project.md
     - annotating.md
     - training.md
