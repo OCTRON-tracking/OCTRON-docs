@@ -6,7 +6,7 @@ Octron is built on [napari](https://www.napari.org), [segment anything](https://
 
 
 <video width="100%" autoplay loop muted>
-  <source src="assets/videos/presentation_tomopt.mp4" type="video/mp4">
+  <source src="assets/videos/MAIN.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
