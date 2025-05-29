@@ -1,5 +1,11 @@
 # The file system 
-This is the structure of the file system OCTRON creates and what the individual folders and files are:
+
+During annotation, training and analysis, OCTRON creates various subfolders and files in the main project folder you selected.
+
+
+(WIP) - add details here ... 
+
+
 ```
 Your project folder
 ├─ videos
