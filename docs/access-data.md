@@ -5,15 +5,17 @@ output folder on the napari main window and click "Open with OCTRON", or use pyt
 ## Access OCTRON prediction results 
 
 ```python
-# To access any prediction results programmatically, you can use the YOLO_results class.
+# To access any prediction results programmatically, 
+# you can use the YOLO_results class.
 from octron import YOLO_results
 
 results_dir = 'path_to_folder/predictions/some_output_bytetrack'
-yolo_results = YOLO_results(results_dir, verbose=True) # Initiate loader class
+yolo_results = YOLO_results(results_dir, verbose=True)
 
 # yolo_results contains quite a bit of information now ... 
 print(yolo_results.height, yolo_results.width, yolo_results.num_frames)
-# The track_id_label is a dictionary that contains the track id as key and the label as value
+# The track_id_label is a dictionary that contains the 
+# track id as key and the label as value
 print(yolo_results.track_id_label)
 
 # to access tracking data
@@ -28,22 +30,24 @@ Check out the [tutorial notebook](https://github.com/horsto/OCTRON-GUI/blob/main
 You can either drag and drop the folder onto Napari, or trigger the same operation like this. 
 
 ```python
-# You can access the yolo_octron class directly if you want to use it for your own purposes
+# You can access the yolo_octron class directly if you 
+# want to use it for your own purposes
 # This allows you to plot things in napari like you would when 
 # drag-and-dropping the results into napari
-# This is just a convenience function to load the results, but should not be used for 
-# any serious analysis.
-# In fact, YOLO_octron accesses YOLO_results to load the results.
+# This is just a convenience function to load the results, 
+# but should not be used for any serious analysis.
+# In fact, YOLO_octron accesses YOLO_results itself to load the results! 
 from octron import YOLO_octron
 results_dir = 'path_to_folder/predictions/some_output_bytetrack'
 yolo_octron = YOLO_octron()
 
 # Loop over all results and add them to napari one by one
-for label, track_id, color, tracking_df, features_df, masks in yolo_octron.load_predictions(save_dir=results_dir, 
-                                                                                            sigma_tracking_pos=2, 
-                                                                                            open_viewer=True
-                                                                                            ):
+for frame_results in yolo_octron.load_predictions(save_dir=results_dir, 
+                                                  sigma_tracking_pos=2, 
+                                                  open_viewer=True
+                                                  ):
     # you can access the tracking_df and features_df here if you want to ...
+    # label, trackid, color, tracks, feats, masks = frame_results
     # ... 
     # ... 
     # ... or just continue 
