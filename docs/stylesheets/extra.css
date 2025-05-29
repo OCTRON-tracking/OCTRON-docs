@@ -1,3 +1,7 @@
 /* .md-header__title {
     color: transparent;
   } */
+/* Hide the entire header specifically on the index.md page */
+body[data-md-page="index.md"] .md-header {
+    display: none;
+}
