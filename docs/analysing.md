@@ -32,7 +32,7 @@ Next, in the *Create predictions from videos* section you indicate how the video
         - **[BoT-SORT](https://github.com/NirAharon/BoT-SORT)** 
 
 - **Videos:** select which video(s) you want to analyze.
-- **Polygon sigma (x-y):** select smoothing sigma for Gaussian smoothing of the detected region. This is optional and can be left at `0`, but if your regions have very jagged edges, you can increase it to smooth them a bit. 
+- **Polygon sigma:** select smoothing sigma for Gaussian smoothing of the detected region. This is optional and can be left at `0`, but if your regions have very jagged edges, you can increase it to smooth them a bit. 
 - **Conf. thres. (confidence threshold, 0-1):** the confidence threshold that should be used to determine which analysed frames to keep. There will likely be frames where the model is more confident that it has identified the right object than others. If the confidence threshold is set to 0.8 it means the model will only keep frames where it is 80% certain that it has correctly identified a given object.
 - **View results:** select this option if you want OCTRON to automatically open a new window where you can see the result of the analysis once it is complete (recommended).
 - **Overwrite:** select this option if you've previously analysed the selected video and want to replace that analysis.
