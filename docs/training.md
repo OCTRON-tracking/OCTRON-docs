@@ -1,4 +1,5 @@
-# Train model
+# Training
+
 Once you have a decent number of annotated frames, you are ready to train your model. This is done in the **Train model** tab.
 
 <img src="../assets/annotated_images/training.png"/>
