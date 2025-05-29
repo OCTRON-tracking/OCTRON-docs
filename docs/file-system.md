@@ -4,6 +4,7 @@ During annotation, training and analysis, OCTRON creates various subfolders and 
 
 ## Annotation 
 For every video you are annotating, OCTRON creates a subfolder that contains 
+
 - `label_name masks.zarr` archives that contain the annotation mask data for every label and annotation you create
 - `object_organizer.json` file that contains info on the label and various layers in your annotation project
 - `video data.zarr` archive that contains (compressed) video frame data for every annotated frame 
@@ -31,7 +32,7 @@ Your project folder
 └─ ...
 ```
 
-```json title="object_organizer.json example"
+```json title="Example object_organizer.json"
 {
   "entries": {
     "0": {
@@ -110,7 +111,7 @@ Your project folder
 ## Training
 With the creation of training output (in OCTRON's training tab), a `model` subfolder is created in your project folder.
 Within it you will find a `training_data` subfolder that contains the actual training data for YOLO and a `yolo_config.yaml`, that contains all parameters that the model is being trained with. 
-You can use the training data for multiple training runs (if `overwrite==False`). 
+You can use the training data for multiple training runs (if you unticked `Overwrite` in the GUI). 
 
 Once you start training the YOLO model, a `training` subfolder is created. It will gradually fill up with info during training and contain evaluation metrics and figures after training has finished. 
 If you want to read more about these files, check out ultralytic's [own documentation](https://www.ultralytics.com/). In that same folder you will find a subfolder `weights` that contains the 
@@ -134,7 +135,7 @@ Your project folder
 ```
 
 ## Analysis
-When new videos are analyzed, OCTRON creates a new folder `predictions` within the folder of the .mp4 files that are currently being analyzed. 
+When new videos are analyzed OCTRON creates a new folder `predictions` within the folder of the .mp4 files that are currently being analyzed. 
 Within the predictions folder, subfolders for every video file are created that contain the video file name, followed by the tracker name (e.g. bytetrack). 
 These are the actual prediction result folders, and those you can (after successful completion of analysis in OCTRON) drag and drop on OCTRON's main window to view them in OCTRON again. 
 
