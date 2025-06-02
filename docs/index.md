@@ -6,13 +6,13 @@
 Octron is built on [napari](https://www.napari.org), [segment anything](https://segment-anything.com/), [yolo](https://www.ultralytics.com/) and 💜.
 
 <br>
+??? note "OCTRON video" 
+      <video width="80%" loop muted controls style="display: block; margin-left: auto; margin-right: auto;">
+        <source src="assets/videos/MAIN.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
 <br>
-<video width="80%" loop muted controls style="display: block; margin-left: auto; margin-right: auto;">
-  <source src="assets/videos/MAIN.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<br>
-<br>
+
 
 !!! quote "How to cite"
     Using OCTRON for your project? Please cite this paper to share the word! 
