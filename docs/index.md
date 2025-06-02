@@ -1,11 +1,11 @@
-<img src="assets/octron_logo.svg" alt="OCTRON Logo" width="75%" style="display: block; margin-left: auto; margin-right: auto; margin-top: -2rem; margin-bottom: 1rem;" />
+<img src="assets/octron_logo.svg" alt="OCTRON Logo" width="75%" style="display: block; margin-left: auto; margin-right: auto; margin-top: -2rem; margin-bottom: 4rem;" />
 
 
 **OCTRON** is a pipeline built on [napari](https://www.napari.org) that enables segmentation and tracking of animals in behavioral setups. It helps you to create rich annotation data that can be used to train your own machine learning segmentation models. This enables dense quantification of animal behavior across a wide range of species and video recording conditions. 
 
 Octron is built on [napari](https://www.napari.org), [segment anything](https://segment-anything.com/), [yolo](https://www.ultralytics.com/) and 💜.
-<br>
-
+<br><br>
+<hr>
 <video width="100%" loop muted controls poster="assets/videos/poster_frame.jpg" style="display: block; margin-left: auto; margin-right: auto;">
   <source src="assets/videos/MAIN.mp4" type="video/mp4">
   Your browser does not support the video tag.
@@ -15,7 +15,7 @@ Octron is built on [napari](https://www.napari.org), [segment anything](https://
     Using OCTRON for your project? Please cite this paper to share the word! 
     <br>
     👉*Add paper details*
-
+<hr>
 
 !!! info "Attributions"
     - Interface button and icon images were created by user [Arkinasi](https://thenounproject.com/browse/collection-icon/marketing-agency-239829/) from Noun Project (CC BY 3.0)
