@@ -26,10 +26,12 @@ Next, in the *Create predictions from videos* section you indicate how the video
 - **Tracker...:** if you have annotated more than one object for a given label (e.g. *artemia 1*, *artemia 2*), a tracker needs to be used to help the model determine which is which across frames. Pick the one you prefer in this drop-down menu. If you only have one object per label, click the **1 subject** option.
 
     ??? question "Which tracker should I use?"
-        Short answer: it probably doesn't matter which one you choose. `BoT-SORT` seems to give slightly better results, but is computationally more intense. If you want to dig into the differences then you can find detailed information from the creators of each tracker here: 
+        Short answer: it probably doesn't matter which one you choose. `BoT-SORT` seems to give slightly better results, but is computationally much more intense than ByteTrack. If you want to dig into the differences then you can find detailed information from the creators of each tracker here: 
 
         - **[ByteTrack](https://github.com/FoundationVision/ByteTrack)** 
         - **[BoT-SORT](https://github.com/NirAharon/BoT-SORT)** 
+
+        There is a nice module comparison of various trackers here: https://github.com/mikel-brostrom/boxmot/ - but only ByteTrack and BoT-SORT are integrated currently
 
 - **Videos:** select which video(s) you want to analyze.
 - **Polygon sigma:** select smoothing sigma for Gaussian smoothing of the detected region. This is optional and can be left at `0`, but if your regions have very jagged edges, you can increase it to smooth them a bit. 

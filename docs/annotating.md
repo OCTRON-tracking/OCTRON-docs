@@ -12,7 +12,7 @@ Select the model you would like to use for your annotations and click *Load mode
     Models in order of resource demands (*SAM2 Base Plus* is the least demanding, *SAM2 Large HQ* the most demanding):<br>
     **SAM2 Base Plus** (original SAM2 model)<br>
     **SAM2 Large** (original SAM2 model) <br>
-    **SAM2 Large HQ (SAM2 HQ model)** 
+    **SAM2 Large HQ** (SAM2 HQ model)
 
 ## Create labels
 This is where you create the labels for the animals/item/structure you want to track. 
