@@ -4,15 +4,12 @@
 **OCTRON** is a pipeline built on [napari](https://www.napari.org) that enables segmentation and tracking of animals in behavioral setups. It helps you to create rich annotation data that can be used to train your own machine learning segmentation models. This enables dense quantification of animal behavior across a wide range of species and video recording conditions. 
 
 Octron is built on [napari](https://www.napari.org), [segment anything](https://segment-anything.com/), [yolo](https://www.ultralytics.com/) and 💜.
-
 <br>
-??? note "OCTRON video" 
-      <video width="80%" loop muted controls style="display: block; margin-left: auto; margin-right: auto;">
+??? note "OCTRON introduction video" 
+      <video width="100%" loop muted controls style="display: block; margin-left: auto; margin-right: auto;">
         <source src="assets/videos/MAIN.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-<br>
-
 
 !!! quote "How to cite"
     Using OCTRON for your project? Please cite this paper to share the word! 
