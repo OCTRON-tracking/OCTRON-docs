@@ -3,9 +3,9 @@ We recommend organizing your OCTRON projects in a certain, standardized way. The
 
 ## Start by organising your project
 
-1. Decide which videos to use and make sure they are *.mp4* files.
+1. Decide which videos to use and make sure they are *.MP4* files.
 
-    ??? question "How do I convert my video files to .mp4?"
+    ??? question "How do I convert my video files to .MP4?"
         If your videos are not in mp4 format then you can use OCTRON to transcode them.
 
         1. Drag the folder containing the videos you want to transcode into the centre area of the OCTRON GUI.
@@ -48,6 +48,11 @@ Drag one of the videos you want to train the model on into the *Add new video fi
   <source src="../assets/videos/tutorial/2__add_video_to_project-fast.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
+??? tip "Why does OCTRON enforce usage of .MP4 files?"
+    Long answer short: The zoo of video formats and codecs is complicated and all of us are using video files for something that they are not generally made for, that is, precise frame-by-frame access across 100s to 1000s of frames. 
+    We are therefore enforcing mp4 and encourage people to use OCTRON to encode all their video files as described in the helper box at the beginning of this page ("How do I convert my video files to .mp4?"). For an excellent primer on this topic see [this github issue](https://github.com/janclemenslab/napari-video/issues/3#issuecomment-2408313890). 
+
 
 ## Existing data
 Once you start annotating, this section will list the number of frames that you have annotated in each video as well as the number of labels. 
