@@ -38,4 +38,11 @@ Once the training data has been generated, OCTRON is ready to train your model. 
 
 When you're happy with your training settings, click *Train*.
 
-While the model is training you can track its progress in the terminal window (and with graphs in your browser if you selected the *Tensorboard* option). Once OCTRON has finished one epoch, it will provide an estimate of how long the total training will take, based on how long the first epoch took to complete and how many epochs you've told it to train for. 
+## Check training progress and results
+**While the model is training** you can track its progress in the terminal window (and with graphs in your browser if you selected the *Tensorboard* option). Once OCTRON has finished one epoch, it will provide an estimate of how long the total training will take, based on how long the first epoch took to complete and how many epochs you've told it to train for. 
+
+**Once the training has finished**, you can check how it went by opening the *model* folder in your project folder, and then the *training* folder. Key files within this folder:
+
+- **results.png:** this image provides an overview of the training progress. If the training went well, then all the curves should have an asymptote.
+
+- **val_batchX_pred.jpg:** this image shows example frames that were predicted by the model, with the labels and confidence level associated with each label. If the training went well, then the values should be closer to 1 than to 0.

@@ -26,7 +26,10 @@ This is where you create the labels for the animals/item/structure you want to t
 
     Option:
 
-    - **Suffix:** add a number here if you want to label multiple instances of the same thing (e.g. you have two LEDs and want to label them separately as *LED 1* and *LED 2*)
+    - **Suffix:** add a number here if you want to label multiple instances of the same thing (e.g. you have two LEDs and want to label them separately as *LED 1* and *LED 2*).
+
+        ??? note "Why suffixes are useful"
+            When using suffixes for your labels, e.g. *LED 1* and *LED 2*, then these labels will end up in the same *LED* label during training. This means that the model treats these as the same type of object when training to identify them, and therefore has twice as many annotations to train on. In contrast, if you give the two LEDs separate labels (i.e. not using the suffix option) then the model will consider these to be separate types of objects and train on them separately too.
 
 3. Click the *Create* button to create your label. Two new layers will appear in the *layer list* (bottom left left hand section of OCTRON, more on that later).
 
@@ -36,6 +39,8 @@ This is where you create the labels for the animals/item/structure you want to t
     If you want to remove one of the labels you've created, then click *Remove* in the *Label...* drop-down menu and select the label you would like to remove
 
 If at some point the model that is helping you annotate the videos is starting to slow down, you can click the **Reset** button to make it forget what it's learned so far and start fresh.
+
+Once you start annotating, the **Visualize all** button will show you the coverage that your annotations give you. This is useful for checking that your annotations are not limited to one part of the field of view (provided the object you're annotating isn't stationary of course).
 
 <video width="100%"  muted controls>
   <source src="../assets/videos/tutorial/3__load_model_add _annotationlayers-fast.mp4" type="video/mp4">
@@ -100,7 +105,7 @@ All layers can be toggled visible/invisible by clicking the 👁️ symbol on th
     - **Skip:** the number of frames you want to skip before predictions should be made again (this will apply both if you click ▶️ and if you click *15 frames*).
     - **Timeline control:** click *Jump to previous* or *Jump to next* to move to the closest preceding/upcoming annotated frame.
 
-5. Continue to predict frames until you reach the end of the video or a decent number of frames have been annotated.
+5. Continue to predict frames until you reach the end of the video or a decent number of frames have been annotated. This is a good time to click the **Visualize all** button in *Layer controls* to see how much of the field of view your annotations cover.
 
     ??? question "How do I know how many frames have been annotated?"
         Open the *Manage project* tab and look for the video you're currently annotating in the *Existing data* list. The last few characters of the folder and file name are visible in the first two columns, followed by the number of labels in each video, and the total number of frames that have been annotated. Each row can be hovered over with your mouse to reveal the full video path and label names.
@@ -117,6 +122,9 @@ All layers can be toggled visible/invisible by clicking the 👁️ symbol on th
 
     !!! warning "Always use the same label names"
         Make sure to be consistent when naming labels across videos (e.g. if you start with 'stone', don't use 'rock' later). If the names are not identical then OCTRON will assume that you're annotating different objects and treat them as such.
+
+    ??? question "Is it better to annotate a lot of frames in a few videos, or a few frames in a lot of videos?"
+        You do need a decent number of annotated frames in each video (see question about number of annotated frames above), but once you have that it is better to annotate more videos, as opposed to more frames per video. This will give better results because additional videos will add diversity and variability to the data used for training.
 
     ??? tip "Re-opening a previously annotated video"
         In the [*Existing data*](create-project.md/#existing-data) section in the **Manage project** tab, you can double-click any of the listed videos to re-open one with all its associated layers and annotations.

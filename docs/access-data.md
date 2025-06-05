@@ -1,6 +1,5 @@
 # Access output data
-To access the data that OCTRON has generated (the coordinates of all your labelled objects for each frame, masks, etc), you can either drag and drop the prediction 
-output folder on the napari main window and click "Open with OCTRON", or use python directly to access the data. We have compiled [this tutorial notebook](https://github.com/horsto/OCTRON-GUI/blob/main/octron/notebooks/OCTRON_results_loading.ipynb) for that purpose. 
+To access the data that OCTRON has generated (the coordinates of all your labelled objects for each frame, masks, etc), you can either drag and drop the prediction output folder on the OCTRON main window and click "Open with OCTRON", or use python directly to access the data. We have compiled [this tutorial notebook](https://github.com/horsto/OCTRON-GUI/blob/main/octron/notebooks/OCTRON_results_loading.ipynb) for that purpose. 
 
 ## Access OCTRON prediction results 
 
@@ -27,7 +26,7 @@ Check out the [tutorial notebook](https://github.com/horsto/OCTRON-GUI/blob/main
 
 
 ## Load OCTRON prediction results into napari
-You can either drag and drop the folder onto Napari, or trigger the same operation like this. 
+You can either drag and drop the folder onto the OCTRON main window, or trigger the same operation like this: 
 
 ```python
 # You can access the yolo_octron class directly if you 
