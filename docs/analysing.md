@@ -35,6 +35,7 @@ Next, in the *Create predictions from videos* section you indicate how the video
 
 - **Videos:** select which video(s) you want to analyze.
 - **Conf. thres. (confidence threshold, 0-1):** the confidence threshold that should be used to determine which analysed frames to keep. There will likely be frames where the model is more confident that it has identified the right object than others. If the confidence threshold is set to 0.8 it means the model will only keep frames where it is 80% certain that it has correctly identified a given object.
+- **Opening:** the opening disk radius for morphological opening of predicted mask data. An opening operation, which consists of erosion followed by dilation, helps eliminate small bright artifacts (like 'salt' noise) and bridges narrow dark gaps. This process effectively 'opens' dark spaces between bright regions. Increase this if you have a lot of extraneous, noisy blobs in your masks that you want to eliminate.
 - **View results:** select this option if you want OCTRON to automatically open a new window where you can see the result of the analysis once it is complete (recommended).
 - **Overwrite:** select this option if you've previously analysed the selected video and want to replace that analysis.
 - **IOU (intersection over union, 0-1):** this threshold determines how much objects can overlap and still be considered separate objects. If this value is zero, then objects that have no overlap will be considered to be the same object, i.e. there is only one object.

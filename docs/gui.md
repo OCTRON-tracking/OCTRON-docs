@@ -1,9 +1,10 @@
 # Using the GUI
-To open OCTRON together with napari, first conda activate your newly created environment. Then open the OCTRON gui together with napari. 
+To open OCTRON together with napari, first conda activate your newly created environment. 
 
 ```sh
 conda activate octron
 ```
+Then you can use this command to open napari and OCTRON in the same go (i.e. napari will load and open OCTRON as plugin on the right side of the app).
 ```sh
 octron-gui
 ```

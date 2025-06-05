@@ -43,6 +43,8 @@ When you're happy with your training settings, click *Train*.
 
 **Once the training has finished**, you can check how it went by opening the *model* folder in your project folder, and then the *training* folder. Key files within this folder:
 
-- **results.png:** this image provides an overview of the training progress. If the training went well, then all the curves should have an asymptote.
+- **results.png:** this image provides an overview of the training progress. If the training went well, then all the curves should have an asymptote. All metrics have their usefulness in those plots, but if you want a quick impression, look at the `mAP` (mean average precision). It measures how effectively a model identifies and localizes objects across various classes and confidence thresholds. mAP is computed by averaging precision across different recall values for each class, typically at specific Intersection over Union (IoU) thresholds—like 0.5 (mAP@0.5) or a range from 0.5 to 0.95 (mAP@0.5:0.95). A higher mAP score indicates that the model is both accurate in classification and precise in object localization.
+
+- **confusion_matrix.png** this shows the confusion matrix, i.e. how "true" classes compare to "predicted" ones across (unseen) test images. If the diagonal is the strongest, that means that most label classes have been successfully predicted. Off-diagonal squares indicate that the model is confusing label identities. You want most of your values to be concentrated on the diagonal. 
 
 - **val_batchX_pred.jpg:** this image shows example frames that were predicted by the model, with the labels and confidence level associated with each label. If the training went well, then the values should be closer to 1 than to 0.
