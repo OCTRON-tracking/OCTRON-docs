@@ -6,7 +6,7 @@
 Octron is built on [napari](https://www.napari.org), [segment anything](https://segment-anything.com/), [yolo](https://www.ultralytics.com/) and 💜.
 <br><br>
 <hr>
-<video width="100%" loop muted controls poster="assets/videos/poster_frame.jpg" style="display: block; margin-left: auto; margin-right: auto;">
+<video width="100%" muted controls poster="assets/videos/poster_frame.jpg" style="display: block; margin-left: auto; margin-right: auto;">
   <source src="assets/videos/MAIN.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
