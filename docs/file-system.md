@@ -10,6 +10,8 @@ For every video you are annotating, OCTRON creates a subfolder that contains
 The folder names are the abbreviated hashes of the video file that is loaded and OCTRON makes sure that whenever you re-load an annotation project from within the GUI, the hash of the loaded video and the one of the annotation subfolder match. 
 Meaning, when you modify the video file in any way, OCTRON will throw an error, alerting you that the video file and loaded annotations do not match. There is also a `video_info.txt` that can be deleted without consequences and contains some basic info about the annotated video file itself. 
 
+OCTRON uses the [zarr > 3.0](https://zarr.readthedocs.io/en/stable/index.html) python libary for reading and writing annotation, frame and prediction mask data. 
+
 ```
 Your project folder
 ├─ hash_of_video_1
@@ -162,6 +164,10 @@ video folder
 │   └─ video_file_3_tracker
 │      └─ ...
 ```
+
+If you want to learn more about how to load OCTRON prediction results programmatically in python, check out the section on [how to access output data](access-data.md). We created a reader class to make it easy for you to load and play with those data and we recommend using that one. However, if you wanted to, you could load for example the .csv files yourself using [pandas](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html) or other libraries. OCTRON uses the [zarr > 3.0](https://zarr.readthedocs.io/en/stable/index.html) python libary for reading and writing annotation, frame and prediction mask data. 
+
+
 ##### Explanation of .csv data 
 
 The .csv files contain four (primary) index columns
