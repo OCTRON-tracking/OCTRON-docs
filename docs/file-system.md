@@ -174,8 +174,8 @@ The .csv files contain four (primary) index columns
 The data columns are 
 
 - `confidence`: How confident was the model about this region in this frame? Can be used to filter out bad segmentation results later on. 
-- `pos_x`, `pos_y`: centroid of mask in frame coordinate system
-- `area`: total number of pixels in mask 
+- `pos_x`, `pos_y`: centroid of mask in frame coordinate system.
+- `area`: total number of pixels in mask.
 - `eccentricity`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Eccentricity of the ellipse that has the same second-moments as the region. The eccentricity is the ratio of the focal distance (distance between focal points) over the major axis length. The value is in the interval [0, 1). When it is 0, the ellipse becomes a circle.
 - `orientation`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Angle between the 0th axis (rows) and the major axis of the ellipse that has the same second moments as the region, ranging from -pi/2 to pi/2 counter-clockwise.
 - `solidity`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Ratio of pixels in the region to pixels of the convex hull image.
