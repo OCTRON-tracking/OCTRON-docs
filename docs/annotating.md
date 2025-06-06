@@ -24,12 +24,10 @@ This is where you create the labels for the animals/item/structure you want to t
 
 2. In the *Label...* drop-down menu, select *Create* to open a dialogue box where you can name your label and click *Add* to add it. 
 
-    Option:
-
-    - **Suffix:** add a number here if you want to label multiple instances of the same thing (e.g. you have two LEDs and want to label them separately as *LED 1* and *LED 2*).
+    - **Suffix:** *(Optional!)* add a number here if you want to label multiple instances of the same thing (e.g. you have two LEDs and want to label them separately as *LED 1* and *LED 2*). 
 
         ??? note "Why suffixes are useful"
-            When using suffixes for your labels, e.g. *LED 1* and *LED 2*, then these labels will end up in the same *LED* label during training. This means that the model treats these as the same type of object when training to identify them, and therefore has twice as many annotations to train on. In contrast, if you give the two LEDs separate labels (i.e. not using the suffix option) then the model will consider these to be separate types of objects and train on them separately too.
+            When using suffixes for your labels, e.g. *LED 1* and *LED 2*, then these labels will end up in the same *LED* label during training. This means that the model treats these as the same type of object when training to identify them, and therefore has twice as many annotations to train on. In contrast, if you give the two LEDs separate labels (i.e. not using the suffix option) then the model will consider these to be separate types of objects and train on them separately too.<br>**Hot tip**: It is not always necessary to create separate annotations for repeated objects in your scene! SAM does pick up on repeated textures in your frames, so, if you have objects that look very similar, try to use a points layer to annotate them all in one go (on one single layer). 
 
 3. Click the *Create* button to create your label. Two new layers will appear in the *layer list* (bottom left left hand section of OCTRON, more on that later).
 
