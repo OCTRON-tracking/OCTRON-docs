@@ -180,7 +180,7 @@ The data columns are
 - `orientation`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Angle between the 0th axis (rows) and the major axis of the ellipse that has the same second moments as the region, ranging from -pi/2 to pi/2 counter-clockwise.
 - `solidity`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Ratio of pixels in the region to pixels of the convex hull image.
 - `mask_l_mean`,`mask_a_mean`,`mask_b_mean`: CIE LAB space average values of masked frame. `l` gives you brightness, whereas `a` and `b` give you color information.
-- `frame_l_mean`,`frame_a_mean`,`frame_b_mean: CIE LAB space average values of whole frame (not masked).
+- `frame_l_mean`,`frame_a_mean`,`frame_b_mean`: CIE LAB space average values of whole frame (not masked).
 
 
 ```csv title="Example .csv excerpt"
