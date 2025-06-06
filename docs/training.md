@@ -8,6 +8,7 @@ Once you have a decent number of annotated frames, you are ready to train your m
 OCTRON needs to generate data to train the model on, i.e. it takes your annotations and splits them into a training dataset and a testing dataset. This enables it to evaluate how well the training is going by comparing its predictions against the ground truth. First, consider these options:
 
 - **Prune:** select this if there are frames in which it is likely that not all of your objects were annotated despite them all being present. By selecting this option OCTRON will 'prune' the annotated frames so that only those where all labels are present are used. Otherwise you will be counteracting the training (the model will think that if one object isn't annotated in a certain frame, but the other objects are, this means the un-annotated object isn't there).
+- **Watershed:** If you have labeled multiple instances of the *same kind of object* on *the same* annotation layer, then you can use a watershedding operation to make sure that when two or more of these objects touch slightly (for example when they bump into each other over time), they still form separate masks. You can see a visual explanation of this process [here](https://github.com/horsto/OCTRON-GUI/issues/1).
 - **Overwrite:** if you've generated a training dataset before, selecting this option will overwrite the existing one (recommended).
 
 Once you click *Generate*, you can observe the progress in the two progress bars:
