@@ -137,11 +137,11 @@ Your project folder
 ## Analysis
 When new videos are analyzed OCTRON creates a new folder `predictions` within the folder of the .mp4 files that are currently being analyzed. 
 Within the predictions folder, subfolders for every video file are created that contain the video file name, followed by the tracker name (e.g. bytetrack). 
-These are the actual prediction result folders, and those you can (after successful completion of analysis in OCTRON) drag and drop on OCTRON's main window to view them in OCTRON again. 
+These are the actual prediction result folders, and those you can (after successful completion of analysis in OCTRON) drag and drop on napari's main window to view them in napari again. 
 
-Each prediction result folder contains .csv files that contain a basic list of frames and position / features extracted for every detected label and zarr archhives alongside those csv files in `predictons.zarr`. 
+Each prediction result folder contains .csv files that contain a basic list positions and features extracted for every detected label across frames, and predicted masks in zarr archives in `predictons.zarr`. 
 Information about the actual prediction itself and parameters it was run with are saved in `predictions_metadata.json`. 
-The label data is split by track ID since there can be multiple detections per label in OCTRON.
+The output data is split by track ID since there can be multiple detections per label in OCTRON.
 
 ```
 video folder
