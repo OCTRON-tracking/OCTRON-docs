@@ -6,7 +6,7 @@ We recommend organizing your OCTRON projects in a certain, standardized way. The
 1. Decide which videos to use and make sure they are *.MP4* files.
 
     ??? question "How do I convert my video files to .MP4?"
-        If your videos are not in mp4 format then you can use OCTRON to transcode them.
+        If your videos are not in mp4 format or if they are throwing errors while you try to scroll through them in napari (indicating corrupt video files), then you can use OCTRON to transcode them.
 
         1. Drag the folder containing the videos you want to transcode into the centre area of the OCTRON GUI.
         2. In the dialogue box that opens, make sure *OCTRON* is selected and click *OK*.
