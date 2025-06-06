@@ -37,6 +37,7 @@ Once the training data has been generated, OCTRON is ready to train your model. 
 - **Tensorboard:** select this if you want to follow the training progress live in your browser via [tensorboard](https://www.tensorflow.org/tensorboard). After the training has started you can open a new terminal, conda activate your OCTRON environment, and do `tensorboard --logdir "YOUR_TRAINING_FOLDER"`. This will then show you a link you can click or copy+paste into your browser to view a tensorboard instance showing the training progress.
 
 When you're happy with your training settings, click *Train*.
+To understand more about what output OCTRON is saving for training see [File System - Training](file-system.md#training) section.
 
 ## Check training progress and results
 **While the model is training** you can track its progress in the terminal window (and with graphs in your browser if you selected the *Tensorboard* option). Once OCTRON has finished one epoch, it will provide an estimate of how long the total training will take, based on how long the first epoch took to complete and how many epochs you've told it to train for. 

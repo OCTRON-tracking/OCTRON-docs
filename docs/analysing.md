@@ -44,3 +44,4 @@ Click *Predict*.
 
 OCTRON will now analyze your video(s) and show its progress via the progress bars (if analyzing multiple videos at once, then the first progress bar displays the progress of a single video while the second bar updates with the completion of each video) along with an estimate for when the analysis will finish.
 
+To understand more about what output OCTRON is saving for each analysed video file see [File System - Analysis](file-system.md#analysis) section.

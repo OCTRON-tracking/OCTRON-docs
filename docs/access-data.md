@@ -1,6 +1,8 @@
 # Access output data
 To access the data that OCTRON has generated (the coordinates of all your labelled objects for each frame, masks, etc), you can either drag and drop the prediction output folder on the napari window and click "Open with OCTRON", or use python directly to access the data. We have compiled [this tutorial notebook](https://github.com/horsto/OCTRON-GUI/blob/main/octron/notebooks/OCTRON_results_loading.ipynb) for that purpose. 
 
+To understand more about what output OCTRON is saving for each analysed video file see [File System - Analysis](file-system.md#analysis) section.
+
 ## Access OCTRON prediction results 
 
 ```python

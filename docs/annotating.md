@@ -136,3 +136,4 @@ All layers can be toggled visible/invisible by clicking the 👁️ symbol on th
 Your browser does not support the video tag.
 </video> 
 
+To understand more about what output OCTRON is saving during annotations see [File System - Annotation](file-system.md#annotation) section.
