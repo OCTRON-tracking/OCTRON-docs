@@ -137,3 +137,7 @@ Your browser does not support the video tag.
 </video> 
 
 To understand more about what output OCTRON is saving during annotations see [File System - Annotation](file-system.md#annotation) section.
+
+## Combining annotation data 
+
+You can easily combine annotation data in OCTRON. For example, if you and your colleagues annotate different videos for one project on different computers, you just have to copy/move all the annotation folders (those with the random letters and numbers) into the project folder and make sure that all the raw video files used in the annotations are accessible in the project folder as well. When loading the combined project folder in OCTRON, all your annotations across all videos should be visible and you can then create training data as usual (see following pages). Also, make sure your label names match across annotations.
