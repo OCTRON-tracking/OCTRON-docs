@@ -45,7 +45,7 @@ Once you start annotating, the **Visualize all** button will show you the covera
   Your browser does not support the video tag.
 </video>
 
-### Start annotating
+## Start annotating
 In the bottom left section of OCTRON you have a *layer list* of all your layers. When you click on a layer you'll get access to its *layer controls* in the panel directly above.
 
 Each label that you created has two layers: one labelled by the layer type you selected (*points* or *shapes*) and one called *mask*. The points/shapes layer is the one you use to make annotations, while the mask layer is where you see the result of your annotations (i.e. what OCTRON has identified as an object based on your annotations). 
@@ -125,7 +125,7 @@ All layers can be toggled visible/invisible by clicking the 👁️ symbol on th
         You do need a decent number of annotated frames in each video (see question about number of annotated frames above), but once you have that it is better to annotate more videos, as opposed to more frames per video. This will give better results because additional videos will add diversity and variability to the data used for training.
 
     ??? tip "Re-opening a previously annotated video"
-        In the [*Existing data*](create-project.md/#existing-data) section in the **Manage project** tab, you can double-click any of the listed videos to re-open one with all its associated layers and annotations.
+        In the [*Existing data*](create-project.md/#existing-data) section in the **Manage project** tab, you can double-click any of the listed videos to re-open one with all its associated layers and annotations. To revise or add annotations, you will need to load the model again in the *Model selection* section.
 
 
 
@@ -134,7 +134,7 @@ All layers can be toggled visible/invisible by clicking the 👁️ symbol on th
 Your browser does not support the video tag.
 </video> 
 
-To understand more about what output OCTRON is saving during annotations see [File System - Annotation](file-system.md#annotation) section.
+To understand more about what output OCTRON is saving during annotations see the [File System - Annotation](file-system.md#annotation) page.
 
 ## Combining annotation data 
 

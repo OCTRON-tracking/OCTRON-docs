@@ -38,7 +38,7 @@ Once the training data has been generated, OCTRON is ready to train your model. 
 - **Tensorboard:** select this if you want to follow the training progress live in your browser via [tensorboard](https://www.tensorflow.org/tensorboard). After the training has started you can open a new terminal, conda activate your OCTRON environment, and do `tensorboard --logdir "YOUR_TRAINING_FOLDER"`. This will then show you a link you can click or copy+paste into your browser to view a tensorboard instance showing the training progress.
 
 When you're happy with your training settings, click *Train*.
-To understand more about what output OCTRON is saving for training see [File System - Training](file-system.md#training) section.
+
 
 ## Check training progress and results
 **While the model is training** you can track its progress in the terminal window (and with graphs in your browser if you selected the *Tensorboard* option). Once OCTRON has finished one epoch, it will provide an estimate of how long the total training will take, based on how long the first epoch took to complete and how many epochs you've told it to train for. 
@@ -50,3 +50,5 @@ To understand more about what output OCTRON is saving for training see [File Sys
 - **confusion_matrix.png** this shows the confusion matrix, i.e. how "true" classes compare to "predicted" ones across (unseen) test images. If the diagonal is the strongest, that means that most label classes have been successfully predicted. Off-diagonal squares indicate that the model is confusing label identities. You want most of your values to be concentrated on the diagonal. 
 
 - **val_batchX_pred.jpg:** this image shows example frames that were predicted by the model, with the labels and confidence level associated with each label. If the training went well, then the values should be closer to 1 than to 0.
+
+To learn more about the output OCTRON is saving during training see the [File System - Training](file-system.md#training) page.

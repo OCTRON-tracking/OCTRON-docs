@@ -17,7 +17,7 @@ OCTRON by default only accepts MP4 transcoded videos. You can use OCTRON to tran
 <img src="../assets/annotated_images/analysis.png"/>
 
 ## Add video files
-Start by adding the video(s) you want to analyse to the *Add video files* section. Once you added videos you will see them listed in the videos dropdown list. 
+Start by adding the video(s) you want to analyse to the *Add video files* section. Once you've added videos you will see them listed in the *Videos* dropdown menu. 
 
 ## Create predictions from videos
 Next, in the *Create predictions from videos* section you indicate how the videos you selected should be analyzed by considering the following options:
@@ -44,4 +44,8 @@ Click *Predict*.
 
 OCTRON will now analyze your video(s) and show its progress via the progress bars (if analyzing multiple videos at once, then the first progress bar displays the progress of a single video while the second bar updates with the completion of each video) along with an estimate for when the analysis will finish.
 
-To understand more about what output OCTRON is saving for each analysed video file see [File System - Analysis](file-system.md#analysis) section.
+
+## Results
+If you selected *View results* above, then a new window will open once the analysis is complete where you can evaluate how well the model did frame by frame. A track will appear showing the trajectory of the tracked object, and you can adjust the length and color of this track in the *Layer controls* panel. You can, for example, color the track according to the confidence of the model, the area covered by the mask, or the color or mean brightness of the masked area. 
+
+To learn what output OCTRON saves for each analysed video file see the [File System - Analysis](file-system.md#analysis) page.

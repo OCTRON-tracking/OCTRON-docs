@@ -1,11 +1,12 @@
+# The file system
 During annotation, training and analysis, OCTRON creates various subfolders and files in the main project folder you selected.
 
 ## Annotation 
-For every video you are annotating, OCTRON creates a subfolder that contains 
+For every video you are annotating, OCTRON creates a subfolder that contains:
 
-- `label_name masks.zarr` archives that contain the annotation mask data for every label and annotation you create
-- `object_organizer.json` file that contains info on the label and various layers in your annotation project
-- `video data.zarr` archive that contains (compressed) video frame data for every annotated frame 
+- `label_name masks.zarr` archives that contain the annotation mask data for every label and annotation you create.
+- `object_organizer.json` file that contains info on the label and various layers in your annotation project.
+- `video data.zarr` archive that contains (compressed) video frame data for every annotated frame.
 
 The folder names are the abbreviated hashes of the video file that is loaded and OCTRON makes sure that whenever you re-load an annotation project from within the GUI, the hash of the loaded video and the one of the annotation subfolder match. 
 Meaning, when you modify the video file in any way, OCTRON will throw an error, alerting you that the video file and loaded annotations do not match. There is also a `video_info.txt` that can be deleted without consequences and contains some basic info about the annotated video file itself. 
@@ -111,7 +112,7 @@ Your project folder
 ## Training
 With the creation of training output (in OCTRON's training tab), a `model` subfolder is created in your project folder.
 Within it you will find a `training_data` subfolder that contains the actual training data for YOLO and a `yolo_config.yaml`, that contains all parameters that the model is being trained with. 
-You can use the training data for multiple training runs (if you unticked `Overwrite` in the GUI). 
+You can use the training data for multiple training runs (if you unticked `Overwrite` in the training tab of the GUI). 
 
 Once you start training the YOLO model, a `training` subfolder is created. It will gradually fill up with info during training and contain evaluation metrics and figures after training has finished. 
 If you want to read more about these files, check out ultralytic's [own documentation](https://www.ultralytics.com/). In that same folder you will find a subfolder `weights` that contains the 
@@ -137,9 +138,9 @@ Your project folder
 ## Analysis
 When new videos are analyzed OCTRON creates a new folder `predictions` within the folder of the .mp4 files that are currently being analyzed. 
 Within the predictions folder, subfolders for every video file are created that contain the video file name, followed by the tracker name (e.g. bytetrack). 
-These are the actual prediction result folders, and those you can (after successful completion of analysis in OCTRON) drag and drop on napari's main window to view them in napari again. 
+These are the actual prediction result folders and you can (after successful completion of analysis in OCTRON) drag and drop these on napari's main window to view them in napari again. 
 
-Each prediction result folder contains .csv files that contain a basic list positions and features extracted for every detected label across frames, and predicted masks in zarr archives in `predictons.zarr`. 
+Each prediction result folder contains .csv files that contain a basic list of positions and features extracted for every detected label across frames, and predicted masks in zarr archives in `predictons.zarr`. 
 Information about the actual prediction itself and parameters it was run with are saved in `predictions_metadata.json`. 
 The output data is split by track ID since there can be multiple detections per label in OCTRON.
 
@@ -170,16 +171,16 @@ If you want to learn more about how to load OCTRON prediction results programmat
 
 ##### Explanation of .csv data 
 
-The .csv files contain four (primary) index columns
+The .csv files contain four (primary) index columns:
 
 - `frame_counter`: a running counter from 0 to last analyzed frame. *This does not match the actual frame index in the original video if you skipped frames during analysis!*
 - `frame_idx`: the actual frame number (index) in the video file. 
 - `track_id`: YOLO creates track_ids, which are unique. There can be multiple track_ids per label (if multiple subjects per label were tracked). 
 - `label`: label name, matching your original choices during annotation.
 
-The data columns are 
+The data columns are:
 
-- `confidence`: How confident was the model about this region in this frame? Can be used to filter out bad segmentation results later on. 
+- `confidence`: how confident was the model about this region in this frame? Can be used to filter out bad segmentation results later on. 
 - `pos_x`, `pos_y`: centroid of mask in frame coordinate system.
 - `area`: total number of pixels in mask.
 - `eccentricity`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Eccentricity of the ellipse that has the same second-moments as the region. The eccentricity is the ratio of the focal distance (distance between focal points) over the major axis length. The value is in the interval [0, 1). When it is 0, the ellipse becomes a circle.
