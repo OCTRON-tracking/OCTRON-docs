@@ -1,6 +1,6 @@
 # Installation
 
-1. Install **ffmpeg** on your system. Some packages rely on it and we generally recommend ffmpeg because it is very useful for dealing with video data in general.
+1. Install **ffmpeg** on your system. Some packages rely on it and we generally recommend ffmpeg because it is very useful for dealing with video data.
     - Open a terminal window/command prompt
 
         ??? note "Opening a terminal window/command prompt"
