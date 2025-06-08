@@ -1,22 +1,6 @@
 # Installation
 
-!!! info "Important Update Information"
-    Just a heads up that there will be changes accumulating in the repo in these days. 
-    So the first thing that you should do before playing with OCTRON (after you installed it successfully once, see below), should be:
-
-    1.  Pull latest changes from main (in the GitHub Desktop app for example).
-    2.  In your terminal, browse to your cloned repository folder on disk.
-    3.  Run `pip install . -U` to install the new code and update existing packages.
-
-    If you ever mess up completely, do not despair! You can trash everything with:
-
-    -   `conda deactivate` and then
-    -   `conda env remove --name octron --yes`.
-
-    Then start over by recreating the environment using the *.yaml* file again (see steps below).
-
-
-1. Make sure **ffmpeg** is installed on the system. Some packages rely on it.
+1. Install **ffmpeg** on your system. Some packages rely on it and we generally recommend ffmpeg because it is very useful for dealing with video data in general.
     - Open a terminal window/command prompt
 
         ??? note "Opening a terminal window/command prompt"
@@ -51,32 +35,47 @@
                 Instructions depend on your system, but please do not hesitate to reach out if you run into issues. 
 
 2. Download miniconda. <br>
+   Conda is a package manager and we recommend using conda to create an environment that OCTRON runs in. 
+
     - Open your web browser and go to the official [Miniconda download page](https://www.anaconda.com/download/success). 
     - Download and execute the Miniconda Installer for your operating system (Windows, MacOS, or Linux). 
     - Restart your terminal.
 
-3. Clone the [OCTRON-GUI repository](https://github.com/horsto/OCTRON-GUI) and in a terminal/command prompt browse to the folder that you cloned it to (e.g., `cd "YOUR/CLONED/FOLDER"`)
-
-4. Create a new Conda environment called "octron" with python version 3.11 by entering:
+3. Create a new Conda environment called "octron" with python version 3.11 by entering:
     ```sh
-    conda env create -f environment.yaml
+    conda create -n octron python=3.11
     ```
 
-    !!! important "CUDA Users"
-        **If you have a CUDA compatible graphics card in your computer, do *instead***:
-
-        ```sh
-        conda env create -f environment_cuda.yaml
-        ```
-
-        This will install the right PyTorch version automatically on Windows systems.
-
-5. Activate the new environment:
+4. Activate the new environment:
     ```sh
     conda activate octron
     ```
+5. You can now install OCTRON into your new conda environment. If you have an NVIDIA (*CUDA compatible*) graphics card in your machine, do 
+    ```
+    pip install --extra-index-url https://download.pytorch.org/whl/cu126 git+https://github.com/horsto/octron.git
+    ```
+otherwise it suffices to do 
+    ```
+    pip install git+https://github.com/horsto/octron.git
+    ```
+
 6. Check the accessibility of GPU resources on your computer:
     ```sh
-    python test_gpu.py
+    octron-test-gpu
     ```
-    This should show your graphics card, if it is correctly installed and accessible by PyTorch. If this fails, you should correct this first, since OCTRON will not engage your GPU otherwise (and thus be much slower).
+    This should show your graphics card, if it is correctly installed and accessible by PyTorch. 
+    If your are using OCTRON on a modern mac this should show: 
+    ```
+    CUDA GPU is not available.
+    MPS (Metal Performance Shaders) GPU is available.
+    MPS GPU: Apple Silicon GPU
+    ```
+    and under windows or linux using a NVIDIA GPU this should show something similar to: 
+    ```
+    CUDA GPU is available.
+    Number of CUDA GPUs: 1
+    CUDA GPU 0: NVIDIA GeForce RTX 3070 Ti
+    MPS GPU is not available.
+    ```
+
+    If this fails, you should correct this first, since OCTRON will not engage your GPU otherwise (and thus be much slower). A common issue is that CUDA dependencies were not correctly installed. Check [this issue](https://github.com/horsto/OCTRON-GUI/issues/11#issuecomment-2954125899) for a potentially quick fix. 
