@@ -42,7 +42,7 @@
     - Restart your terminal.
 
 3. Create a new Conda environment called "octron" with python version 3.11 by entering:
-    ```sh
+    ```
     conda create -n octron python=3.11
     ```
 
