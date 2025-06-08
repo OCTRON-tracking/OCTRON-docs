@@ -125,7 +125,7 @@ All layers can be toggled visible/invisible by clicking the 👁️ symbol on th
         You do need a decent number of annotated frames in each video (see question about number of annotated frames above), but once you have that it is better to annotate more videos, as opposed to more frames per video. This will give better results because additional videos will add diversity and variability to the data used for training.
 
     ??? tip "Re-opening a previously annotated video"
-        In the [*Existing data*](create-project.md/#existing-data) section in the **Manage project** tab, you can double-click any of the listed videos to re-open one with all its associated layers and annotations. To revise or add annotations, you will need to load the model again in the *Model selection* section.
+        In the [*Existing data*](create-project.md/#existing-data) section in the **Manage project** tab, you can double-click any of the listed videos to re-open one with all its associated layers and annotations. To revise or add annotations, you will need to load a SAM model again in the *Model selection* section.<br>**Hot tip:** It does not matter which SAM model you load! Any of them work when reloading an annotation project. This way you can mix and exchange models on subsequent runs if you think that it could help to exchange SAM models for your annotation project. 
 
 
 
