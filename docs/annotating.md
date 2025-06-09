@@ -75,12 +75,7 @@ All layers can be toggled visible/invisible by clicking the 👁️ symbol on th
 
 
 
-4. If you want to switch the annotation type (e.g. from *points* to *shapes*), delete the mask layer associated with that annotation type by selecting it and clicking the 🗑️ symbol (both the mask and points layers will be removed), then add the layer again (step 1 under [Create labels](#create-labels)).
-
-    <video width="100%"  muted controls>
-      <source src="../assets/videos/tutorial/5__changing_annotationlayermode-fast.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+4. If you want to switch the annotation type (e.g. from *points* to *shapes*), delete the mask layer associated with that annotation type by selecting it and clicking the 🗑️ symbol (both the mask and points layers will be removed), then add the layer again (step 1 under [Create labels](#create-labels)). The annotations you have done up to this point are not deleted though: If you choose the same label name and suffix when re-creating the layer, the previous mask annotation data will be reloaded, and you will be able to continue annotating with the new annotation layer. 
 
 5. Once you have annotated all the object you want to track in a single frame, you can get help from OCTRON to annotate the remaining frames (see [Batch prediction](#batch-prediction)).
 
