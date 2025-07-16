@@ -38,7 +38,7 @@
    Conda is a package manager and we recommend using conda to create an environment that OCTRON runs in. 
 
     - Open your web browser and go to the official [Miniconda download page](https://www.anaconda.com/download/success). 
-    - Download and execute the Miniconda Installer for your operating system (Windows, MacOS, or Linux). 
+    - Download and execute the Miniconda Installer for your operating system (Windows, MacOS, or Linux). During installation make sure you click on the check box **"Add to PATH"** during installation. This way you will be able to execute `conda` commands in your terminal. You can also click "register python as default python". 
     - Restart your terminal.
 
 3. Create a new Conda environment called "octron" with python version 3.11 by entering:
