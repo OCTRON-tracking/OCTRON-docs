@@ -60,7 +60,7 @@ All layers can be toggled visible/invisible by clicking the 👁️ symbol on th
     - **Points:** click on a points layer and make sure the ➕ symbol is selected in the *layer controls* panel. Use your mouse to left-click on the object you want to track; you should see a translucent mask appear covering that object (provided the *mask* layer for that label has not been toggled invisible). Right-click on anything that should *not* be included in that mask. The more clicks you make of both kinds, the more refined the mask becomes. Note: the clicks do not have to be very precise.
 
         ??? note "How to remove unwanted points"
-            If you make a mistake and would like to remove a point, select the point with the --selector symbol-- in the *layer controls* and then click on the ✖️ symbol to delete it.
+            If you make a mistake and would like to remove a point, select the point with the arrow (selection tool) in the *layer controls* and then click on the ✖️ symbol to delete it.
 
     - **Shapes:** click on a shapes layer and select the type of shape you want to use in the *layer controls*. Note that the square behaviour is different from the other shapes:
         - **Rectangle:** left-click and drag the shape around the object you want to label, and release. OCTRON will automatically try to identify the structure you want to label within that shape. 
