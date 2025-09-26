@@ -59,7 +59,7 @@ Octron is built on [napari](https://www.napari.org), [segment anything](https://
         - family-names: Broström
           given-names: Mikel
       title: "BoxMOT: pluggable SOTA tracking modules..."
-      version: 15.0.2  # Automatically updated via CI
+      version: 15.0.2
     ```
    
 
