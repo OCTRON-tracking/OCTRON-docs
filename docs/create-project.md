@@ -13,7 +13,7 @@ For very long videos, consider extracting shorter segments that capture relevant
     ??? question "How do I convert my video files to .MP4?"
         If your videos are not in mp4 format or if they are throwing errors while you try to scroll through them in napari (indicating corrupt video files), then you can use OCTRON to transcode them.
 
-        1. Drag the folder containing the videos you want to transcode into the centre area of the OCTRON GUI.
+        1. Drag the folder containing the videos you want to transcode into the centre area of the OCTRON GUI. **Important** This does not work with single files, only folders of videos!
         2. In the dialogue box that opens, make sure *OCTRON* is selected and click *OK*.
         3. OCTRON will identify the video files in that folder and let you select which ones to transcode. 
         
