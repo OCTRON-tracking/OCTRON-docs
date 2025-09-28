@@ -39,7 +39,6 @@ For very long videos, consider extracting shorter segments that capture relevant
 
 
 2. Create video subfolders for your project (**optional**).
-    
 While the exact location of your video files is not critical, we recommend creating two subfolders within your project directory: one for *training* videos and another for *test* videos. These folders should contain completely separate sets of videos — do not mix training and test data. Keeping these sets distinct allows you to properly evaluate whether your trained models achieve sufficient accuracy for your tracking task. 
 
   - **train:** save the videos that you want to train the model on in this folder. The number of videos you'll need for training depends on what you want to track, the quality of the data, recording duration, etc. Recommendation: start with a handful of videos and add more later if the training results are not good enough.
