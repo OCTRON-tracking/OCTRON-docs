@@ -33,7 +33,7 @@ This is where you create the labels for the animals/item/structure you want to t
 4. Repeat steps 1-3 until you have all the labels you need.
 
 ??? note "Removing unwanted labels"
-    If you want to remove one of the labels you've created, then click *Remove* in the *Label...* drop-down menu and select the label you would like to remove
+    If you want to remove one of the labels you've created, then click *Remove* in the *Label...* drop-down menu and select the label you would like to remove. This does **not** remove the annotation / mask layers that were created for that label.
 
 If at some point the model that is helping you annotate the videos is starting to slow down, you can click the **Reset** button to make it forget what it's learned so far and start fresh.
 
