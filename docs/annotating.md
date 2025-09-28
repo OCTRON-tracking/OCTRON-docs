@@ -97,7 +97,7 @@ If you're happy with the prediction, continue clicking ▶️ to see if the pred
         Rule of thumb: Aim for about 100–150 annotations per video. The exact number depends on how much variety your annotations cover. The more diverse they are, the better your model will learn to generalize.
         Focus on clips that show lots of different postures and movements. A stationary object won’t teach the model much.
 
-    ??? note "The predictions become much slower than they were in the beginning"
+    !!! note "The predictions become much slower than they were in the beginning"
          Sometimes the batch predictions slow down significantly. This sometimes happens when the model is basing its predictions on a large number of annotated frames and objects. If the model helping you annotate starts to slow down, click the **Reset** button (underneath **Create**). This clears the model’s temporary memory and gives it a fresh start - but don’t worry, your existing annotations and mask layers will stay intact. After resetting, you’ll need to teach the model again from scratch for each object you want to track.
 
 
@@ -109,7 +109,7 @@ If you're happy with the prediction, continue clicking ▶️ to see if the pred
     ??? question "Is it better to annotate a lot of frames in a few videos, or a few frames in a lot of videos?"
         You need a reasonable number of annotated frames in each video (see the guideline above), but once you’ve reached that, it’s better to annotate more videos rather than adding more frames to the same video. Why? Because additional videos introduce more diversity and variability into your training data. This helps the model learn to generalize better, resulting in improved performance.
 
-    ??? tip "Re-opening a previously annotated video"
+    ??? note "Re-opening a previously annotated video"
         In the [*Existing data*](create-project.md/#existing-data) section in the **Manage project** tab, you can double-click any of the listed videos to re-open one with all its associated layers and annotations. To revise or add annotations, you will need to load a SAM model again in the *Model selection* section.<br>**Hot tip:** It does not matter which SAM model you load! Any of them work when reloading an annotation project. This way you can mix and exchange models on subsequent runs if you think that it could help to exchange SAM models for your annotation project. 
 
 To understand more about what output OCTRON is saving during annotations see the [File System - Annotation](file-system.md#annotation) page.
