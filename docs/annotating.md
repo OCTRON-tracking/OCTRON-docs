@@ -40,11 +40,6 @@ If at some point the model that is helping you annotate the videos is starting t
 
 Once you start annotating, the **Visualize all** button will show you the coverage that your annotations give you. This is useful for checking that your annotations are not limited to one part of the field of view (provided the object you're annotating isn't stationary of course).
 
-<video width="100%"  muted controls>
-  <source src="../assets/videos/tutorial/3__load_model_add _annotationlayers-fast.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
 ## Start annotating
 In the bottom left section of OCTRON you have a *layer list* of all your layers. When you click on a layer you'll get access to its *layer controls* in the panel directly above.
 
@@ -67,12 +62,6 @@ All layers can be toggled visible/invisible by clicking the 👁️ symbol on th
         - **Any other shape:** left-click and drag and release (e.g. for the circle shape), or left-click around the shape you want to label (e.g. for the polygon shape).
     
         You can refine a shapes layer by using the tools shown in that layer's *layer controls* (e.g. remove/add/adjust points on the shape outline). 
-    
-    <video width="100%"  muted controls>
-      <source src="../assets/videos/tutorial/4__oneclickannotations-fast.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-
 
 
 4. If you want to switch the annotation type (e.g. from *points* to *shapes*), delete the mask layer associated with that annotation type by selecting it and clicking the 🗑️ symbol (both the mask and points layers will be removed), then add the layer again (step 1 under [Create labels](#create-labels)). The annotations you have done up to this point are not deleted though: If you choose the same label name and suffix when re-creating the layer, the previous mask annotation data will be reloaded, and you will be able to continue annotating with the new annotation layer. 
@@ -121,13 +110,6 @@ All layers can be toggled visible/invisible by clicking the 👁️ symbol on th
 
     ??? tip "Re-opening a previously annotated video"
         In the [*Existing data*](create-project.md/#existing-data) section in the **Manage project** tab, you can double-click any of the listed videos to re-open one with all its associated layers and annotations. To revise or add annotations, you will need to load a SAM model again in the *Model selection* section.<br>**Hot tip:** It does not matter which SAM model you load! Any of them work when reloading an annotation project. This way you can mix and exchange models on subsequent runs if you think that it could help to exchange SAM models for your annotation project. 
-
-
-
-<video width="100%"  muted controls>
-<source src="../assets/videos/tutorial/6_batchpredict-fast.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video> 
 
 To understand more about what output OCTRON is saving during annotations see the [File System - Annotation](file-system.md#annotation) page.
 

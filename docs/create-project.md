@@ -19,15 +19,20 @@ We recommend organizing your OCTRON projects in a certain, standardized way. The
 
         4.  Click *OK* and open your terminal window to check the progress. As the files are transcoded you will see them pop up in your folder (or in a *mp4_transcoded* subfolder within your forlder)
 
-        <video width="100%"  muted controls>
-           <source src="../assets/videos/tutorial/octron_tools_transcoding_movies_to_mp4-fast.mp4" type="video/mp4">
-           Your browser does not support the video tag.
-        </video>
-
 
     ??? question "Why does OCTRON enforce usage of .MP4 files?"
         Long answer short: The zoo of video formats and codecs is complicated and all of us are using video files for something that they are not generally made for, that is, precise frame-by-frame access across 100s to 1000s of frames. 
         We are therefore enforcing mp4 and encourage people to use OCTRON to encode all their video files as described in the helper box at the beginning of this page ("How do I convert my video files to .mp4?"). For an excellent primer on this topic see [this github issue](https://github.com/janclemenslab/napari-video/issues/3#issuecomment-2408313890). 
+
+    ??? note "Extracting a snippet from an existing .mp4 file"
+        To extract a snippet from an existing video you can do<br>
+        ```
+        ffmpeg -ss 20 -i "your_video_path.mp4" -t 60 -c:v libx264 -preset superfast -crf 23 -an "your_video_path_snippet.mp4" 
+        ```
+        where<br>
+        - `-ss` indicates the start of the snippet in seconds from the start of the video.<br>
+        - `-t 60` indicates that you want to extract 60 seconds from the video.<br>
+        - `-c:v libx264 -preset superfast -crf 23 -an` specifies the codec (**do not change this!**) and that you do not want any audio in the output.<br>
 
 
 2. Create a folder for your project.
@@ -42,19 +47,8 @@ We recommend organizing your OCTRON projects in a certain, standardized way. The
 
 4. In the **Manage project** tab, click *Choose* under *Project folder* and navigate to the folder you created in step 2.
 
-<video width="100%"  muted controls>
-  <source src="../assets/videos/tutorial/1__startup_folder_select-fast.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
 ## Add new video file
 Drag one of the videos you want to train the model on into the *Add new video file* section under the **Manage project** tab. If the video is not located in the project folder, a dialogue box will pop up asking if you'd like to save a copy of the video in the project folder. It is highly recommended to click *Yes* to ensure all project related files are kept together. You will find the copied video in a subfolder called *videos* within your project folder.
-
-<video width="100%"  muted controls>
-  <source src="../assets/videos/tutorial/2__add_video_to_project-fast.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
 
 ## Existing data
 Once you start annotating, this section will list the number of frames that you have annotated in each video as well as the number of labels. 
