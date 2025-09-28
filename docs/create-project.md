@@ -29,7 +29,7 @@ For very long videos, consider extracting shorter segments that capture relevant
         Long answer short: The zoo of video formats and codecs is complicated and all of us are using video files for something that they are not generally made for, that is, precise frame-by-frame access across 100s to 1000s of frames. 
         We are therefore enforcing mp4 and encourage people to use OCTRON to encode all their video files as described in the helper box at the beginning of this page ("How do I convert my video files to .mp4?"). For an excellent primer on this topic see [this github issue](https://github.com/janclemenslab/napari-video/issues/3#issuecomment-2408313890). 
 
-    ??? question "How do I extract a snippet from an existing .mp4 file"
+    ??? question "How do I extract a snippet from an existing .mp4 file?"
         To extract a snippet from an existing video you can do<br>
         ```
         ffmpeg -ss 20 -i "your_video_path.mp4" -t 60 -c:v libx264 -preset superfast -crf 23 -an "your_video_path_snippet.mp4" 
