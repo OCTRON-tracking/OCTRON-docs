@@ -21,7 +21,7 @@ Once the training data has been generated, OCTRON is ready to train your model. 
 
 - **Choose model:** choose which model to use.
 
-    ??? question "Which model should I choose?"
+    !!! question "Which model should I choose?"
         The larger the model, the more accurate it may be, but the more time and GPU resources it needs too. Recommendation: start with the smallest model and move up from there if necessary. The large model also usually needs more training data.<br>
         
         - **YOLO11m-seg:** the 'medium' model (the smallest one) 
