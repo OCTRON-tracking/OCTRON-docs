@@ -62,6 +62,7 @@ You should never modify the **masks** layer manually. It is simply a visualizati
 
     ??? question "How do I completely delete annotations?"
         It is relatively tough to "destroy" annotations you have created in your project. For example, if you delete the mask or annotation layers you can easily re-create them and the underlying mask information for every annotated frame will be automatically reloaded if it is saved on disk.<br>But lets say you are unhappy with one of your annotations and you want to start from scratch. In this case you need to go through the following steps:
+        
             - Delete the corresponding *mask* and *annotation* layers in napari (if you delete the *mask* layer, the *annotation* layer will be auto-deleted).
             - Find the annotation file in your project folder on disk and delete it manually. All annotations are saved per video under a folder with a hash (8 characters consisting of numbers and letters). This hash is also shown in the *Existing data* table in the **Manage project** tab and it is written in the title of the annotation tab (For example: `Generate annotation data for: 52174460`). Once you found this hash subfolder in your project folder, open it. Within, you will find a folder called something like *"your-label-name masks.zarr"*. Remove this folder. 
             - Re-create the layers in your project in OCTRON
