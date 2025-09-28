@@ -35,7 +35,7 @@ This is where you create the labels for the animals/item/structure you want to t
 
 4. Repeat steps 1-3 until you have all the labels you need. **Important**: Make sure you create all your labels and layers before the first batch prediction (see below). Some SAM2 models do not allow you to add new labels once you started predicting. However, if you run into this problem, you can easily *Reset* the model (see notes below).
 
-### Annotation 
+## Annotation 
 In the bottom left section of OCTRON you have a *layer list* of all your layers. When you click on a layer you'll get access to its *layer controls* in the panel directly above. All layers can be toggled visible/invisible by clicking the 👁️ symbol on the respective layer.
 Each label you create has two layers that it is associated with:
 
