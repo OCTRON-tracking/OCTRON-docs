@@ -1,5 +1,9 @@
 # Generate annotation data
-Before you can train your model, you need to tell it what to track. This is done by annotating the videos you’ll use for training in the **Generate Annotation Data** tab. This tab becomes active automatically once a video is loaded and displayed in the center area of napari. If you want to use videos you’ve already annotated, go to the Manage Project tab and double-click the video in the *Existing Data* table to load it.
+Before you can train your model, you need to tell it what to track. This is done by annotating the videos you’ll use for training in the **Generate Annotation Data** tab. This tab becomes active automatically once a video is loaded and displayed in the center area of napari. If you want to use videos you’ve already annotated, go to the Manage Project tab and double-click the video in the *Existing Data* table to load it. 
+Annotation consists of three separate steps which are described in detail below: 
+1. Model Selection and Label Management: Create new label names and layers in OCTRON to organize your annotation project within the GUI.
+2. Annotation: Perform initial object annotations using SAM2-assisted region prediction for each object you want to track.
+3. Batch Prediction: Use SAM2 to predict annotations across subsequent frames, quickly generating additional training data.
 
 <img src="../assets/annotated_images/annotation.png"/>
 
