@@ -23,6 +23,4 @@ On first start this will take a long time to load, since all available models ar
     OCTRON disables the drag-and-drop functionality for single files in napari. This is to prevent users from circumventing the project management of OCTRON itself. However, there are two exceptions for *folders* (not single files): 
     Prediction result folders can be dropped on the main window and are opened to display the results in napari, and folders containing (any kind of) video file can be drag-and-dropped to open a video transcoding sub-GUI. Read on to learn more on the following pages.
 
-
-![an annotated image of the GUI upon startup](assets/screenshots/start_screen_blank.png)
-
+<img src="../assets/screenshots/start_screen_blank.png"/>
