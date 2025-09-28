@@ -39,8 +39,8 @@ This is where you create the labels for the animals/item/structure you want to t
 In the bottom left section of OCTRON you have a *layer list* of all your layers. When you click on a layer you'll get access to its *layer controls* in the panel directly above. All layers can be toggled visible/invisible by clicking the 👁️ symbol on the respective layer.
 Each label you create has two layers that it is associated with:
 
-    - A **points** or **shapes** layer (depending on what you selected) – this is where you make your annotations.
-    - A **masks** layer – this shows the result of your annotations, the region predictions, meaning what the SAM2 model has identified as the object based on your input.
+- A **points** or **shapes** layer (depending on what you selected) – this is where you make your annotations.
+- A **masks** layer – this shows the result of your annotations, the region predictions, meaning what the SAM2 model has identified as the object based on your input.
 
 You should never modify the **masks** layer manually. It is simply a visualization layer for the annotated objects. Only work with the **points** or **shapes** layers. 
 
@@ -54,7 +54,7 @@ You should never modify the **masks** layer manually. It is simply a visualizati
         ??? note "How to edit or remove unwanted points"
             If you make a mistake and would like to edit or remove a point, select the point with the arrow (selection tool) in the *layer controls*. You can either move it with the arrow tool or delete it by clicking on the "x". The region prediction will update automatically.
 
-    - **Shapes:** click on a shapes layer and select the type of shape you want to use in the *layer controls*. Note that the square behaviour is different from the other shapes:
+    - **Shapes:** click on a shapes layer and select the type of shape you want to use in the *layer controls*. Note that the square/rectangle behaviour is different from the other shapes:
         - **Rectangle:** left-click and drag the shape around the object you want to label, and release. OCTRON will automatically try to identify the structure you want to label within that shape. 
         - **Any other shape:** left-click and drag and release (e.g. for the circle shape), or left-click around the shape you want to label (e.g. for the polygon shape). You can refine a shapes layer by using the tools shown in that layer's *layer controls* (e.g. remove/add/adjust points on the shape outline). As with the points layer, the predictions will update automatically after every change.
 
