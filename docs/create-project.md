@@ -49,8 +49,8 @@ While the exact location of your video files is not critical, we recommend creat
 ## Open the project folder in OCTRON
 In the **Manage project** tab, click *Choose* under *Project folder* and navigate to the folder you created.
 
-## Add new video file
-Drag one of the videos you want to train the model on into the *Add new video file* section under the **Manage project** tab. If the video is not located in the project folder (i.e. if you skipped step 3 above), a dialogue box will pop up asking if you'd like to save a copy of the video in the OCTRON project folder. We recommended clicking *Yes* to ensure all project related files are kept together. You will find the copied video in a subfolder called *videos* within your project folder. In general it is better to keep videos locally and on a fast disk (in contrast to for example saving them on a remote server) so that access times are reduced. 
+## Add a new video file
+Drag one of the videos you want to train the model on into the *Add new video file* section under the **Manage project** tab. Alternatively, left-click on this field to show a file selection dialog. If the video is not located in the project folder (i.e. if you skipped step 3 above), a dialogue box will pop up asking if you'd like to save a copy of the video in the OCTRON project folder. We recommended clicking *Yes* to ensure all project related files are kept together. You will find the copied video in a subfolder called *videos* within your project folder. In general it is better to keep videos locally and on a fast disk (in contrast to for example saving them on a remote server) so that access times are reduced. 
 
 ## Existing data
 Once you start annotating, this section will list the number of frames that you have annotated in each video as well as the number of labels. Each row can be hovered over with your mouse to reveal the full video path and label names.
