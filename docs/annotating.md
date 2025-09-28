@@ -6,13 +6,12 @@ To train your model you first need to show it what it should be tracking, i.e. y
 ## Model selection
 Select the model you would like to use for your annotations and click *Load model*.
 
-??? question "Which model should I choose?"
-    Rule of thumb: the larger the model, the more resources (GPU) it demands. Start with the smallest, SAM2 Base Plus, and work your way up from there if that is insufficient.<br>
+Rule of thumb: the larger the model, the more resources (GPU) it demands. If you can afford it, use the most precise model (`SAM2 Large HQ`), which is however also the most demanding in terms of GPU resources.<br>
 
-    Models in order of resource demands (*SAM2 Base Plus* is the least demanding, *SAM2 Large HQ* the most demanding):<br>
-    **SAM2 Base Plus** (original SAM2 model)<br>
-    **SAM2 Large** (original SAM2 model) <br>
-    **SAM2 Large HQ** (SAM2 HQ model)
+Models in order of resource demands (*SAM2 Base Plus* is the least demanding, *SAM2 Large HQ* the most demanding):<br>
+**SAM2 Base Plus** (original SAM2 model)<br>
+**SAM2 Large** (original SAM2 model) <br>
+**SAM2 Large HQ** (SAM2 HQ model)
 
 ## Create labels
 This is where you create the labels for the animals/item/structure you want to track. 
