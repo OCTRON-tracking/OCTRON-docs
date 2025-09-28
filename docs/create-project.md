@@ -1,9 +1,12 @@
 # Create project
-We recommend organizing your OCTRON projects in a certain, standardized way. The basis of all your projects should be a project folder which contains both the training data (videos and annotation data) and some test data. This project folder will also contain the trained model files in the end. 
+We recommend organizing your OCTRON projects in a certain, standardized way. The basis of all your projects should be a **project folder** which contains both the training data (videos and annotation data) and some test data. This project folder will also contain the trained model files in the end. Create that folder first, then select it in the OCTRON GUI. See below for details. 
 
 ## Start by organising your project
 
-1. Decide which videos to use and make sure they are *.MP4* files.
+1. Decide which videos to use and make sure they are *.MP4* files.<br>
+**Important:** The choice of videos for annotation (i.e., training) in OCTRON is important. As a general rule, aim to include videos that represent the full range of conditions under which you want your subjects to be tracked.
+For example, if you are tracking an animal in different lighting conditions, make sure your training set includes videos from both scenarios. If your data involve multiple subjects per video, it is often easier to start with videos containing only a few, or ideally, just one subject. This simplifies the annotation process significantly.
+For very long videos, consider extracting shorter segments that capture relevant activity, such as periods with a lot of movement or diverse postures you want to track. See below for instructions on how to extract a snippet from an existing .mp4 file.
 
     ??? question "How do I convert my video files to .MP4?"
         If your videos are not in mp4 format or if they are throwing errors while you try to scroll through them in napari (indicating corrupt video files), then you can use OCTRON to transcode them.
@@ -35,20 +38,18 @@ We recommend organizing your OCTRON projects in a certain, standardized way. The
         - `-c:v libx264 -preset superfast -crf 23 -an` specifies the codec (**do not change this!**) and that you do not want any audio in the output.<br>
 
 
-2. Create a folder for your project.
+2. Create video subfolders for your project (**optional**).
     
-    ??? tip "Project folder tip"
-        Within your project folder, create two subfolders:
+While the exact location of your video files is not critical, we recommend creating two subfolders within your project directory: one for *training* videos and another for *test* videos. These folders should contain completely separate sets of videos — do not mix training and test data. Keeping these sets distinct allows you to properly evaluate whether your trained models achieve sufficient accuracy for your tracking task. 
 
-        - **train:** save the videos that you want to train the model on in this folder. The number of videos you'll need for training depends on what you want to track, the quality of the data, recording duration, etc. Recommendation: start with a handful of videos and add more later if the training results are not good enough.
-        - **test:** save the videos that you want to test the model on here (i.e. videos that the model has *not* been trained on). These should be new videos, but similar to the training videos in terms of image characteristics.
+  - **train:** save the videos that you want to train the model on in this folder. The number of videos you'll need for training depends on what you want to track, the quality of the data, recording duration, etc. Recommendation: start with a handful of videos and add more later if the training results are not good enough.
+  - **test:** save the videos that you want to test the model on here (i.e. videos that the model has *not* been trained on). These should be new videos, but similar to the training videos in terms of image characteristics.
 
-3. [Open the OCTRON GUI](gui.md).
 
-4. In the **Manage project** tab, click *Choose* under *Project folder* and navigate to the folder you created in step 2.
+3. In the **Manage project** tab, click *Choose* under *Project folder* and navigate to the folder you created.
 
 ## Add new video file
-Drag one of the videos you want to train the model on into the *Add new video file* section under the **Manage project** tab. If the video is not located in the project folder, a dialogue box will pop up asking if you'd like to save a copy of the video in the project folder. It is highly recommended to click *Yes* to ensure all project related files are kept together. You will find the copied video in a subfolder called *videos* within your project folder.
+Drag one of the videos you want to train the model on into the *Add new video file* section under the **Manage project** tab. If the video is not located in the project folder, a dialogue box will pop up asking if you'd like to save a copy of the video in the project folder. We recommended clicking *Yes* to ensure all project related files are kept together. You will find the copied video in a subfolder called *videos* within your project folder. In general it is better to keep videos locally and on a fast disk (in contrast to for example saving them on a remote server) so that access times are reduced. 
 
 ## Existing data
 Once you start annotating, this section will list the number of frames that you have annotated in each video as well as the number of labels. 
