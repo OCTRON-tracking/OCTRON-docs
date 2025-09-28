@@ -27,7 +27,7 @@ Next, in the *Create predictions from videos* section you indicate how the video
 - **Tracker...:** if you have annotated more than one object for a given label (e.g. *artemia 1*, *artemia 2*), a tracker needs to be used to help the model determine which is which across frames. Pick the one you prefer in this drop-down menu. If you only have one object per label, click the **1 subject** option and select the **ByteTrack** tracker from the dropdown. See below for detailed explanation about the available trackers. 
 
 ### BoxMOT Trackers 
-OCTRON uses the BotMOT library to provide state-of-the-art tracking capabilities. The available trackers are designed for different scenarios and can be grouped into two main categories
+OCTRON uses the BotMOT library to provide state-of-the-art tracking capabilities. The available trackers are designed for different scenarios and can be grouped into two main categories:
 
 - Motion-Only Trackers (ByteTrack and OcSort - pale yellow in dropdown menu). These trackers rely primarily on predicting where objects will move based on their previous positions and velocities (usually with Kalman filters). They're:
     - Fast and efficient: Less computationally intensive
@@ -38,7 +38,7 @@ OCTRON uses the BotMOT library to provide state-of-the-art tracking capabilities
     - Computationally heavier: Require more processing power due to the additional visual analysis
     - More robust: Less likely to confuse identities when objects interact
 
-For most OCTRON users, ByteTrack offers a good balance of speed and accuracy, while ReID powered models like HybridSort provide better tracking reliability at the cost of processing speed. If tracking multiple similar-looking objects is critical for your project, the ReID-based trackers are usually worth the extra computation time.
+For most OCTRON users, ByteTrack offers a good balance of speed and accuracy, while ReID powered methods like HybridSort provide better tracking reliability at the cost of processing speed. If tracking multiple similar-looking objects is critical for your project, the ReID-based trackers are usually worth the extra computation time.
 
 You can fine-tune the selected tracker by clicking on **Tune** next to it. This opens a dialogue in which all options that are available for this tracker can be adjusted. In general this is not necessary, but it allows you to play with the parameters if you think that this might improve your results. For in-depth documentation check the [BoxMot docs](https://deepwiki.com/mikel-brostrom/boxmot/4-tracking-algorithms).
 
@@ -58,6 +58,6 @@ OCTRON will now analyze your video(s) and display the progress. If multiple vide
 
 
 ## Results
-If you selected *View results* above, then a new window will open once the analysis is complete where you can evaluate how well the model did frame by frame. A track will appear showing the trajectory of the tracked object, and you can adjust the length and color of this track in the *Layer controls* panel. You can, for example, color the track according to the confidence of the model, the area covered by the mask, or the color or mean brightness of the masked area. 
+If you selected *View results* above, then a new window will open once the analysis is complete where you can evaluate how well the model did frame by frame. A track will appear showing the trajectory of the tracked object, and you can adjust the length and color of this track in the *Layer controls* panel. You can, for example, color the track according to the confidence of the model or the area covered by the mask.
 
 To learn what output OCTRON saves for each analysed video file see the [File System - Analysis](file-system.md#analysis) page.
