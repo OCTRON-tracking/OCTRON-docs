@@ -109,11 +109,10 @@ If you're happy with the prediction, continue clicking ▶️ to see if the pred
     ??? question "Is it better to annotate a lot of frames in a few videos, or a few frames in a lot of videos?"
         You need a reasonable number of annotated frames in each video (see the guideline above), but once you’ve reached that, it’s better to annotate more videos rather than adding more frames to the same video. Why? Because additional videos introduce more diversity and variability into your training data. This helps the model learn to generalize better, resulting in improved performance.
 
-    ??? note "Re-opening a previously annotated video"
-        In the [*Existing data*](create-project.md/#existing-data) section in the **Manage project** tab, you can double-click any of the listed videos to re-open one with all its associated layers and annotations. To revise or add annotations, you will need to load a SAM model again in the *Model selection* section.<br>**Hot tip:** It does not matter which SAM model you load! Any of them work when reloading an annotation project. This way you can mix and exchange models on subsequent runs if you think that it could help to exchange SAM models for your annotation project. 
-
 To understand more about what output OCTRON is saving during annotations see the [File System - Annotation](file-system.md#annotation) page.
 
-## Combining annotation data 
+## Re-open a previously annotated video
+In the [*Existing data*](create-project.md/#existing-data) section in the **Manage project** tab, you can double-click any of the listed videos to re-open one with all its associated layers and annotations. To revise or add annotations, you will need to load a SAM model again in the *Model selection* section.<br>**Tip:** It does not matter which SAM model you load! Any of them work when reloading an annotation project. This way you can mix and exchange models on subsequent runs if you think that it could help to exchange SAM models for your annotation project.
 
+## Combining annotation data 
 You can easily combine annotation data in OCTRON. For example, if you and your colleagues annotate different videos on separate computers, just copy or move all the annotation folders (the ones with 8 random letters and numbers) into the project folder. Make sure all the raw video files used for those annotations are also available in the project folder path. When you load this combined project folder in OCTRON, all annotations across all videos will appear, and you can create training data as usual (see the next pages). **Important**: Ensure that label names are consistent across all annotations.
