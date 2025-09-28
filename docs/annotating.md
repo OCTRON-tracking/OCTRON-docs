@@ -28,23 +28,25 @@ This is where you create the labels for the animals/item/structure you want to t
         ??? note "Why suffixes are useful"
             When using suffixes for your labels, e.g. *LED 1* and *LED 2*, then these labels will end up in the same class (i.e. *LED*) during training. This means that the model treats these as the same type of object when training to identify them, and therefore has twice as many annotations to train on. In contrast, if you give the two LEDs separate labels (i.e. not using the suffix option) then the model will consider these to be separate types of objects and train on them separately too.<br>**Hot tip**: It is not always necessary to create separate annotations for repeated objects in your scene! SAM does pick up on repeated textures in your frames, so, if you have objects that look very similar, try to use a points layer to annotate them all in one go (on one single layer). 
 
-3. Click the *Create* button to create your label. Two new layers will appear in the *layer list* (bottom left left hand section of OCTRON, more on that later).
+        ??? note "Removing unwanted label names"
+            If you want to remove one of the labels you've created from the *Label ...* drop-down menu, then select *Remove* in the drop-down menu and in the pop-up select the label you want to get rid of. This does **not** remove the annotation / mask layers, if any were created for that label.
 
-4. Repeat steps 1-3 until you have all the labels you need. Important: Make sure you create all your labels and layers before the first batch prediction (see below). Some SAM2 models do not allow you to add new labels once you started predicting. However, if you run into this problem, you can easily *Reset* the model (see notes below).
+3. Click the **Create** button to create your label. Two new layers will appear in the *layer list* (bottom left left hand section of OCTRON, more on that later).
 
-??? note "Removing unwanted label names"
-    If you want to remove one of the labels you've created from the *Label ...* drop-down menu, then select *Remove* in the drop-down menu and in the pop-up select the label you want to get rid of. This does **not** remove the annotation / mask layers, if any were created for that label.
+4. Repeat steps 1-3 until you have all the labels you need. **Important**: Make sure you create all your labels and layers before the first batch prediction (see below). Some SAM2 models do not allow you to add new labels once you started predicting. However, if you run into this problem, you can easily *Reset* the model (see notes below).
 
 ### Annotation 
 In the bottom left section of OCTRON you have a *layer list* of all your layers. When you click on a layer you'll get access to its *layer controls* in the panel directly above. All layers can be toggled visible/invisible by clicking the 👁️ symbol on the respective layer.
 Each label you create has two layers that it is associated with:
+
     - A **points** or **shapes** layer (depending on what you selected) – this is where you make your annotations.
     - A **masks** layer – this shows the result of your annotations, the region predictions, meaning what the SAM2 model has identified as the object based on your input.
+
 You should never modify the **masks** layer manually. It is simply a visualization layer for the annotated objects. Only work with the **points** or **shapes** layers. 
 
 1. Click on the video layer (the bottom most layer) and make any adjustments necessary (e.g. adjust contrast to enhance visibility of your objects).
 
-2. Navigate to the frame you want to annotate first using the timeline underneath the video. **Important** Choose episodes in your videos for annotation that are "meaningful". For example, if the animal you are trying to annotate is stationary for the first 500 frames and starts moving on frame 501, it is relatively useless to start annotating on frame 1 of this video since you will accumulate a lot of still frames that do not add much extra information compared to the ones where the animal is actually moving. Rule of thumb: Pick frames that show a wide variety of the subject’s behavior.
+2. Navigate to the frame you want to annotate first using the timeline underneath the video. **Important**: Choose episodes in your videos for annotation that are "meaningful". For example, if the animal you are trying to annotate is stationary for the first 500 frames and starts moving on frame 501, it is relatively useless to start annotating on frame 1 of this video since you will accumulate a lot of still frames that do not add much extra information compared to the ones where the animal is actually moving. Rule of thumb: Pick frames that show a wide variety of the subject’s behavior.
 
 3. Add your first annotation. Depending on the layer type you chose:
     - **Points:** click on a points layer and make sure the ➕ symbol is selected in the *layer controls* panel. Use your mouse to left-click on the object you want to track; you should see a semi-translucent mask appear covering that object. Right-click on anything that should *not* be included in that mask. The more clicks you make of both kinds, the more refined the region prediction becomes. The clicks do not have to be very precise. Rule of thumb: 1-5 clicks per object should give you nicely segmented regions. For complex objects with less pronounced separation from background you might need to add more clicks. 
