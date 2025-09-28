@@ -7,7 +7,7 @@ Annotation consists of three separate steps which are described in detail below:
 3. **Batch Prediction:** Use SAM2 to predict annotations across subsequent frames, quickly generating additional training data.
 <br>
 
-<img src="../assets/annotated_images/annotation.png"/>
+<img src="../assets/screenshots/annnotation_tab.png"/>
 
 ## Model selection
 Select the model you would like to use for your annotations and click *Load model*.

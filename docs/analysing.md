@@ -15,7 +15,7 @@ OCTRON by default only accepts MP4 transcoded videos. You can use OCTRON to tran
     - `-c:v libx264 -preset superfast -crf 23 -an` specifies the codec (**do not change this!**) and that you do not want any audio in the output.<br>
 
 
-<img src="../assets/annotated_images/analysis.png"/>
+<img src="../assets/screenshots/analyze_new_videos_tab.png"/>
 
 ## Add video files
 Start by adding the video(s) you want to analyze in the **Add Video Files** section. You can either drag and drop one or more files into this area or click it to open a file selection dialog. Once added, the videos will appear in the Videos dropdown menu. To remove a video, open the dropdown, click Remove, and select the videos you want to delete from the list.
