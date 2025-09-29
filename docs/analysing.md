@@ -27,12 +27,12 @@ Next, in the *Create predictions from videos* section you indicate how the video
 - **Tracker...:** if you have annotated more than one object for a given label (e.g. *artemia 1*, *artemia 2*), a tracker needs to be used to help the model determine which is which across frames. Pick the one you prefer in this drop-down menu. If you only have one object per label, click the **1 subject** option and select the **ByteTrack** tracker from the dropdown. See below for detailed explanation about the available trackers. 
 
 ### BoxMOT Trackers 
-OCTRON uses the BotMOT library to provide state-of-the-art tracking capabilities. The available trackers are designed for different scenarios and can be grouped into two main categories:
+OCTRON uses the [BoxMOT](https://github.com/mikel-brostrom/boxmot) library to provide state-of-the-art tracking capabilities. The trackers that are available under BoxMOT are designed for different scenarios and can be grouped into two main categories:
 
-- Motion-Only Trackers (ByteTrack and OcSort - pale yellow in dropdown menu). These trackers rely primarily on predicting where objects will move based on their previous positions and velocities (usually with Kalman filters). They're:
+- Motion-Only Trackers (`ByteTrack` and `OcSort` - pale yellow in dropdown menu). These trackers rely primarily on predicting where objects will move based on their previous positions and velocities (usually with Kalman filters). They're:
     - Fast and efficient: Less computationally intensive
     - Limited: May struggle when objects look similar or cross paths
-- Motion + ReID Trackers (BotSort, D-OcSort, HybridSort, BoostTrack - dark yellow in dropdown menu). These more sophisticated trackers combine motion prediction with ReID (Re-Identification) features:
+- Motion + ReID Trackers (`BotSort`, `D-OcSort`, `HybridSort`, `BoostTrack` - dark yellow in dropdown menu). These more sophisticated trackers combine motion prediction with ReID (Re-Identification) features:
     - More accurate: They remember how objects look (their visual features)
     - Better at difficult scenarios: Can handle occlusions, similar-looking objects and crossing paths
     - Computationally heavier: Require more processing power due to the additional visual analysis
@@ -43,7 +43,7 @@ For most OCTRON users, ByteTrack offers a good balance of speed and accuracy, wh
 You can fine-tune the selected tracker by clicking on **Tune** next to it. This opens a dialogue in which all options that are available for this tracker can be adjusted. In general this is not necessary, but it allows you to play with the parameters if you think that this might improve your results. For in-depth documentation check the [BoxMot docs](https://deepwiki.com/mikel-brostrom/boxmot/4-tracking-algorithms).
 
 - **View result:** select this option if you want OCTRON to automatically open a new window where you can see the result of the analysis once it is complete.
-- **1 subject:** select this if you strictly have only one object per class (label category) in your videos. This ensures that only one object is tracked throughout the whole video. Make sure you select a computationally less heavy tracker, like ByteSort or OcSort at the same time. 
+- **1 subject:** select this if you strictly have only one object per class (label category) in your videos. This ensures that only one object is tracked throughout the whole video. Make sure you select a computationally less heavy tracker, like `ByteSort` or `OcSort` at the same time. 
 - **Overwrite:** select this option if you've previously analysed the selected video and want to replace that analysis.
 
 - **Opening:** the opening disk radius for morphological opening of predicted mask data. An opening operation, which consists of erosion followed by dilation, helps eliminate small bright artifacts (like 'salt' noise) and bridges narrow dark gaps. This process effectively 'opens' dark spaces between bright regions. Increase this if you have a lot of extraneous, noisy blobs in your masks that you want to eliminate.
