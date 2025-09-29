@@ -14,10 +14,10 @@ On first start this will take a long time to load, since all available models ar
 
 ## The four main panels
 
-- **Main OCTRON GUI **(right): this is where you navigate through the different steps of the process, from [opening your project](create-project.md) (*Manage project* tab), [annotate videos](annotating.md) (*Generate annotation data* tab), [train a model](training.md) on your annotated videos (*Train model* tab), and use your trained model to [analyze new videos](analysing.md) (*Analyze (new) videos* tab).
-- **Video panel **(center): That is the center region of napari - videos you are annotating will show up here.
-- **Layer list **(left bottom): the annotations you create will be shown as individual layers in this section.
-- **Layer controls **(left top): the tools to create annotations will be found here once you've selected a specific layer in the *Layer list*.
+- **Main OCTRON GUI** (right): this is where you navigate through the different steps of the process, from [opening your project](create-project.md) (*Manage project* tab), [annotate videos](annotating.md) (*Generate annotation data* tab), [train a model](training.md) on your annotated videos (*Train model* tab), and use your trained model to [analyze new videos](analysing.md) (*Analyze (new) videos* tab).
+- **Video panel** (center): That is the center region of napari - videos you are annotating will show up here.
+- **Layer list** (left bottom): the annotations you create will be shown as individual layers in this section.
+- **Layer controls** (left top): the tools to create annotations will be found here once you've selected a specific layer in the *Layer list*.
 
 !!! important "Drag and drop functionality"
     OCTRON disables the drag-and-drop functionality for single files in napari. This is to prevent users from circumventing the project management of OCTRON itself. However, there are two exceptions for *folders* (not single files): 
