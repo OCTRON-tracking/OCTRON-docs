@@ -48,20 +48,10 @@ theme:
     - toc.follow
     - toc.integrate
   palette:
-    # Light mode (default)
-    - scheme: default
-      primary: deep purple
-      accent: purple
-      toggle:
-        icon: material/toggle-switch 
-        name: Switch to dark mode
-    # Dark mode
-    - scheme: slate
-      primary: black
-      accent: slate
-      toggle:
-        icon: material/toggle-switch-off 
-        name: Switch to light mode
+    # Single mode configuration (light mode only)
+    scheme: default
+    primary: deep purple
+    accent: purple
   font:
     text: Roboto
     code: Roboto Mono
