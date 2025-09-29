@@ -9,7 +9,7 @@ OCTRON is built on [napari](https://www.napari.org), [segment anything](https://
 The main steps implemented in OCTRON typically include: Loading video data from behavioral experiments, annotating frames to create training data for segmentation, training machine learning models for segmentation and tracking, and finally applying models to new data for automated tracking.
 <br>
 <br>
-<img src="assets/workflow.png" alt="OCTRON workflow" width="85%" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: .5rem;" />
+<img src="assets/workflow.png" alt="OCTRON workflow" width="95%" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: .5rem;" />
 <br>
 <hr>
 <video width="100%" muted controls poster="assets/videos/poster_frame.jpg" style="display: block; margin-left: auto; margin-right: auto;">
