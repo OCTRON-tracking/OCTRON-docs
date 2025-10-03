@@ -58,7 +58,7 @@
     ```
     pip install git+https://github.com/horsto/octron.git
     ```
-    ?? question "Update?"
+    ??? question "Update?"
         If you want to update OCTRON make sure you conda activated your environment (step 4) and just run the above `pip install` command (step 5) again. If you want to update all underlying libaries to the most up-to-date versions, append a `-U` at the end of the command. 
 
 
