@@ -58,9 +58,9 @@
     ```
     pip install git+https://github.com/horsto/octron.git
     ```
+    
     ??? question "Update?"
-        If you want to update OCTRON make sure you conda activated your environment (step 4) and just run the above `pip install` command (step 5) again. If you want to update all underlying libaries to the most up-to-date versions, append a `-U` at the end of the command. 
-
+        If you want to update OCTRON make sure you conda activated your environment (step 4) and just run the above `pip install` command (step 5) again. If you want to update all underlying libaries to the most up-to-date versions, append a `-U` at the end of the command.
 
 6. Check the accessibility of GPU resources on your computer:
     ```sh
@@ -81,4 +81,4 @@
     MPS GPU is not available.
     ```
 
-    If this fails, you should correct this first, since OCTRON will not engage your GPU otherwise (and thus be much slower). A common issue is that CUDA dependencies were not correctly installed. Check [this issue](https://github.com/horsto/OCTRON-GUI/issues/11#issuecomment-2954125899) for a potentially quick fix. 
+    If this fails, you should correct this first, since OCTRON will not engage your GPU otherwise (and thus be much slower). A common issue is that CUDA dependencies were not correctly installed. Check [this issue](https://github.com/horsto/OCTRON-GUI/issues/11#issuecomment-2954125899) for a potentially quick fix.
