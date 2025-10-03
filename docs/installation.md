@@ -54,10 +54,13 @@
     ```
     pip install --extra-index-url https://download.pytorch.org/whl/cu126 git+https://github.com/horsto/octron.git
     ```
-otherwise it suffices to do 
+    otherwise it suffices to do 
     ```
     pip install git+https://github.com/horsto/octron.git
     ```
+    ?? question "Update?"
+        If you want to update OCTRON make sure you conda activated your environment (step 4) and just run the above `pip install` command (step 5) again. If you want to update all underlying libaries to the most up-to-date versions, append a `-U` at the end of the command. 
+
 
 6. Check the accessibility of GPU resources on your computer:
     ```sh
