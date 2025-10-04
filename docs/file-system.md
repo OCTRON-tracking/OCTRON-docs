@@ -189,6 +189,7 @@ The data columns are:
 - `bbox_y_max`: Bounding box maximum y coordinate
 
 If "Detailed" was clicked in analysis tab you will get additional columns in the csv file:
+
 - `area`: total number of pixels in mask.
 - `eccentricity`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Eccentricity of the ellipse that has the same second-moments as the region. The eccentricity is the ratio of the focal distance (distance between focal points) over the major axis length. The value is in the interval [0, 1). When it is 0, the ellipse becomes a circle.
 - `solidity`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Ratio of pixels in the region to pixels of the convex hull image.
