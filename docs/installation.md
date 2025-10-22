@@ -59,8 +59,8 @@
     pip install git+https://github.com/horsto/octron.git
     ```
     
-    ??? question "Update?"
-        If you want to update OCTRON make sure you conda activated your environment (step 4) and just run the above `pip install` command (step 5) again. If you want to update all underlying libaries to the most up-to-date versions, append a `-U` at the end of the command.
+    !!! question "How do I update OCTRON?"
+        OCTRON is undergoing a lot of development. So if you haven't used in a while or just want to make sure you run the latest version, you should update it.<br>To update OCTRON make sure you conda activated your environment (step 4) and just run the above `pip install` command (step 5) again. In most cases that is all you need. If you want to update all underlying libaries to the most up-to-date versions, append a `-U` at the end of the command. In some rare cases updates might not work as expected, and you can then try to add an additional `--force-reinstall` at the end of the command to give it all a fresh start.
 
 6. Check the accessibility of GPU resources on your computer:
     ```sh
