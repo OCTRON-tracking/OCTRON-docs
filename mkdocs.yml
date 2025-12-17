@@ -1,11 +1,11 @@
 site_name: OCTRON
-site_url: https://horston.github.io/OCTRON-docs
+site_url: https://octron.octo.science
 site_author: Horst Obenhaus
 site_description: >-
   Documentation for the OCTRON project
 # Repository
-repo_name: horsto/OCTRON-GUI
-repo_url: https://github.com/horsto/OCTRON-GUI
+repo_name: OCTRON-tracking
+repo_url: https://github.com/OCTRON-tracking
 
 # Copyright
 copyright: Copyright &copy; 2025-2030 Horst Obenhaus
@@ -74,7 +74,7 @@ extra:
     deprecated: Deprecated
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/horsto/OCTRON-GUI
+      link: https://github.com/OCTRON-tracking
     - icon: fontawesome/brands/bluesky
       link: https://bsky.app/profile/octoscience.bsky.social
 
