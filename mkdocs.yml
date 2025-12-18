@@ -1,14 +1,14 @@
 site_name: OCTRON
-site_url: https://octron.octo.science
+site_url: https://octron-tracking.github.io/OCTRON-docs/
 site_author: Horst Obenhaus
 site_description: >-
   Documentation for the OCTRON project
 # Repository
 repo_name: OCTRON-tracking
-repo_url: https://github.com/OCTRON-tracking
+repo_url: https://github.com/OCTRON-tracking/OCTRON-gui
 
 # Copyright
-copyright: Copyright &copy; 2025-2030 Horst Obenhaus
+copyright: Copyright &copy; 2025-2035 Horst Obenhaus
 
 # Navigation
 nav:
