@@ -16,9 +16,9 @@ The main steps implemented in OCTRON typically include: Loading video data from 
 </video>
 
 !!! info "Support" 
-  If you find this project helpful, consider supporting us:<br>
-  - [GitHub Sponsors](https://github.com/sponsors/horsto)
-  - [Buy Me a Coffee](https://buymeacoffee.com/octron)
+    If you find this project helpful, consider supporting us:<br>
+    - [GitHub Sponsors](https://github.com/sponsors/horsto)
+    - [Buy Me a Coffee](https://buymeacoffee.com/octron)
 
 
 !!! quote "How to cite"
