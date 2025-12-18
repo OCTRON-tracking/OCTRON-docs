@@ -15,10 +15,18 @@ The main steps implemented in OCTRON typically include: Loading video data from 
   Your browser does not support the video tag.
 </video>
 
+!!! info "Support" 
+
+  If you find this project helpful, consider supporting us:<br>
+  - [GitHub Sponsors](https://github.com/sponsors/horsto)
+  - [Buy Me a Coffee](https://buymeacoffee.com/octron)
+
+
 !!! quote "How to cite"
     Using OCTRON for your project? Please cite this paper to share the word! 
     <br>
     👉*Add paper details*
+<br>
 <hr>
 
 !!! info "Attributions"
