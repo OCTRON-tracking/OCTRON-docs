@@ -5,6 +5,8 @@
 
 OCTRON is built on [Napari](https://www.napari.org), [Segment Anything (SAM2)](https://segment-anything.com/), [YOLO](https://www.ultralytics.com/), [BoxMOT](https://github.com/mikel-brostrom/boxmot) and 💜.
 
+Main repository: [OCTRON-GUI](https://github.com/OCTRON-tracking/OCTRON-GUI)
+
 The main steps implemented in OCTRON typically include: Loading video data from behavioral experiments, annotating frames to create training data for segmentation, training machine learning models for segmentation and tracking, and finally applying models to new data for automated tracking.
 <br>
 <br>
