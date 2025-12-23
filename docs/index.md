@@ -26,7 +26,31 @@ The main steps implemented in OCTRON typically include: Loading video data from 
 !!! quote "How to cite"
     Using OCTRON for your project? Please cite this paper to share the word! 
     <br>
-    👉*Add paper details*
+    Jacobsen, R. I., van Eekelen, N. M., Humphrey, L., Renton, J., van Rooij, E., Rivera, J., Arenas, O. M., Lumpkin, E. A., Maccuro, S., Buresch, K. C., Seuntjens, E., & Obenhaus, H. A. (2025). OCTRON - a general purpose segmentation and tracking pipeline for behavioral experiments. *bioRxiv*, 2025.12.20.695663. [https://doi.org/10.1101/2025.12.20.695663](https://doi.org/10.1101/2025.12.20.695663)
+    ```{bibtex}
+    @ARTICLE{Jacobsen2025-qq,
+      title    = "{OCTRON} - a general purpose segmentation and tracking pipeline
+                  for behavioral experiments",
+      author   = "Jacobsen, Ragnhild Irene and van Eekelen, Nadia M and Humphrey,
+                  Laurel and Renton, Johnston and van Rooij, Elke and Rivera, Jason
+                  and Arenas, Oscar M and Lumpkin, Ellen A and Maccuro, Sofia and
+                  Buresch, Kendra C and Seuntjens, Eve and Obenhaus, Horst A",
+      journal  = "bioRxiv",
+      pages    = "2025.12.20.695663",
+      abstract = "OCTRON is a pipeline for markerless segmentation and tracking of
+                  animals in behavioral experiments. By combining Segment Anything
+                  Models (SAM 2) for rapid annotation, YOLO11 models for training,
+                  and state-of-the-art multi-object trackers, OCTRON enables
+                  unsupervised segmentation and tracking of multiple animals with
+                  complex, deformable body plans. We validate its versatility across
+                  species - from transparent marine annelids to camouflaging
+                  cuttlefish - demonstrating robust, general-purpose applicability
+                  for behavioral analysis.",
+      month    =  dec,
+      year     =  2025,
+      language = "en"
+    }
+    ```
 <br>
 <hr>
 
