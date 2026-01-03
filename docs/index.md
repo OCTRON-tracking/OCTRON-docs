@@ -26,7 +26,7 @@ The main steps implemented in OCTRON typically include: Loading video data from 
 !!! quote "How to cite"
     Using OCTRON for your project? Please cite this paper to share the word! 
     <br>
-    Jacobsen, R. I., van Eekelen, N. M., Humphrey, L., Renton, J., van Rooij, E., Rivera, J., Arenas, O. M., Lumpkin, E. A., Maccuro, S., Buresch, K. C., Seuntjens, E., & Obenhaus, H. A. (2025). OCTRON - a general purpose segmentation and tracking pipeline for behavioral experiments. *bioRxiv*, 2025.12.20.695663. [https://doi.org/10.1101/2025.12.20.695663](https://doi.org/10.1101/2025.12.20.695663)
+    Jacobsen, R. I., van Eekelen, N. M., Humphrey, L., Renton, J., van Rooij, E., Rivera, J., Arenas, O. M., Lumpkin, E. A., Maccuro, S., Buresch, K. C., Seuntjens, E., & Obenhaus, H. A. (2025). OCTRON - a general purpose segmentation and tracking pipeline for behavioral experiments. *bioRxiv*, 2025.12.20.695663. [https://doi.org/10.64898/2025.12.20.695663](https://doi.org/10.64898/2025.12.20.695663)
     ```{bibtex}
     @ARTICLE{Jacobsen2025-qq,
       title    = "{OCTRON} - a general purpose segmentation and tracking pipeline
