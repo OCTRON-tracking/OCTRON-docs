@@ -14,10 +14,30 @@ Select the model you would like to use for your annotations and click *Load mode
 
 Rule of thumb: the larger the model, the more resources (GPU) it demands. If you can afford it, use the most precise model (`SAM2 Large HQ`), which is however also the most demanding in terms of GPU resources.<br>
 
-Models in order of resource demands (*SAM2 Base Plus* is the least demanding, *SAM2 Large HQ* the most demanding):<br>
-**SAM2 Base Plus** (original SAM2 model)<br>
-**SAM2 Large** (original SAM2 model) <br>
-**SAM2 Large HQ** (SAM2 HQ model)
+|Model          |Benefits               |Drawbacks   |Example usecases   |
+|:--------------|:----------------------|:-----------|:------------------|
+|SAM2 Base Plus |The least resource demanding (i.e. predictions are fast) |something   |something  |
+|SAM2 Large     |More resource demanding than SAM2 Base Plus |something   |something  |
+|SAM2 Large HQ  |Very resource demanding|something   |something  |
+|SAM3           |                       |Requires sharing some personal information with Meta  |Link to subpage for more info   |
+|SAM3 multi     |                       |Requires sharing some personal information with Meta  |Link to subpage for more info  |
+
+
+??? note "How to access SAM3"
+    1. Go to https://huggingface.co/facebook/sam3
+    2. Click **Sign Up** (or **Log in** if you already have an account), follow the required steps and wait to be granted access
+    3. Click your profile image in the top right corner of the page and select **Access Tokens** in the menu that appears
+    4. Click **+Create new token**
+    5. Select *Read* for **Token type** and call the token *SAM3*
+    <img src="../assets/screenshots/create_access_token.png"/>
+    6. Click **Create token** and copy the access token that appears in a pop-up 
+    7. Close the OCTRON gui if you had it open
+    8. In a terminal window, activate the octron environment and execute the following command, substituting *YOUR_TOKEN_HERE* with your access token
+        ```
+        python -c "from huggingface_hub import login; login(token='YOUR_TOKEN_HERE')"
+        ```
+    8. The next time you open OCTRON the SAM3 models should download
+    
 
 ## Label manager
 This is where you create the labels for the animals/item/structure you want to track. 
