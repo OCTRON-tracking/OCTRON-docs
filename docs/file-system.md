@@ -169,7 +169,7 @@ video folder
 If you want to learn more about how to load OCTRON prediction results programmatically in python, check out the section on [how to access output data](access-data.md). We created a reader class to make it easy for you to load and play with those data and we recommend using that one. However, if you wanted to, you could load for example the .csv files yourself using [pandas](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html) or other libraries. OCTRON uses the [zarr > 3.0](https://zarr.readthedocs.io/en/stable/index.html) python libary for reading and writing annotation, frame and prediction mask data. 
 
 
-##### Explanation of .csv data 
+### Explanation of .csv data 
 
 The .csv files contain four (primary) index columns:
 
@@ -183,17 +183,34 @@ The data columns are:
 - `confidence`: how confident was the model about this region in this frame? Can be used to filter out bad segmentation results later on. 
 - `pos_x`, `pos_y`: centroid of mask in frame coordinate system if "Detailed" was clicked in analysis tab, otherwise bounding box center. 
 - `bbox_area`: Area of bounding box 
+- `bbox_aspect_ratio`: Width to height ratio (bbox_w/bbox_h) of the bounding box, i.e. <1 indicates the box is taller than it is wide and >1 indicates the box is wider than it is tall
 - `bbox_x_min`: Bounding box minimum x coordinate
 - `bbox_x_max`: Bounding box maximum x coordinate
 - `bbox_y_min`: Bounding box minimum y coordinate
 - `bbox_y_max`: Bounding box maximum y coordinate
 
-If "Detailed" was clicked in analysis tab you will get additional columns in the csv file:
+If "Detailed" was clicked in analysis tab you will get additional columns in the csv file depending on the parameters you selected:
 
-- `area`: total number of pixels in mask.
+- `area`: total number of pixels in mask. 
+- `area_convex`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Area of the convex hull image, which is the smallest convex polygon that encloses the region.   
+- `area_filled`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Area of the region with all the holes filled in.   
+- `axis_major_length`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): The length of the major axis of the ellipse that has the same normalized second central moments as the region.   
+- `axis_minor_length`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): The length of the minor axis of the ellipse that has the same normalized second central moments as the region.
 - `eccentricity`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Eccentricity of the ellipse that has the same second-moments as the region. The eccentricity is the ratio of the focal distance (distance between focal points) over the major axis length. The value is in the interval [0, 1). When it is 0, the ellipse becomes a circle.
-- `solidity`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Ratio of pixels in the region to pixels of the convex hull image.
+- `equivalent_diameter_area`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): The diameter of a circle with the same area as the region.  
+- `euler_number`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Euler characteristic of the set of non-zero pixels. Computed as number of connected components subtracted by number of holes (input.ndim connectivity). In 3D, number of connected components plus number of holes subtracted by number of tunnels.   
+- `extent`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Ratio of pixels in the region to pixels in the total bounding box. Computed as area / (rows * cols).  
+- `feret_diameter_max`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Maximum Feret’s diameter computed as the longest distance between points around a region’s convex hull contour.   
+- `intensity_max`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Value of greatest intensity in the region.  
+- `intensity_min`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Value of lowest intensity in the region.  
+- `intensity_mean`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Average of intensity values in the region.   
+- `intensity_std`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Standard deviation of intensity values in the region.     
+- `moments_hu`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Hu moments (translation, scale and rotation invariant).  
 - `orientation`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Angle between the 0th axis (rows) and the major axis of the ellipse that has the same second moments as the region, ranging from -pi/2 to pi/2 counter-clockwise.
+- `perimeter`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Perimeter of the region which approximates the contour as a line through the centers of border pixels using a 4-connectivity.
+- `perimeter_crofton`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Perimeter of the region approximated by the Crofton formula in 4 directions.  
+- `solidity`: from [scikit-image](https://scikit-image.org/docs/stable/api/skimage.measure.html): Ratio of pixels in the region to pixels of the convex hull image.
+
 
 
 ```csv title="Example .csv excerpt"

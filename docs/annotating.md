@@ -107,13 +107,19 @@ If you're happy with the prediction, continue clicking ▶️ to see if the pred
          Sometimes the batch predictions slow down significantly. This sometimes happens when the model is basing its predictions on a large number of annotated frames and objects. If the model helping you annotate starts to slow down, click the **Reset** button (underneath **Create**). This clears the model’s temporary memory and gives it a fresh start - but don’t worry, your existing annotations and mask layers will stay intact. After resetting, you’ll need to teach the model again from scratch for each object you want to track.
 
 
-5. Ready to move onto the next video? Your annotations are saved automatically (in a dedicated folder in your project folder - the folder name matches the hash in the *Existing data* list under **Manage project**), so delete the video layer (this will remove all the other layers too) and [add a new video file](create-project.md/#add-new-video-file). If you forget to delete the video layer, a warning will pop up to remind you. The *Label...* drop-down menu will remain unchanged, so you save some time when creating labels and can quickly start annotating again.
+5. Ready to move onto the next video? Your annotations are saved automatically (in a dedicated folder in your project folder - the folder name matches the hash in the [*Existing data*](create-project.md/#existing-data) list under **Manage project**), so delete the video layer (this will remove all the other layers too) by selecting the layer and clicking the trash bin icon before [adding a new video file](create-project.md/#add-new-video-file). If you forget to delete the video layer, a warning will pop up to remind you. The *Label...* drop-down menu will remain unchanged, so you save some time when creating labels and can quickly start annotating again.
 
     !!! warning "Always use the same label names"
         Make sure to be consistent when naming labels across videos (e.g. if you start with 'stone', don't use 'rock' later). If the names are not identical then OCTRON will assume that you're annotating different objects and treat them as such.
 
     ??? question "Is it better to annotate a lot of frames in a few videos, or a few frames in a lot of videos?"
         You need a reasonable number of annotated frames in each video (see the guideline above), but once you’ve reached that, it’s better to annotate more videos rather than adding more frames to the same video. Why? Because additional videos introduce more diversity and variability into your training data. This helps the model learn to generalize better, resulting in improved performance.
+
+    ??? question "I want to re-annotate a video from scratch"
+        If you're unhappy or having issues with your annotations and want to start from scratch, you can delete the annotation folder in two ways:  
+        1. Find the video in the [*Existing data*](create-project.md/#existing-data) list under **Manage project**, right click, and select *Delete*  
+        2. Find the annotation folder in your project folder (the name of the folder will match the hash found in the [*Existing data*](create-project.md/#existing-data) list under **Manage project**) and delete it  
+        
 
 To understand more about what output OCTRON is saving during annotations see the [File System - Annotation](file-system.md#annotation) page.
 
