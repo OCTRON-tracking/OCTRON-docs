@@ -4,3 +4,21 @@ body .md-content__inner h1 {
 .md-content__inner {
     padding-top: 0rem;
 }
+
+/* Header gradient background */
+.md-header {
+  background: linear-gradient(
+    to right,
+    #ab4d9d,
+    #7e56c2
+  );
+}
+
+/* Navigation tabs gradient (slightly darker) */
+.md-tabs {
+  background: linear-gradient(
+    to right,
+    #ab4d9d,
+    #7e56c2
+  );
+}
