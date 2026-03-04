@@ -31,7 +31,7 @@ This is where you create the labels for the animals/item/structure you want to t
 
     - **Suffix:** *(Optional!)* add a number here if you want to label multiple instances of the same thing (e.g. you have two LEDs and want to label them separately as *LED 1* and *LED 2*). Note that you *can* label multiple instances of the same object in one go on the same layer if they look very similar to each other. If this works for you then you do not need to create multiple layers for the same thing. However, SAM2 models do not always track multiple objects per layer well, making it necessary to create multiple layers for those objects.
 
-        ??? note "Why suffixes are useful"
+        !!! note "Why suffixes are useful"
             When using suffixes for your labels, e.g. *LED 1* and *LED 2*, then these labels will end up in the same class (i.e. *LED*) during training. This means that the model treats these as the same type of object when training to identify them, and therefore has twice as many annotations to train on. In contrast, if you give the two LEDs separate labels (i.e. not using the suffix option) then the model will consider these to be separate types of objects and train on them separately too.<br>**Hot tip**: It is not always necessary to create separate annotations for repeated objects in your scene! SAM does pick up on repeated textures in your frames, so, if you have objects that look very similar, try to use a points layer to annotate them all in one go (on one single layer). 
 
         ??? note "Removing unwanted label names"
@@ -119,7 +119,7 @@ If you're happy with the prediction, continue clicking ▶️ to see if the pred
         If you're unhappy or having issues with your annotations and want to start from scratch, you can delete the annotation folder in two ways:  
         1. Find the video in the [*Existing data*](create-project.md/#existing-data) list under **Manage project**, right click, and select *Delete*  
         2. Find the annotation folder in your project folder (the name of the folder will match the hash found in the [*Existing data*](create-project.md/#existing-data) list under **Manage project**) and delete it  
-        
+
 
 To understand more about what output OCTRON is saving during annotations see the [File System - Annotation](file-system.md#annotation) page.
 
