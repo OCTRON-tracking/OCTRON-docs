@@ -52,11 +52,11 @@
     ```
 5. You can now install OCTRON into your new conda environment. If you have an NVIDIA (*CUDA compatible*) graphics card in your machine, do 
     ```
-    pip install --extra-index-url https://download.pytorch.org/whl/cu128 git+https://github.com/OCTRON-tracking/OCTRON-GUI.git
+    pip install --extra-index-url https://download.pytorch.org/whl/cu128 "octron[all] @ git+https://github.com/OCTRON-tracking/OCTRON-GUI.git"
     ```
     otherwise it suffices to do 
     ```
-    pip install git+https://github.com/OCTRON-tracking/OCTRON-GUI.git
+    pip install "octron[all] @ git+https://github.com/OCTRON-tracking/OCTRON-GUI.git"
     ```
     
     !!! question "How do I update OCTRON?"
