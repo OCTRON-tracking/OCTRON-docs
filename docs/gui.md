@@ -9,8 +9,8 @@ Then you can use this command to open napari and OCTRON in the same go (i.e. nap
 octron-gui
 ```
 
-... and enjoy! 
-On first start this will take a long time to load, since all available models are downloaded. Subsequent startups will be much quicker. 
+... and enjoy!  
+On first start this will take a long time to load, since all available models are downloaded. Subsequent startups will be much quicker. Tip: Keep the terminal window visible to see what's going on in the background, especially in case of warnings and errors.
 
 ## The four main panels
 

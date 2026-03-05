@@ -12,16 +12,20 @@ Annotation consists of three separate steps which are described in detail below:
 ## Model selection
 Select the model you would like to use for your annotations and click *Load model*.
 
-Rule of thumb: the larger the model, the more resources (GPU) it demands. If you can afford it, use the most precise model (`SAM2 Large HQ`), which is however also the most demanding in terms of GPU resources.<br>
+Rules of thumb:
 
-|Model          |Benefits               |Drawbacks   |Example usecases   |
-|:--------------|:----------------------|:-----------|:------------------|
-|SAM2 Base Plus |The least resource demanding (i.e. predictions are fast) |something   |something  |
-|SAM2 Large     |More resource demanding than SAM2 Base Plus |something   |something  |
-|SAM2 Large HQ  |Very resource demanding|something   |something  |
-|SAM3           |                       |Requires sharing some personal information with Meta  |Link to subpage for more info   |
-|SAM3 multi     |                       |Requires sharing some personal information with Meta  |Link to subpage for more info  |
+- The larger the model, the more resources (GPU) it demands and the slower it is. Pick the model that offers  the highest precision for the resources you have available.
+- All models can be used to label multiple animals, but SAM3 multi is much, much faster/more efficient, especially if you are tracking more than a handful
 
+|Model          |GPU demand |Precision |Speed   |Example uses   |
+|:--------------|:--------  |:---------|:-------|:-----------|
+|SAM2 Base Plus |+          |+         |++++    |Simple objects occupying many pixels/a large part of the image and have high contrast, such as black beetle on a white background|
+|SAM2 Large     |++         |++        |+++     |More complicated or smaller objects, such as flies |
+|SAM2 Large HQ  |++         |+++       |++      |Small objects occupying few pixels/small part of the image, such as larva  |
+|SAM3           |++++       |+++       |+       |As for SAM2 Large HQ  |
+|SAM3 multi     |+++++      |+++       |+       |Many objects of the same type, such as a swarm of flies or school of fish |  
+
+NOTE: Access to SAM3 models requires sharing some personal information with Meta
 
 ??? note "How to access SAM3"
     1. Go to https://huggingface.co/facebook/sam3
