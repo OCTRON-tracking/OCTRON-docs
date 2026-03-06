@@ -4,6 +4,25 @@ Once you have a decent number of annotated frames, you are ready to train your m
 
 <img src="../assets/screenshots/train_model_tab.png"/>
 
+## Segmentation vs. Detection 
+
+OCTRON supports two types of models for tracking animals: **segmentation models** <span style="display: inline-block; width: 12px; height: 12px; background-color: #7e56c2; margin: 0 4px; vertical-align: middle; border-radius: 2px;"></span> and **detection models** <span style="display: inline-block; width: 12px; height: 12px; background-color: #5f9bdb; margin: 0 4px; vertical-align: middle; border-radius: 2px;"></span>. Segmentation models provide pixel-level masks that outline the exact shape of each detected object, while detection models provide only bounding boxes. Both use the same annotation data, so you can train either type from your annotated frames. 
+Segmentation and detection are color coded throughout the GUI.
+
+
+|                  | Detection <span style="display: inline-block; width: 12px; height: 12px; background-color: #5f9bdb; margin: 0 4px; vertical-align: middle; border-radius: 2px;"></span>                          | Segmentation <span style="display: inline-block; width: 12px; height: 12px; background-color: #7e56c2; margin: 0 4px; vertical-align: middle; border-radius: 2px;"></span>                                              |
+| ------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------------- |
+| **Output detail**        | Boxes around objects | Precise outlines + boxes around objects                                                 |
+| **Annotation effort**    | Same (OCTRON derives bboxes from masks automatically). *You can use the same dataset for both detection as well as segmentation training!* | Same (masks are the native format). *You can use the same dataset for both detection as well as segmentation training!*                                    |
+| **Training speed**       | Faster | Slower                             |
+| **Inference speed**      | Faster (predictions are quick) | Slower (more detail to compute)                                  |
+| **Model size**           | Smaller (faster to load) | Larger (takes up more disk space)                                         |
+| **Result disk space**    | Very efficient (minimal storage in .csv files) | Creates .csv files as for detection, but also zarr arrays for mask data                                    |
+| **Spatial precision**    | Less precise (bounding boxes only) | More precise (exact object outlines)                                             |
+| **Downstream analysis**  | Limited measurements (position, size, shape) | Extensive measurements (shape properties, texture, intensity, and more) |
+| **Tracking robustness**  | Reliable (same as for segmentation because bounding boxes are used) | Reliable (bounding boxes are used)
+
+
 ## Generate training data
 OCTRON needs to generate data to train the model on, i.e. it takes your annotations and splits them into a training dataset and a testing dataset. This enables it to evaluate how well the training is going by comparing its predictions against the ground truth. First, consider these options:
 
@@ -17,25 +36,33 @@ Once you click *Generate*, you can observe the progress in the two progress bars
 - **label and split:** the progress of splitting up the annotated data into a training and testing dataset.
 
 ## Train
-Once the training data has been generated, OCTRON is ready to train your model. There are a few settings to consider:
+Once the training data has been generated, OCTRON is ready to train your model.
 
 - **Choose model:** choose which model to use.
 
     !!! question "Which model should I choose?"
         The larger the model, the more accurate it may be, but the more time and GPU resources it needs too. Recommendation: start with the smallest model and move up from there if necessary. The large model also usually needs more training data.<br>
         
-        - **YOLO11m-seg:** the 'medium' model (the smallest one) 
-        - **YOLO11l-seg:** the 'large' model
+        **YOLO11 Models** (General purpose, good balance of speed and accuracy):
+    
+        - **YOLO11m:** medium model – improved accuracy, moderate resource usage
+        - **YOLO11l:** large model – high accuracy, requires more GPU memory and training time
 
-- **Img. size:** choose which image size OCTRON should train on. If your input videos have a high native resolution (for example 1920x1080 pixels), then training OCTRON with an image size of 1024 makes sense to get higher resolution out of your predictions. This especially helps with smaller labeled structures that cover only a minute fraction of your field of view. However, if your input videos have smaller resolution (for example 640x480 or smaller), then training the model atr 1024 image size makes little sense and might even make training worse. 
+        **YOLO26 Models** (Latest generation, optimized for edge deployment and small object detection):
+
+        - **YOLO26m:** medium model – improved accuracy over YOLO11, smaller than YOLO11l
+        - **YOLO26l:** large model – state-of-the-art accuracy
+
+
+- **Img. size:** choose which image size OCTRON should train on. If your input videos have a high native resolution (for example 1920x1080 pixels), then training OCTRON with an image size of 1024 makes sense to get higher resolution out of your predictions. This especially helps with smaller labeled structures that cover only a minute fraction of your field of view. However, if your input videos have smaller resolution (for example 640x480 or smaller), then training the model atr 1024 image size makes little sense and might even make training worse. You can type in your own image size here and click enter if you want something else than appears in the dropdown.
 
 - **Epochs:** decide how many epochs the model should train for. The higher the number, the longer the training will take, but if no significant improvement is detected across 100 epochs then the training will automatically stop.
 
 - **Save period:** decide how often (in number of epochs) to save the training results.
 
-- **Resume:** *[this feature has not been implemented yet]*. if you've previously started training a model but had to abort for some reason, you can continue from where the training stopped by selecting this option 
+- **Resume:** if you've previously started training a model but had to abort for some reason, you can continue from where the training stopped by selecting this option 
 - **Overwrite:** if you've previously trained a model and want to replace it, select this option.
-- **Tensorboard:** select this if you want to follow the training progress live in your browser via [tensorboard](https://www.tensorflow.org/tensorboard). After the training has started you can open a new terminal, conda activate your OCTRON environment, and do `tensorboard --logdir "YOUR_TRAINING_FOLDER"`. This will then show you a link you can click or copy+paste into your browser to view a tensorboard instance showing the training progress.
+- **Tensorboard:** *(currently selected by default)* select this if you want to follow the training progress live in your browser via [tensorboard](https://www.tensorflow.org/tensorboard). After the training has started you can open a new terminal, conda activate your OCTRON environment, and do `tensorboard --logdir "YOUR_TRAINING_FOLDER"`. This will then show you a link you can click or copy+paste into your browser to view a tensorboard instance showing the training progress.
 
 When you're happy with your training settings, click *Train*.
 

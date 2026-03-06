@@ -20,10 +20,10 @@ Rules of thumb:
 |Model          |GPU demand |Precision |Speed   |Example uses   |
 |:--------------|:--------  |:---------|:-------|:-----------|
 |SAM2 Base Plus |+          |+         |++++    |Simple objects occupying many pixels/a large part of the image and have high contrast, such as black beetle on a white background|
-|SAM2 Large     |++         |++        |+++     |More complicated or smaller objects, such as flies |
-|SAM2 Large HQ  |++         |+++       |++      |Small objects occupying few pixels/small part of the image, such as larva  |
-|SAM3           |++++       |+++       |+       |As for SAM2 Large HQ  |
-|SAM3 multi     |+++++      |+++       |+       |Many objects of the same type, such as a swarm of flies or school of fish |  
+|SAM2 Large     |++         |++        |+++     |More complicated or smaller objects and complex scenes |
+|SAM2 Large HQ  |++         |+++       |++      |Small and highly detailed objects |
+|SAM3           |++++       |+++       |+       |As for SAM2 Large. Note: SAM3 is a very large model to run locally, be aware that it can be slow in prediction. |
+|SAM3 multi     |+++++      |+++       |+       |Many objects of the same type, such as a swarm of flies or school of fish. Giving the labels expressive, real-world names (like "red cell" or "fly") helps increasing the accuracy of the model. |  
 
 NOTE: Access to SAM3 models requires sharing some personal information with Meta
 
@@ -33,14 +33,14 @@ NOTE: Access to SAM3 models requires sharing some personal information with Meta
     3. Click your profile image in the top right corner of the page and select **Access Tokens** in the menu that appears
     4. Click **+Create new token**
     5. Select *Read* for **Token type** and call the token *SAM3*
-    <img src="../assets/screenshots/create_access_token.png"/>
+    <img src="../assets/screenshots/create_access_token.png" width="60%"/>
     6. Click **Create token** and copy the access token that appears in a pop-up 
     7. Close the OCTRON gui if you had it open
     8. In a terminal window, activate the octron environment and execute the following command, substituting *YOUR_TOKEN_HERE* with your access token
         ```
         python -c "from huggingface_hub import login; login(token='YOUR_TOKEN_HERE')"
         ```
-    8. The next time you open OCTRON the SAM3 models should download
+    8. The next time you open OCTRON the SAM3 models will download automatically
     
 
 ## Label manager

@@ -1,9 +1,8 @@
 <img src="assets/octron_logo.svg" alt="OCTRON Logo" width="75%" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 3rem;" />
 
-
-**OCTRON** is a pipeline built on [napari](https://www.napari.org) that enables segmentation and tracking of animals in behavioral setups. It helps you to create rich annotation data that can be used to train your own machine learning segmentation models. This enables dense quantification of animal behavior across a wide range of species and video recording conditions. 
-
-OCTRON is built on [Napari](https://www.napari.org), [Segment Anything (SAM2)](https://segment-anything.com/), [YOLO](https://www.ultralytics.com/), [BoxMOT](https://github.com/mikel-brostrom/boxmot) and 💜.
+**OCTRON** is a pipeline built on [napari](https://www.napari.org) that enables segmentation, detection, and tracking of animals in behavioral setups. It helps you to create rich annotation data that can be used to train your own machine learning segmentation and detection models. This enables dense quantification of animal behavior across a wide range of species and video recording conditions.
+<br><br>
+OCTRON is built on [Napari](https://www.napari.org), [Segment Anything (SAM2/SAM3)](https://aidemos.meta.com/), [YOLO](https://www.ultralytics.com/), [BoxMOT](https://github.com/mikel-brostrom/boxmot) and 💜.
 
 Main repository: [OCTRON-GUI](https://github.com/OCTRON-tracking/OCTRON-GUI)
 
@@ -86,6 +85,17 @@ The main steps implemented in OCTRON typically include: Loading video data from 
         booktitle={NeurIPS},
         year={2023}
     }  
+    ```
+    ```{bibtex}
+    @misc{carion2025sam3segmentconcepts,
+      title={SAM 3: Segment Anything with Concepts}, 
+      author={Nicolas Carion and Laura Gustafson and Yuan-Ting Hu and Shoubhik Debnath and Ronghang Hu and Didac Suris and Chaitanya Ryali and Kalyan Vasudev Alwala and Haitham Khedr and Andrew Huang and Jie Lei and Tengyu Ma and Baishan Guo and Arpit Kalla and Markus Marks and Joseph Greer and Meng Wang and Peize Sun and Roman Rädle and Triantafyllos Afouras and Effrosyni Mavroudi and Katherine Xu and Tsung-Han Wu and Yu Zhou and Liliane Momeni and Rishi Hazra and Shuangrui Ding and Sagar Vaze and Francois Porcher and Feng Li and Siyuan Li and Aishwarya Kamath and Ho Kei Cheng and Piotr Dollár and Nikhila Ravi and Kate Saenko and Pengchuan Zhang and Christoph Feichtenhofer},
+      year={2025},
+      eprint={2511.16719},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2511.16719}, 
+    }
     ```
      - OCTRON multi-object tracking is achieved via BoxMot trackers:
     ```yaml
