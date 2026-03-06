@@ -32,8 +32,8 @@ NOTE: Access to SAM3 models requires sharing some personal information with Meta
     2. Click **Sign Up** (or **Log in** if you already have an account), follow the required steps and wait to be granted access
     3. Click your profile image in the top right corner of the page and select **Access Tokens** in the menu that appears
     4. Click **+Create new token**
-    5. Select *Read* for **Token type** and call the token *SAM3*<br>
-    <img src="../assets/screenshots/create_access_token.png" width="40%" style="display: block;"/><br>
+    5. Select *Read* for **Token type** and call the token *SAM3*<br><br>
+    <img src="../assets/screenshots/create_access_token.png" width="45%" style="display: block;"/><br>
     6. Click **Create token** and copy the access token that appears in a pop-up 
     7. Close the OCTRON gui if you had it open
     8. In a terminal window, activate the octron environment and execute the following command, substituting *YOUR_TOKEN_HERE* with your access token
