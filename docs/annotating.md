@@ -2,9 +2,9 @@
 Before you can train your model, you need to tell it what to track. This is done by annotating the videos you’ll use for training in the **Generate Annotation Data** tab. This tab becomes active automatically once a video is loaded and displayed in the center area of napari. If you want to use videos you’ve already annotated, go to the Manage Project tab and double-click the video in the *Existing Data* table to load it. 
 Annotation consists of three separate steps which are described in detail below:
 
-1. **Model Selection and Label Management:** Create new label names and layers in OCTRON to organize your annotation project within the GUI.
-2. **Annotation:** Perform initial object annotations using SAM2-assisted region prediction for each object you want to track.
-3. **Batch Prediction:** Use SAM2 to predict annotations across subsequent frames, quickly generating additional training data.
+1. **Model Selection and Label Manager:** Create new label names and layers in OCTRON to organize your annotation project within the GUI.
+2. **Annotation:** Perform initial object annotations using SAM-assisted region prediction for each object you want to track.
+3. **Batch Prediction:** Use SAM to predict annotations across subsequent frames, quickly generating additional training data.
 <br>
 
 <img src="../assets/screenshots/annnotation_tab.png"/>
@@ -49,7 +49,7 @@ This is where you create the labels for the animals/item/structure you want to t
 
 2. In the **Label...** drop-down menu, select *Create* to open a dialogue box where you can name your label and click *Add* to add it. 
 
-    - **Suffix:** *(Optional!)* add a number here if you want to label multiple instances of the same thing (e.g. you have two LEDs and want to label them separately as *LED 1* and *LED 2*). Note that you *can* label multiple instances of the same object in one go on the same layer if they look very similar to each other. If this works for you then you do not need to create multiple layers for the same thing. However, SAM2 models do not always track multiple objects per layer well, making it necessary to create multiple layers for those objects.
+    - **Suffix:** *(Optional. Unnecessary for SAM3 multi)* add a number here if you want to label multiple instances of the same thing (e.g. you have two LEDs and want to label them separately as *LED 1* and *LED 2*). Note that you *can* label multiple instances of the same object in one go on the same layer if they look very similar to each other. If this works for you then you do not need to create multiple layers for the same thing. However, SAM2 models do not always track multiple objects per layer well, making it necessary to create multiple layers for those objects.
 
         ??? note "Why suffixes are useful"
             When using suffixes for your labels, e.g. *LED 1* and *LED 2*, then these labels will end up in the same class (i.e. *LED*) during training. This means that the model treats these as the same type of object when training to identify them, and therefore has twice as many annotations to train on. In contrast, if you give the two LEDs separate labels (i.e. not using the suffix option) then the model will consider these to be separate types of objects and train on them separately too.<br>**Hot tip**: It is not always necessary to create separate annotations for repeated objects in your scene! SAM does pick up on repeated textures in your frames, so, if you have objects that look very similar, try to use a points layer to annotate them all in one go (on one single layer). 
@@ -59,7 +59,7 @@ This is where you create the labels for the animals/item/structure you want to t
 
 3. Click the **Create** button to create your label. Two new layers will appear in the *layer list* (bottom left left hand section of OCTRON, more on that later).
 
-4. Repeat steps 1-3 until you have all the labels you need. **Important**: Make sure you create all your labels and layers before the first batch prediction (see below). Some SAM2 models do not allow you to add new labels once you started predicting. However, if you run into this problem, you can easily *Reset* the model (see notes below).
+4. Repeat steps 1-3 until you have all the labels you need. **Important**: Make sure you create all your labels and layers before the first batch prediction (see below). Some SAM models do not allow you to add new labels once you started predicting. However, if you run into this problem, you can easily *Reset* the model (see notes below).
 
 ## Annotation 
 In the bottom left section of OCTRON you have a *layer list* of all your layers. When you click on a layer you'll get access to its *layer controls* in the panel directly above. All layers can be toggled visible/invisible by clicking the 👁️ symbol on the respective layer.
@@ -80,9 +80,9 @@ You should never modify the **masks** layer manually. It is simply a visualizati
         ??? note "How to edit or remove unwanted points"
             If you make a mistake and would like to edit or remove a point, select the point with the arrow (selection tool) in the *layer controls*. You can either move it with the arrow tool or delete it by clicking on the "x". The region prediction will update automatically.
 
-    - **Shapes:** click on a shapes layer and select the type of shape you want to use in the *layer controls*. Note that the square/rectangle behaviour is different from the other shapes:
-        - **Rectangle:** left-click and drag the shape around the object you want to label, and release. OCTRON will automatically try to identify the structure you want to label within that shape. 
-        - **Any other shape:** left-click and drag and release (e.g. for the circle shape), or left-click around the shape you want to label (e.g. for the polygon shape). You can refine a shapes layer by using the tools shown in that layer's *layer controls* (e.g. remove/add/adjust points on the shape outline). As with the points layer, the predictions will update automatically after every change.
+    - **Shapes:** click on a shapes layer and select the type of shape you want to use in the *layer controls*. Left-click and drag the shape around the object you want to label (rectangle or circle shapes), and release, or left-click around the shape you want to label (polygon shapes). OCTRON will automatically try to identify the structure you want to label within that shape. You can refine a shapes layer by using the tools shown in that layer's *layer controls* (e.g. remove/add/adjust points on the shape outline). As with the points layer, the predictions will update automatically after every change.  
+        - *SAM3 multi:* All instances of the structure you labelled will be identified. If some are missed, draw shapes around them too, in the same layer, to help the model recognise them (NOTE: you cannot draw a shape around the same structure twice in the same frame). 
+
 
     Note that every annotation is automatically saved: As soon as a region prediction, i.e. mask is shown to you it is already saved to disk. If you ever want to switch the annotation type (e.g. from *points* to *shapes*), delete the mask layer associated with that annotation type by selecting it and clicking the 🗑️ symbol (both the mask and points layers will be removed), then add the layer again. The annotations you have done up to this point are not deleted though! If you choose the same label name and suffix when re-creating the layer, the previous mask annotation data will be reloaded, and you will be able to continue annotating with the new annotation layer. 
 
@@ -105,7 +105,7 @@ You should never modify the **masks** layer manually. It is simply a visualizati
 
 If you're happy with the prediction, continue clicking ▶️ to see if the predictions continue to look good for the following frames, adjusting the masks if necessary.
 
-2. Once the predictions seem to be reliably good, click the *15 frames* button to predict 15 frames in a row. Once the predictions are finished, you can go back and adjust the masks if necessary; either individually if there's only one or two frames that are off, or just the first frame where the predictions went wrong and then try predicting 15 frames again from there (the new predictions will overwrite the old ones).
+2. Once the predictions seem to be reliably good, click the *15 frames* button to predict 15 frames in a row (or 6 frames for SAM3 multi). Once the predictions are finished, you can go back and adjust the masks if necessary; either individually if there's only one or two frames that are off, or just the first frame where the predictions went wrong and then try predicting 15 frames again from there (the new predictions will overwrite the old ones).
 
 3. (*Optional*) When predicting 15 frames in a row works well, then you can start to **skip frames** to speed up the process, especially if there is very little happening from frame to frame, i.e. the animal is relatively stationary and does not change much from frame to frame. If at some point you need to return to a previously annotated frame that was several frames away, you can use the *timeline control* to quickly move between them.
 

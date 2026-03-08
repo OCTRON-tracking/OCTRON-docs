@@ -1,7 +1,7 @@
 # Analyze (new) videos
 Once you have a trained model, you can use it to analyze all your videos. This is done in the **Analyse (new) videos** tab.
 We recommend creating short excerpts from your test videos to try out and adjust parameters before running the full-length videos through analysis.
-This approach saves time and speeds up testing because you can quickly see how your settings perform without waiting for an entire long video to process.
+This approach saves time and speeds up testing because you can quickly see how your settings perform without waiting for an entire (long) video to process.
 OCTRON by default only accepts MP4 transcoded videos. You can use OCTRON to transcode a whole folder of videos of any format to .mp4 (check out [Create Project](create-project.md)).
 
 ??? note "Extracting a snippet from an existing .mp4 file"
@@ -15,8 +15,6 @@ OCTRON by default only accepts MP4 transcoded videos. You can use OCTRON to tran
     - `-c:v libx264 -preset superfast -crf 23 -an` specifies the codec (**do not change this!**) and that you do not want any audio in the output.<br>
 
 
-<img src="../assets/screenshots/analyze_new_videos_tab.png"/>
-
 ## Add video files
 Start by adding the video(s) you want to analyze in the **Add Video Files** section. You can either drag and drop one or more files into this area or click it to open a file selection dialog. Once added, the videos will appear in the Videos dropdown menu. To remove a video, open the dropdown, click Remove, and select the videos you want to delete from the list.
 
@@ -24,7 +22,9 @@ Start by adding the video(s) you want to analyze in the **Add Video Files** sect
 Next, in the *Create predictions from videos* section you indicate how the videos you selected should be analyzed by considering the following options:
 
 - **Choose model...:** Select the model you want to use from the dropdown menu. You can choose models saved at different stages of training—for example, after a certain number of epochs, or the best or last model. We recommend using `best.pt`, which is automatically selected based on performance across all trained epochs, balancing multiple metrics. Tip: Models are found across any number of subfolders in your project main folder. 
-- **Tracker...:** if you have annotated more than one object for a given label (e.g. *artemia 1*, *artemia 2*), a tracker needs to be used to help the model determine which is which across frames. Pick the one you prefer in this drop-down menu. If you only have one object per label, click the **1 subject** option and select the **ByteTrack** tracker from the dropdown. See below for detailed explanation about the available trackers. 
+- **Tracker...:** if you have annotated more than one object for a given label (e.g. *artemia 1*, *artemia 2*, or with SAM3 multi), a tracker needs to be used to help the model determine which is which across frames. Pick the one you prefer in this drop-down menu. If you only have one object per label, click the **1 subject** option and select the **ByteTrack** tracker from the dropdown. See below for detailed explanation about the available trackers. 
+
+<img src="../assets/screenshots/analyze_new_videos_tab.png"/>
 
 ### BoxMOT Trackers 
 OCTRON uses the [BoxMOT](https://github.com/mikel-brostrom/boxmot) library to provide state-of-the-art tracking capabilities. The trackers that are available under BoxMOT are designed for different scenarios and can be grouped into two main categories:
@@ -44,7 +44,7 @@ You can fine-tune the selected tracker by clicking on **Tune** next to it. This 
 
 - **View result:** select this option if you want OCTRON to automatically open a new window where you can see the result of the analysis once it is complete.
 - **1 subject:** select this if you strictly have only one object per class (label category) in your videos. This ensures that only one object is tracked throughout the whole video. If you enable this checkbox, the tracker drop-down menu will be disabled. 
-- **Detailed:** By default, OCTRON extracts tracked object coordinates from bounding box (bbox) info, and saves bbox area, and coordinates into the exported csv file. However, if you activate "Detailed", OCTRON will calculate additional parameters for each extracted region like its solidity, eccentricity. The cruder bbox extracted position x and y will be replaced by a centroid calculation. Activating "Detailed" slows down per-frame analysis time a bit.
+- **Detailed:** *(segmentation models only)* By default, OCTRON extracts tracked object coordinates from bounding box (bbox) info, and saves bbox area and coordinates into the exported csv file. However, if you activate "Detailed", a pop-up will let you choose additional parameters to calculate for each extracted region like its solidity or eccentricity. The cruder bbox extracted position x and y will be replaced by a centroid calculation. Activating "Detailed" slows down per-frame analysis time a bit. For a description of the parameters, see *Explanation of .csv data* under [*The file system*](file-system.md/) 
 - **Overwrite:** select this option if you've previously analysed the selected video and want to replace that analysis.
 
 - **Opening:** the opening disk radius for morphological opening of predicted mask data. An opening operation, which consists of erosion followed by dilation, helps eliminate small bright artifacts (like 'salt' noise) and bridges narrow dark gaps. This process effectively 'opens' dark spaces between bright regions. Increase this if you have a lot of extraneous, noisy blobs in your masks that you want to eliminate. If you leave this at `0.0`, opening will be skipped (fastest).
