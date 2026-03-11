@@ -75,7 +75,10 @@
             ```
         
         !!! warning "Match your CUDA version"
+            PyTorch only provides pre-built wheels for select CUDA versions. If your version isn't listed above (e.g. CUDA 12.6), use the wheel for the **closest older version** (e.g. `cu124`). CUDA is generally backwards-compatible within a major version, so this will work in most cases.
+
             Using a PyTorch wheel that doesn't match your CUDA version can cause cryptic runtime errors (e.g. `CUBLAS_STATUS_INVALID_VALUE`) when running models. If you're unsure which version to pick, check [pytorch.org/get-started](https://pytorch.org/get-started/locally/) to find the right wheel for your system.
+
 
     === "No NVIDIA GPU"
         If you don't have an NVIDIA GPU, it suffices to run the following command:
