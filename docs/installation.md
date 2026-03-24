@@ -50,14 +50,43 @@
     ```sh
     conda activate octron
     ```
-5. You can now install OCTRON into your new conda environment. If you have an NVIDIA (*CUDA compatible*) graphics card in your machine, do 
-    ```
-    pip install --extra-index-url https://download.pytorch.org/whl/cu128 "octron[all] @ git+https://github.com/OCTRON-tracking/OCTRON-GUI.git"
-    ```
-    otherwise it suffices to do 
-    ```
-    pip install "octron[all] @ git+https://github.com/OCTRON-tracking/OCTRON-GUI.git"
-    ```
+5. You can now install OCTRON into your new conda environment. 
+
+    The command will be different depending on whether you have an NVIDIA (*CUDA compatible*) GPU or not.
+
+    === "NVIDIA GPU"
+        If you have an NVIDIA GPU in your machine, first check which CUDA version is installed on your system:
+        ```
+        nvidia-smi
+        ```
+        Look for the **"CUDA Version"** in the top-right corner of the output (e.g. `CUDA Version: 12.4`). Then use the matching install command below:
+
+        === "CUDA 12.8"
+            ```
+            pip install --extra-index-url https://download.pytorch.org/whl/cu128 "octron[all] @ git+https://github.com/OCTRON-tracking/OCTRON-GUI.git"
+            ```
+        === "CUDA 12.4"
+            ```
+            pip install --extra-index-url https://download.pytorch.org/whl/cu124 "octron[all] @ git+https://github.com/OCTRON-tracking/OCTRON-GUI.git"
+            ```
+        === "CUDA 11.8"
+            ```
+            pip install --extra-index-url https://download.pytorch.org/whl/cu118 "octron[all] @ git+https://github.com/OCTRON-tracking/OCTRON-GUI.git"
+            ```
+        
+        !!! warning "Match your CUDA version"
+            PyTorch only provides pre-built wheels for select CUDA versions. If your version isn't listed above (e.g. CUDA 12.6), use the wheel for the **closest older version** (e.g. `cu124`). CUDA is generally backwards-compatible within a major version, so this will work in most cases.
+
+            Using a PyTorch wheel that doesn't match your CUDA version can cause cryptic runtime errors (e.g. `CUBLAS_STATUS_INVALID_VALUE`) when running models. If you're unsure which version to pick, check [pytorch.org/get-started](https://pytorch.org/get-started/locally/) to find the right wheel for your system.
+
+
+    === "No NVIDIA GPU"
+        If you don't have an NVIDIA GPU, it suffices to run the following command:
+        ```
+        pip install "octron[all] @ git+https://github.com/OCTRON-tracking/OCTRON-GUI.git"
+        ```
+
+
     
     !!! question "How do I update OCTRON?"
         OCTRON is undergoing a lot of development. So if you haven't used in a while or just want to make sure you run the latest version, you should update it.<br>To update OCTRON make sure you conda activated your environment (step 4) and just run the above `pip install` command (step 5) again. In most cases that is all you need. If you want to update all underlying libaries to the most up-to-date versions, append a `-U` at the end of the command. In some rare cases updates might not work as expected, and you can then try to add an additional `--force-reinstall` at the end of the command to give it all a fresh start.
@@ -66,19 +95,30 @@
     ```sh
     octron-test-gpu
     ```
-    This should show your graphics card, if it is correctly installed and accessible by PyTorch. 
-    If your are using OCTRON on a modern mac this should show: 
-    ```
-    CUDA GPU is not available.
-    MPS (Metal Performance Shaders) GPU is available.
-    MPS GPU: Apple Silicon GPU
-    ```
-    and under windows or linux using a NVIDIA GPU this should show something similar to: 
-    ```
-    CUDA GPU is available.
-    Number of CUDA GPUs: 1
-    CUDA GPU 0: NVIDIA GeForce RTX 3070 Ti
-    MPS GPU is not available.
-    ```
+    This should show your graphics card, if it is correctly installed and accessible by PyTorch. It should look something like this:
+
+    === "Windows / Linux (NVIDIA GPU)"
+        ```
+        CUDA GPU is available.
+        Number of CUDA GPUs: 1
+        CUDA GPU 0: NVIDIA GeForce RTX 3070 Ti
+        MPS GPU is not available.
+        ```
+
+    === "MacOS (Apple Silicon)"
+        ```
+        CUDA GPU is not available.
+        MPS (Metal Performance Shaders) GPU is available.
+        MPS GPU: Apple Silicon GPU
+        ```
 
     If this fails, you should correct this first, since OCTRON will not engage your GPU otherwise (and thus be much slower). A common issue is that CUDA dependencies were not correctly installed. Check [this issue](https://github.com/horsto/OCTRON-GUI/issues/11#issuecomment-2954125899) for a potentially quick fix.
+
+    
+    In a machine with a CUDA compatible GPU, it is recommended to additionally verify that PyTorch and CUDA are correctly version-matched. To do this, run:
+    ```sh
+    python -c "import torch; print('PyTorch:', torch.__version__); print('CUDA:', torch.version.cuda); print('cuBLAS works:', torch.zeros(4,4).cuda() @ torch.zeros(4,4).cuda())"
+    ```
+    If the last line throws an error, there is a mismatch between your PyTorch and CUDA versions. Make sure the install command you used in step 5 corresponds to your CUDA version. 
+
+
