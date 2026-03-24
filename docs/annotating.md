@@ -3,8 +3,8 @@ Before you can train your model, you need to tell it what to track. This is done
 Annotation consists of three separate steps which are described in detail below:
 
 1. **Model Selection and Label Management:** Create new label names and layers in OCTRON to organize your annotation project within the GUI.
-2. **Annotation:** Perform initial object annotations using SAM2-assisted region prediction for each object you want to track.
-3. **Batch Prediction:** Use SAM2 to predict annotations across subsequent frames, quickly generating additional training data.
+2. **Annotation:** Perform initial object annotations using SAM-assisted region prediction for each object you want to track.
+3. **Batch Prediction:** Use SAM to predict annotations across subsequent frames, quickly generating additional training data.
 <br>
 
 <img src="../assets/screenshots/annnotation_tab.png"/>
@@ -19,11 +19,11 @@ Rules of thumb:
 
 |Model          |GPU demand |Precision |Speed   |Example uses   |
 |:--------------|:--------  |:---------|:-------|:-----------|
-|SAM2 Base Plus |+          |+         |++++    |Simple objects occupying many pixels/a large part of the image and have high contrast, such as black beetle on a white background|
-|SAM2 Large     |++         |++        |+++     |More complicated or smaller objects and complex scenes |
-|SAM2 Large HQ  |++         |+++       |++      |Small and highly detailed objects |
+|SAM2 B Plus |+          |+         |++++    |Simple objects occupying many pixels/a large part of the image and have high contrast, such as black beetle on a white background|
+|SAM2 L     |++         |++        |+++     |More complicated or smaller objects and complex scenes |
+|SAM2 L HQ  |++         |+++       |++      |Small and highly detailed objects |
 |SAM3           |++++       |+++       |+       |As for SAM2 Large. Note: SAM3 is a very large model to run locally, be aware that it can be slow in prediction. |
-|SAM3 multi     |+++++      |+++       |+       |Many objects of the same type, such as a swarm of flies or school of fish. Giving the labels expressive, real-world names (like "red cell" or "fly") helps increasing the accuracy of the model. |  
+|SAM3 multi     |+++++      |+++       |+       |Many objects of the same type, such as a swarm of flies or school of fish. Giving the labels expressive, real-world names (like "red cell" or "fly") helps increase the accuracy of the model. |  
 
 NOTE: Access to SAM3 models requires sharing some personal information with Meta
 
@@ -85,10 +85,10 @@ You should never modify the **masks** layer manually. It is simply a visualizati
             If you make a mistake and would like to edit or remove a point, select the point with the arrow (selection tool) in the *layer controls*. You can either move it with the arrow tool or delete it by clicking on the "x". The region prediction will update automatically.
 
     - **Shapes:** click on a shapes layer and select the type of shape you want to use in the *layer controls*. Note that the square/rectangle behaviour is different from the other shapes:
-        - **Rectangle:** left-click and drag the shape around the object you want to label, and release. OCTRON will automatically try to identify the structure you want to label within that shape. 
+        - **Rectangle:** left-click and drag the shape around the object you want to label, and release. OCTRON will automatically try to identify the structure you want to label within that shape. **If using SAM3 multi:** the structure will not be immediately identified. Continue to draw rectangles (i.e. around several individuals of the same species) and then click *Run* to tell OCTRON to identify all instances of the labeled structure.
         - **Any other shape:** left-click and drag and release (e.g. for the circle shape), or left-click around the shape you want to label (e.g. for the polygon shape). You can refine a shapes layer by using the tools shown in that layer's *layer controls* (e.g. remove/add/adjust points on the shape outline). As with the points layer, the predictions will update automatically after every change.
 
-    Note that every annotation is automatically saved: As soon as a region prediction, i.e. mask is shown to you it is already saved to disk. If you ever want to switch the annotation type (e.g. from *points* to *shapes*), delete the mask layer associated with that annotation type by selecting it and clicking the 🗑️ symbol (both the mask and points layers will be removed), then add the layer again. The annotations you have done up to this point are not deleted though! If you choose the same label name and suffix when re-creating the layer, the previous mask annotation data will be reloaded, and you will be able to continue annotating with the new annotation layer. 
+    Note that every annotation is automatically saved: As soon as a region is predicted, i.e. a mask is shown to you, it is already saved to disk. If you ever want to switch the annotation type (e.g. from *points* to *shapes*), delete the mask layer associated with that annotation type by selecting it and clicking the 🗑️ symbol (both the mask and points layers will be removed), then add the layer again. The annotations you have done up to this point are not deleted though! If you choose the same label name and suffix when re-creating the layer, the previous mask annotation data will be reloaded, and you will be able to continue annotating with the new annotation layer. 
 
     ??? question "How do I completely delete annotations?"
         It is relatively tough to "destroy" annotations you have created in your project. For example, if you delete the mask or annotation layers you can easily re-create them and the underlying mask information for every annotated frame will be automatically reloaded if it is saved on disk.<br>But lets say you are unhappy with one of your annotations and you want to start from scratch. In this case you need to go through the following steps:<br>

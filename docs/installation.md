@@ -53,6 +53,12 @@
 5. You can now install OCTRON into your new conda environment. 
 
     The command will be different depending on whether you have an NVIDIA (*CUDA compatible*) GPU or not.
+    
+    ??? question "How do I know if I have an NVIDIA GPU?"
+        === "Windows"
+            Open "Task Manager" and click the *Performance* tab. Here you will find a list of items that you can click on, one of which is called "GPU". Underneath the heading "GPU" (and in the top right corner if you click on this heading) the type of GPU you have is specified. If you have an NVIDIA GPU, then 'NVIDIA' should be included in the name.
+        === "Mac OS"
+            Click the Apple menu icon and then "About this Mac". If the graphics card mentioned under *Graphics* has 'NVIDIA' in the name then you have an NVIDIA GPU.
 
     === "NVIDIA GPU"
         If you have an NVIDIA GPU in your machine, first check which CUDA version is installed on your system:
