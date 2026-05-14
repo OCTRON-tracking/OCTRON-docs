@@ -11,7 +11,7 @@ For example, if you are tracking an animal in different lighting conditions, mak
 For very long videos, consider extracting shorter segments that capture relevant activity, such as periods with a lot of movement or diverse postures you want to track. See below for instructions on how to extract a snippet from an existing .mp4 file.
 
     ??? question "How do I convert my video or TIFF files to .MP4?"
-        If your videos are not in mp4 format or if they are throwing errors while you try to scroll through them in napari (indicating corrupt video files), then you can use OCTRON to transcode them. OCTRON also supports converting **multi-frame TIFF stacks** (`.tif` / `.tiff`) directly to `.mp4`.
+        If your videos are not in mp4 format or if they are throwing errors while you try to scroll through them in napari (indicating corrupt video files), then you can use OCTRON to transcode them. OCTRON also supports converting multi-frame TIFF stacks (`.tif` / `.tiff`) directly to `.mp4`.
 
         1. Drag the folder containing the files you want to transcode into the centre area of the OCTRON GUI. **Important** This does not work with single files, only folders! Drag and drop folders only, not single files. If drag and drop does not work for you, you can select File->Open Folder ... and select the folder of files to be transcoded. 
         2. In the dialogue box that opens, make sure *OCTRON* is selected and click *OK*.
@@ -24,15 +24,9 @@ For very long videos, consider extracting shorter segments that capture relevant
             - **CRF (constant rate factor):** this value determines the quality of the *.mp4* files. Lower values mean higher quality but also larger file size.
             - **Set output framerate (fps):** when checked, lets you specify the output framerate.
                 - *Videos:* the source frames are reinterpreted at the given fps, which **changes playback speed** (e.g. a 10 fps source set to 100 fps will play 10× faster). Leave unchecked to keep the original playback speed.
-                - *TIFFs:* sets the playback fps of the output video (default: 20 fps when unchecked). Supports common values like 23.976 or 29.97.
+                - *TIFFs:* sets the playback fps of the output video (defaults to 20 fps when unchecked). 
 
         4.  Click *OK* and open your terminal window to check the progress. As the files are transcoded you will see them pop up in your folder (or in a *mp4_transcoded* subfolder within your folder).
-
-        !!! note "Supported TIFF formats"
-            OCTRON auto-detects TIFF axis layout (using OME-TIFF, ImageJ hyperstack, and plain TIFF metadata) and handles grayscale, multi-channel (up to 4 channels), and Z-stack inputs. The following TIFF types are **not** supported and will be skipped with a warning:
-
-            - **2D / single-frame TIFFs** — only multi-frame stacks (T ≥ 2 frames, or Z ≥ 2 slices) are accepted.
-            - **TIFFs with both a time axis and a Z axis** — the intended frame order is ambiguous for video conversion.
 
 
     ??? question "Why does OCTRON enforce usage of .MP4 files?"
