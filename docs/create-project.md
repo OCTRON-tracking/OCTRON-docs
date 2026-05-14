@@ -10,7 +10,7 @@ We recommend organizing your OCTRON projects in a certain, standardized way. The
 For example, if you are tracking an animal in different lighting conditions, make sure your training set includes videos from both scenarios. If your data involve multiple subjects per video, it is often easier to start with videos containing only a few, or ideally, just one subject. This simplifies the annotation process significantly.
 For very long videos, consider extracting shorter segments that capture relevant activity, such as periods with a lot of movement or diverse postures you want to track. See below for instructions on how to extract a snippet from an existing .mp4 file.
 
-    ??? question "How do I convert my video or TIFF files to .MP4?"
+    ???+ question "How do I convert my video or TIFF files to .MP4?"
         If your videos are not in mp4 format or if they are throwing errors while you try to scroll through them in napari (indicating corrupt video files), then you can use OCTRON to transcode them. OCTRON also supports converting multi-frame TIFF stacks (`.tif` / `.tiff`) directly to `.mp4`.
 
         1. Drag the folder containing the files you want to transcode into the centre area of the OCTRON GUI. **Important** This does not work with single files, only folders! Drag and drop folders only, not single files. If drag and drop does not work for you, you can select File->Open Folder ... and select the folder of files to be transcoded. 
