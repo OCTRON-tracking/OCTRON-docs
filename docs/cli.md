@@ -1,9 +1,8 @@
-# Using the command line (CLI)
-Everything you can do from the GUI for the model pipeline — preparing data, training, prediction and rendering — is also available from a single `octron` command. The CLI is ideal for batch jobs, headless servers, remote machines (SSH) and reproducible scripts.
+# Using the command line interface (CLI)
+Many steps you follow from the GUI for the model pipeline - training, prediction and rendering - are also available from a single `octron` command. The CLI is ideal for batch jobs, headless servers, remote machines (SSH) and reproducible scripts.
 
 After installation, `octron` is available in your environment. Running it with no arguments (or with `--help`) prints the help menu with every available command:
 
-<!-- TODO: replace cli_help.png with the screenshot of `octron --help` (drop it in docs/assets/screenshots/). -->
 <img src="../assets/screenshots/cli_help.png" alt="Output of the octron --help command listing all subcommands"/>
 
 !!! tip "Per-command help"
@@ -11,9 +10,6 @@ After installation, `octron` is available in your environment. Running it with n
     ```
     octron predict --help
     ```
-
-!!! note "`octron gui` replaces `octron-gui`"
-    `octron` is now the single entry point. Launch the graphical interface with `octron gui` (see [Using the GUI](gui.md)).
 
 ## Command overview
 The table below lists every command and links to the relevant part of the documentation.
@@ -25,7 +21,7 @@ The table below lists every command and links to the relevant part of the docume
 | `octron split` | Export train/val/test data from an annotated project. | [Training › Generate training data](training.md#generate-training-data) |
 | `octron train` | Prepare data (optional) and train a YOLO model. | [Training › Train](training.md#train) |
 | `octron predict` | Run detection/segmentation **and** tracking on one or more videos. | [Analyze (new) videos](analysing.md), [File system › Analysis](file-system.md#analysis) |
-| `octron render` | Render annotated overlays or per-animal tracklet crops from predictions. | [File system › Analysis](file-system.md#analysis), [Access output data](access-data.md) |
+| `octron render` | Render annotated overlays or per-animal tracklet crops from predictions. | [Access output data](access-data.md) |
 | `octron dump-tracker-config` | Print/write a tracker's default config YAML to customize it. | [BoxMOT trackers](analysing.md#boxmot-trackers) |
 | `octron gpu-test` | Report CUDA / MPS (GPU) availability. | [Installation](installation.md) |
 | `octron download-yolo` | Download/refresh YOLO base weights into the model cache. | [Installation](installation.md) |
@@ -34,9 +30,11 @@ The table below lists every command and links to the relevant part of the docume
 | `octron gif` | Convert MP4/MOV/AVI videos to GIF (opens a small GUI helper). | — |
 
 ## Core workflow
-These commands mirror the GUI workflow end to end: transcode → (split) → train → predict → render.
+These commands mirror the GUI workflow: transcode → (❌ annotate) → (split) → train → predict → render.<br>
+*Note*: Annotation (annotate) is a pure GUI step - you need to use OCTRON in napari for that. Training set splitting (split) is optional, it is also run when you use the train subcommand. Use it only if you want to change the splitting options manually. 
+
 ### `octron transcode`
-Convert videos of any format — or multi-frame TIFF stacks — into the MP4 (H.264) format OCTRON expects. This is the command-line equivalent of the transcoding step described in [Create project](create-project.md).
+Convert videos of any format - or multi-frame TIFF stacks - into the MP4 (H.264) format OCTRON expects. This is the command-line equivalent of the transcoding step described in [Create project](create-project.md).
 ```
 octron transcode /path/to/videos -o /path/to/videos/mp4_transcoded
 ```
@@ -110,7 +108,7 @@ octron predict clip1.mp4 clip2.mp4 --model /path/to/best.pt --tracker bytetrack 
 | `--local-cache-dir` | from `config.yaml` | Stage output on a fast local disk, then move each finished video to `--output-dir`. |
 
 ### `octron render`
-Turn prediction output into shareable videos: an annotated overlay (masks/boxes/labels) or one stabilised crop video per tracked animal (tracklets). See [File system › Analysis](file-system.md#analysis) and [Access output data](access-data.md).
+Turn prediction output into shareable videos: an annotated overlay (masks/boxes/labels) or one stabilised cropped video per tracked animal (tracklets).
 ```
 # Annotated overlay
 octron render /path/to/octron_predictions/clip1_bytetrack --preset draft
@@ -176,7 +174,7 @@ octron gpu-test
 ```
 
 ### `octron download-yolo` / `download-sam2` / `download-sam3`
-Pre-download model weights and checkpoints into the per-user model cache, so the first GUI/prediction run does not have to. SAM3 requires HuggingFace access (see [Installation](installation.md)).
+You can manually initiate the download of model weights and checkpoints into the per-user model cache directory. SAM3 requires HuggingFace access (see [Installation](installation.md)).
 ```
 octron download-yolo
 octron download-sam2
