@@ -21,6 +21,7 @@ nav:
     - training.md
     - analysing.md
     - access-data.md
+    - cli.md
 
   - file-system.md
   #- troubleshooting.md
