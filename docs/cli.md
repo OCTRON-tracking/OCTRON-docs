@@ -1,5 +1,5 @@
 # Using the command line interface (CLI)
-Many of the steps you follow in the GUI, such as training, prediction, and rendering (i.e. viewing results), are also available with a single `octron` command in your terminal. The command line interface (CLI) is ideal for batch jobs, headless servers, remote machines (SSH) and reproducible scripts.
+Many of the steps you follow in the GUI, such as training and prediction, are also available with a single `octron` command in your terminal. The command line interface (CLI) is ideal for batch jobs, headless servers, remote machines (SSH) and reproducible scripts. Some functions, like the render function (for creating overlay videos and tracklet videos - see below), are only available through the command line interface for now. 
 
 After installation and activation of your octron environment, you can run `octron` with no arguments (or with `--help`) to see the help menu that lists all available commands:
 
