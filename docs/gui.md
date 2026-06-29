@@ -6,11 +6,13 @@ conda activate octron
 ```
 Then you can use this command to open napari and OCTRON in the same go (i.e. napari will load and open OCTRON as plugin on the right side of the app).
 ```sh
-octron-gui
+octron gui
 ```
 
 ... and enjoy!  
 On first start this will take a long time to load, since all available models are downloaded. Subsequent startups will be much quicker. Tip: Keep the terminal window visible to see what's going on in the background, especially in case of warnings and errors.
+
+We expose a lot of functionality through a command line interface (cli). For a full documentation of all cli commands, see [here](cli.md).
 
 ## The four main panels
 
