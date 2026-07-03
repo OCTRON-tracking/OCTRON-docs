@@ -93,7 +93,7 @@
 
 6. Check the accessibility of GPU resources on your computer:
     ```sh
-    octron-test-gpu
+    octron gpu-test
     ```
     This should show your graphics card, if it is correctly installed and accessible by PyTorch. It should look something like this:
 
