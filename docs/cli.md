@@ -124,6 +124,9 @@ octron render --preset draft /path/to/octron_predictions/video1_bytetrack
 
 # One cropped, stabilised video per animal
 octron render --tracklets --skip-empty /path/to/octron_predictions/video1_bytetrack
+
+# Force CPU encoding if the GPU encoder (h264_nvenc) fails
+octron render --no-nvenc /path/to/octron_predictions/video1_bytetrack
 ```
 
 | Option | Default | Description |
@@ -132,6 +135,8 @@ octron render --tracklets --skip-empty /path/to/octron_predictions/video1_bytetr
 | `--video` | auto | Original video; auto-detected if alongside `octron_predictions/`. |
 | `--output`, `-o` | `<predictions>/rendered/` | Output directory for the rendered video. |
 | `--preset` | `draft` | Resolution of the rendered video: `preview` (0.25×), `draft` (0.5×), or `final` (full resolution). |
+| `--encoder` | `auto` | Video encoder: `auto` (prefer GPU `h264_nvenc`, else `libx264`), `nvenc` (force GPU), or `libx264` (force CPU). |
+| `--no-nvenc` | off | Force the CPU encoder (`libx264`); shorthand for `--encoder libx264`. Use if `h264_nvenc` fails (e.g. an old NVIDIA driver). |
 | `--start` / `--end` | full video | First / last frame to render. |
 | `--alpha` | `0.4` | Mask overlay opacity (0–1). |
 | `--masks` / `--no-masks` | mode-dependent | Draw segmentation masks. |
