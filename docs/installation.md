@@ -61,6 +61,10 @@
         ```
         Look for the **"CUDA Version"** in the top-right corner of the output (e.g. `CUDA Version: 12.4`). Then use the matching install command below:
 
+        === "CUDA 13.2"
+            ```
+            pip install --extra-index-url https://download.pytorch.org/whl/cu132 "octron[all] @ git+https://github.com/OCTRON-tracking/OCTRON-GUI.git"
+            ```
         === "CUDA 12.8"
             ```
             pip install --extra-index-url https://download.pytorch.org/whl/cu128 "octron[all] @ git+https://github.com/OCTRON-tracking/OCTRON-GUI.git"
@@ -88,6 +92,12 @@
 
 
     
+    !!! tip "If the `pip install` command fails (missing git)"
+        The install command fetches OCTRON directly from GitHub (via `git+https://...`), which requires **git** to be available in your environment. On freshly created conda environments — particularly on **Windows** — git is sometimes missing, which makes the command fail. If that happens, install git into your active `octron` environment and run the `pip install` command again:
+        ```
+        conda install git
+        ```
+
     !!! question "How do I update OCTRON?"
         OCTRON is undergoing a lot of development. So if you haven't used in a while or just want to make sure you run the latest version, you should update it.<br>To update OCTRON make sure you conda activated your environment (step 4) and just run the above `pip install` command (step 5) again. In most cases that is all you need. If you want to update all underlying libaries to the most up-to-date versions, append a `-U` at the end of the command. In some rare cases updates might not work as expected, and you can then try to add an additional `--force-reinstall` at the end of the command to give it all a fresh start.
 
