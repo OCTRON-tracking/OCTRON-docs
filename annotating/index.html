@@ -1,0 +1,1180 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the OCTRON project">
+      
+      
+        <meta name="author" content="Horst Obenhaus">
+      
+      
+        <link rel="canonical" href="https://octron-tracking.github.io/OCTRON-docs/annotating/">
+      
+      
+        <link rel="prev" href="../create-project/">
+      
+      
+        <link rel="next" href="../training/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Generate annotation data - OCTRON</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#generate-annotation-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OCTRON" class="md-header__button md-logo" aria-label="OCTRON" data-md-component="logo">
+      
+  <img src="../assets/header_logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OCTRON
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Generate annotation data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OCTRON-tracking/OCTRON-gui" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OCTRON-tracking
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../gui/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  How to use
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../file-system/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  The file system
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OCTRON" class="md-nav__button md-logo" aria-label="OCTRON" data-md-component="logo">
+      
+  <img src="../assets/header_logo.svg" alt="logo">
+
+    </a>
+    OCTRON
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OCTRON-tracking/OCTRON-gui" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OCTRON-tracking
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to use
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    How to use
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using the GUI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generate annotation data
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generate annotation data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model selection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#label-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Label manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annotation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch prediction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-open-a-previously-annotated-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Re-open a previously annotated video
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combining-annotation-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combining annotation data
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analysing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyze (new) videos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access output data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using the command line interface (CLI)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The file system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="generate-annotation-data">Generate annotation data<a class="headerlink" href="#generate-annotation-data" title="Permanent link">&para;</a></h1>
+<p>Before you can train your model, you need to tell it what to track. This is done by annotating the videos you’ll use for training in the <strong>Generate Annotation Data</strong> tab. This tab becomes active automatically once a video is loaded and displayed in the center area of napari. If you want to use videos you’ve already annotated, go to the Manage Project tab and double-click the video in the <em>Existing Data</em> table to load it. 
+Annotation consists of three separate steps which are described in detail below:</p>
+<ol>
+<li><strong>Model Selection and Label Management:</strong> Create new label names and layers in OCTRON to organize your annotation project within the GUI.</li>
+<li><strong>Annotation:</strong> Perform initial object annotations using SAM-assisted region prediction for each object you want to track.</li>
+<li><strong>Batch Prediction:</strong> Use SAM to predict annotations across subsequent frames, quickly generating additional training data.
+<br></li>
+</ol>
+<p><img src="../assets/screenshots/annnotation_tab.png"/></p>
+<h2 id="model-selection">Model selection<a class="headerlink" href="#model-selection" title="Permanent link">&para;</a></h2>
+<p>Select the model you would like to use for your annotations and click <em>Load model</em>.</p>
+<p>Rules of thumb:</p>
+<ul>
+<li>The larger the model, the more resources (GPU) it demands and the slower it is. Pick the model that offers  the highest precision for the resources you have available.</li>
+<li>All models can be used to label multiple animals, but SAM3 multi is much, much faster/more efficient, especially if you are tracking more than a handful</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Model</th>
+<th style="text-align: left;">GPU demand</th>
+<th style="text-align: left;">Precision</th>
+<th style="text-align: left;">Speed</th>
+<th style="text-align: left;">Example uses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">SAM2 B Plus</td>
+<td style="text-align: left;">+</td>
+<td style="text-align: left;">+</td>
+<td style="text-align: left;">++++</td>
+<td style="text-align: left;">Simple objects occupying many pixels/a large part of the image and have high contrast, such as black beetle on a white background</td>
+</tr>
+<tr>
+<td style="text-align: left;">SAM2 L</td>
+<td style="text-align: left;">++</td>
+<td style="text-align: left;">++</td>
+<td style="text-align: left;">+++</td>
+<td style="text-align: left;">More complicated or smaller objects and complex scenes</td>
+</tr>
+<tr>
+<td style="text-align: left;">SAM2 L HQ</td>
+<td style="text-align: left;">++</td>
+<td style="text-align: left;">+++</td>
+<td style="text-align: left;">++</td>
+<td style="text-align: left;">Small and highly detailed objects</td>
+</tr>
+<tr>
+<td style="text-align: left;">SAM3</td>
+<td style="text-align: left;">++++</td>
+<td style="text-align: left;">+++</td>
+<td style="text-align: left;">+</td>
+<td style="text-align: left;">As for SAM2 Large. Note: SAM3 is a very large model to run locally, be aware that it can be slow in prediction.</td>
+</tr>
+<tr>
+<td style="text-align: left;">SAM3 multi</td>
+<td style="text-align: left;">+++++</td>
+<td style="text-align: left;">+++</td>
+<td style="text-align: left;">+</td>
+<td style="text-align: left;">Many objects of the same type, such as a swarm of flies or school of fish. Giving the labels expressive, real-world names (like "red cell" or "fly") helps increase the accuracy of the model.</td>
+</tr>
+</tbody>
+</table>
+<p>NOTE: Access to SAM3 models requires sharing some personal information with Meta</p>
+<details class="note">
+<summary>How to access SAM3</summary>
+<ol>
+<li>Go to <a href="https://huggingface.co/facebook/sam3">https://huggingface.co/facebook/sam3</a></li>
+<li>Click <strong>Sign Up</strong> (or <strong>Log in</strong> if you already have an account), follow the required steps and wait to be granted access</li>
+<li>Click your profile image in the top right corner of the page and select <strong>Access Tokens</strong> in the menu that appears</li>
+<li>Click <strong>+Create new token</strong></li>
+<li>Select <em>Read</em> for <strong>Token type</strong> and call the token <em>SAM3</em><br><br>
+<img src="../assets/screenshots/create_access_token.png" width="45%" style="display: block;"/><br></li>
+<li>Click <strong>Create token</strong> and copy the access token that appears in a pop-up </li>
+<li>Close the OCTRON gui if you had it open</li>
+<li>In a terminal window, activate the octron environment and execute the following command, substituting <em>YOUR_TOKEN_HERE</em> with your access token
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python -c &quot;from huggingface_hub import login; login(token=&#39;YOUR_TOKEN_HERE&#39;)&quot;
+</span></code></pre></div></li>
+<li>The next time you open OCTRON the SAM3 models will download automatically</li>
+</ol>
+</details>
+<h2 id="label-manager">Label manager<a class="headerlink" href="#label-manager" title="Permanent link">&para;</a></h2>
+<p>This is where you create the labels for the animals/item/structure you want to track. </p>
+<ol>
+<li>
+<p>In the <strong>Type...</strong> drop-down menu, select the type of annotation you would like to use to label your structure. There are two types:</p>
+<ul>
+<li><strong>Points:</strong> often the simplest and fastest. The model will automatically label what it thinks you want to track based on what you left-click on and exclude anything you right-click on. The point annotations do not need to be super precise. You can click roughly on what you want to track and add some points around it to exclude neighbouring regions. </li>
+<li><strong>Shapes:</strong> recommended for labelling items that are not so easily created with the 'Points' type. Here you make an outline around the item to show the model what it should label. </li>
+</ul>
+</li>
+<li>
+<p>In the <strong>Label...</strong> drop-down menu, select <em>Create</em> to open a dialogue box where you can name your label and click <em>Add</em> to add it. </p>
+<ul>
+<li>
+<p><strong>Suffix:</strong> <em>(Optional!)</em> add a number here if you want to label multiple instances of the same thing (e.g. you have two LEDs and want to label them separately as <em>LED 1</em> and <em>LED 2</em>). Note that you <em>can</em> label multiple instances of the same object in one go on the same layer if they look very similar to each other. If this works for you then you do not need to create multiple layers for the same thing. However, SAM2 models do not always track multiple objects per layer well, making it necessary to create multiple layers for those objects.</p>
+<div class="admonition note">
+<p class="admonition-title">Why suffixes are useful</p>
+<p>When using suffixes for your labels, e.g. <em>LED 1</em> and <em>LED 2</em>, then these labels will end up in the same class (i.e. <em>LED</em>) during training. This means that the model treats these as the same type of object when training to identify them, and therefore has twice as many annotations to train on. In contrast, if you give the two LEDs separate labels (i.e. not using the suffix option) then the model will consider these to be separate types of objects and train on them separately too.<br><strong>Hot tip</strong>: It is not always necessary to create separate annotations for repeated objects in your scene! SAM does pick up on repeated textures in your frames, so, if you have objects that look very similar, try to use a points layer to annotate them all in one go (on one single layer). </p>
+</div>
+<details class="note">
+<summary>Removing unwanted label names</summary>
+<p>If you want to remove one of the labels you've created from the <em>Label ...</em> drop-down menu, then select <em>Remove</em> in the drop-down menu and in the pop-up select the label you want to get rid of. This does <strong>not</strong> remove the annotation / mask layers, if any were created for that label.</p>
+</details>
+</li>
+</ul>
+</li>
+<li>
+<p>Click the <strong>Create</strong> button to create your label. Two new layers will appear in the <em>layer list</em> (bottom left left hand section of OCTRON, more on that later).</p>
+</li>
+<li>
+<p>Repeat steps 1-3 until you have all the labels you need. <strong>Important</strong>: Make sure you create all your labels and layers before the first batch prediction (see below). Some SAM2 models do not allow you to add new labels once you started predicting. However, if you run into this problem, you can easily <em>Reset</em> the model (see notes below).</p>
+</li>
+</ol>
+<h2 id="annotation">Annotation<a class="headerlink" href="#annotation" title="Permanent link">&para;</a></h2>
+<p>In the bottom left section of OCTRON you have a <em>layer list</em> of all your layers. When you click on a layer you'll get access to its <em>layer controls</em> in the panel directly above. All layers can be toggled visible/invisible by clicking the 👁️ symbol on the respective layer.
+Each label you create has two layers that it is associated with:</p>
+<ul>
+<li>A <strong>points</strong> or <strong>shapes</strong> layer (depending on what you selected) – this is where you make your annotations.</li>
+<li>A <strong>masks</strong> layer – this shows the result of your annotations, the region predictions, meaning what the SAM2 model has identified as the object based on your input.</li>
+</ul>
+<p>You should never modify the <strong>masks</strong> layer manually. It is simply a visualization layer for the annotated objects. Only work with the <strong>points</strong> or <strong>shapes</strong> layers. </p>
+<ol>
+<li>
+<p>Click on the video layer (the bottom most layer) and make any adjustments necessary (e.g. adjust contrast to enhance visibility of your objects).</p>
+</li>
+<li>
+<p>Navigate to the frame you want to annotate first using the timeline underneath the video. <strong>Important</strong>: Choose episodes in your videos for annotation that are "meaningful". For example, if the animal you are trying to annotate is stationary for the first 500 frames and starts moving on frame 501, it is relatively useless to start annotating on frame 1 of this video since you will accumulate a lot of still frames that do not add much extra information compared to the ones where the animal is actually moving. Rule of thumb: Pick frames that show a wide variety of the subject’s behavior.</p>
+</li>
+<li>
+<p>Add your first annotation. Depending on the layer type you chose:</p>
+<ul>
+<li>
+<p><strong>Points:</strong> click on a points layer and make sure the ➕ symbol is selected in the <em>layer controls</em> panel. Use your mouse to left-click on the object you want to track; you should see a semi-translucent mask appear covering that object. Right-click on anything that should <em>not</em> be included in that mask. The more clicks you make of both kinds, the more refined the region prediction becomes. The clicks do not have to be very precise. Rule of thumb: 1-5 clicks per object should give you nicely segmented regions. For complex objects with less pronounced separation from background you might need to add more clicks. </p>
+<details class="note">
+<summary>How to edit or remove unwanted points</summary>
+<p>If you make a mistake and would like to edit or remove a point, select the point with the arrow (selection tool) in the <em>layer controls</em>. You can either move it with the arrow tool or delete it by clicking on the "x". The region prediction will update automatically.</p>
+</details>
+</li>
+<li>
+<p><strong>Shapes:</strong> click on a shapes layer and select the type of shape you want to use in the <em>layer controls</em>. Note that the square/rectangle behaviour is different from the other shapes:</p>
+<ul>
+<li><strong>Rectangle:</strong> left-click and drag the shape around the object you want to label, and release. OCTRON will automatically try to identify the structure you want to label within that shape. <strong>If using SAM3 multi:</strong> the structure will not be immediately identified. Continue to draw rectangles (i.e. around several individuals of the same species) and then click <em>Run</em> to tell OCTRON to identify all instances of the labeled structure.</li>
+<li><strong>Any other shape:</strong> left-click and drag and release (e.g. for the circle shape), or left-click around the shape you want to label (e.g. for the polygon shape). You can refine a shapes layer by using the tools shown in that layer's <em>layer controls</em> (e.g. remove/add/adjust points on the shape outline). As with the points layer, the predictions will update automatically after every change.</li>
+</ul>
+</li>
+</ul>
+<p>Note that every annotation is automatically saved: As soon as a region is predicted, i.e. a mask is shown to you, it is already saved to disk. If you ever want to switch the annotation type (e.g. from <em>points</em> to <em>shapes</em>), delete the mask layer associated with that annotation type by selecting it and clicking the 🗑️ symbol (both the mask and points layers will be removed), then add the layer again. The annotations you have done up to this point are not deleted though! If you choose the same label name and suffix when re-creating the layer, the previous mask annotation data will be reloaded, and you will be able to continue annotating with the new annotation layer. </p>
+<details class="question">
+<summary>How do I completely delete annotations?</summary>
+<p>It is relatively tough to "destroy" annotations you have created in your project. For example, if you delete the mask or annotation layers you can easily re-create them and the underlying mask information for every annotated frame will be automatically reloaded if it is saved on disk.<br>But lets say you are unhappy with one of your annotations and you want to start from scratch. In this case you need to go through the following steps:<br>
+- Delete the corresponding <em>mask</em> and <em>annotation</em> layers in napari (if you delete the <em>mask</em> layer, the <em>annotation</em> layer will be auto-deleted).<br>
+- Find the annotation file in your project folder on disk and delete it manually. All annotations are saved per video under a folder with a hash (8 characters consisting of numbers and letters). This hash is also shown in the <em>Existing data</em> table in the <strong>Manage project</strong> tab and it is written in the title of the annotation tab (For example: <code>Generate annotation data for: 52174460</code>). Once you found this hash subfolder in your project folder, open it. Within, you will find a folder called something like <em>"your-label-name masks.zarr"</em>. Remove this folder. <br>
+- Re-create the layers in your project in OCTRON<br></p>
+</details>
+</li>
+<li>
+<p>Once you have annotated all the object you want to track in a single frame, you can now get help from OCTRON to annotate the remaining frames by "batch predicting" subsequent frames in the video without having to manually annotate them. </p>
+</li>
+</ol>
+<h2 id="batch-prediction">Batch prediction<a class="headerlink" href="#batch-prediction" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>In the <em>Batch prediction</em> section, click ▶️ to predict the next frame. The model you selected under <em>Model selection</em> will now create masks in the following frame, on what it thinks are the same objects as those you've annotated. </p>
+<details class="note">
+<summary>What to do if the predicted masks look bad</summary>
+<p>If this happens then you need to refine the predicted mask: </p>
+<ul>
+<li>If you used the <em>points</em> type, then you just need to add a few more left- and right-clicks on the old or the new frame to help the model recognise the object better. </li>
+<li>If you used the the <em>shapes</em> type it's often easiest to redraw the shape in the new frame. </li>
+</ul>
+</details>
+</li>
+</ol>
+<p>If you're happy with the prediction, continue clicking ▶️ to see if the predictions continue to look good for the following frames, adjusting the masks if necessary.</p>
+<ol>
+<li>
+<p>Once the predictions seem to be reliably good, click the <em>15 frames</em> button to predict 15 frames in a row. Once the predictions are finished, you can go back and adjust the masks if necessary; either individually if there's only one or two frames that are off, or just the first frame where the predictions went wrong and then try predicting 15 frames again from there (the new predictions will overwrite the old ones).</p>
+</li>
+<li>
+<p>(<em>Optional</em>) When predicting 15 frames in a row works well, then you can start to <strong>skip frames</strong> to speed up the process, especially if there is very little happening from frame to frame, i.e. the animal is relatively stationary and does not change much from frame to frame. If at some point you need to return to a previously annotated frame that was several frames away, you can use the <em>timeline control</em> to quickly move between them.</p>
+<ul>
+<li><strong>Skip:</strong> the number of frames you want to skip before predictions should be made again (this will apply both if you click ▶️ and if you click <em>15 frames</em>).</li>
+<li><strong>Timeline control:</strong> click <em>Jump to previous</em> or <em>Jump to next</em> to move to the closest preceding/upcoming annotated frame.</li>
+</ul>
+</li>
+<li>
+<p>Continue predicting frames until you reach the end of the video or have annotated a reasonable number of frames. At this point, click on <strong>Visualize all</strong> in Layer Controls to check how well your annotations cover the field of view and the subject’s range of postures. This helps ensure your annotations aren’t concentrated in just one area, unless, of course, the object you’re annotating is stationary. It is usually better to find episodes in your video during which the object of interest moves around and goes through various postures - the more diversity you capture, the better.</p>
+<details class="question">
+<summary>How do I know how many frames have been annotated?</summary>
+<p>Open the <em>Manage project</em> tab and look for the video you're currently annotating in the <em>Existing data</em> list. The last few characters of the folder and file name are visible in the first two columns, followed by the number of labels in each video, and the total number of frames that have been annotated. Each row can be hovered over with your mouse to reveal the full video path and label names.</p>
+<p><img alt="a screenshot of the 'Manage project' tab" src="../assets/screenshots/start_screen_loaded.png" /></p>
+</details>
+<details class="question">
+<summary>How many frames should I annotate?</summary>
+<p>Rule of thumb: Aim for about 100–150 annotations per video. The exact number depends on how much variety your annotations cover. The more diverse they are, the better your model will learn to generalize.
+Focus on clips that show lots of different postures and movements. A stationary object won’t teach the model much.</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">The predictions become much slower than they were in the beginning</p>
+<p>Sometimes the batch predictions slow down significantly. This sometimes happens when the model is basing its predictions on a large number of annotated frames and objects. If the model helping you annotate starts to slow down, click the <strong>Reset</strong> button (underneath <strong>Create</strong>). This clears the model’s temporary memory and gives it a fresh start - but don’t worry, your existing annotations and mask layers will stay intact. After resetting, you’ll need to teach the model again from scratch for each object you want to track.</p>
+</div>
+</li>
+<li>
+<p>Ready to move onto the next video? Your annotations are saved automatically (in a dedicated folder in your project folder - the folder name matches the hash in the <a href="../create-project/#existing-data"><em>Existing data</em></a> list under <strong>Manage project</strong>), so delete the video layer (this will remove all the other layers too) by selecting the layer and clicking the trash bin icon before <a href="../create-project/#add-new-video-file">adding a new video file</a>. If you forget to delete the video layer, a warning will pop up to remind you. The <em>Label...</em> drop-down menu will remain unchanged, so you save some time when creating labels and can quickly start annotating again.</p>
+<div class="admonition warning">
+<p class="admonition-title">Always use the same label names</p>
+<p>Make sure to be consistent when naming labels across videos (e.g. if you start with 'stone', don't use 'rock' later). If the names are not identical then OCTRON will assume that you're annotating different objects and treat them as such.</p>
+</div>
+<details class="question">
+<summary>Is it better to annotate a lot of frames in a few videos, or a few frames in a lot of videos?</summary>
+<p>You need a reasonable number of annotated frames in each video (see the guideline above), but once you’ve reached that, it’s better to annotate more videos rather than adding more frames to the same video. Why? Because additional videos introduce more diversity and variability into your training data. This helps the model learn to generalize better, resulting in improved performance.</p>
+</details>
+<details class="question">
+<summary>I want to re-annotate a video from scratch</summary>
+<p>If you're unhappy or having issues with your annotations and want to start from scratch, you can delete the annotation folder in two ways:<br />
+1. Find the video in the <a href="../create-project/#existing-data"><em>Existing data</em></a> list under <strong>Manage project</strong>, right click, and select <em>Delete</em><br />
+2. Find the annotation folder in your project folder (the name of the folder will match the hash found in the <a href="../create-project/#existing-data"><em>Existing data</em></a> list under <strong>Manage project</strong>) and delete it  </p>
+</details>
+</li>
+</ol>
+<p>To understand more about what output OCTRON is saving during annotations see the <a href="../file-system/#annotation">File System - Annotation</a> page.</p>
+<h2 id="re-open-a-previously-annotated-video">Re-open a previously annotated video<a class="headerlink" href="#re-open-a-previously-annotated-video" title="Permanent link">&para;</a></h2>
+<p>In the <a href="../create-project/#existing-data"><em>Existing data</em></a> section in the <strong>Manage project</strong> tab, you can double-click any of the listed videos to re-open one with all its associated layers and annotations. To revise or add annotations, you will need to load a SAM model again in the <em>Model selection</em> section.<br><strong>Tip:</strong> It does not matter which SAM model you load as long as you stay in the same "family"! You can mix the SAM2 models with each other on subsequent runs, but not SAM2 and SAM3 models. </p>
+<h2 id="combining-annotation-data">Combining annotation data<a class="headerlink" href="#combining-annotation-data" title="Permanent link">&para;</a></h2>
+<p>You can easily combine annotation data in OCTRON. For example, if you and your colleagues annotate different videos on separate computers, just copy or move all the annotation folders (the ones with 8 random letters and numbers) into the project folder. Make sure all the raw video files used for those annotations are also available in the project folder path. When you load this combined project folder in OCTRON, all annotations across all videos will appear, and you can create training data as usual (see the next pages). <strong>Important</strong>: Ensure that label names are consistent across all annotations.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../create-project/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Create project">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Create project
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../training/" class="md-footer__link md-footer__link--next" aria-label="Next: Training">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Training
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025-2035 Horst Obenhaus
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/OCTRON-tracking" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://bsky.app/profile/octoscience.bsky.social" target="_blank" rel="noopener" title="bsky.app" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M407.8 294.7c-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3M288 227.1c-26.1-50.7-97.1-145.2-163.1-191.8C61.6-9.4 37.5-1.7 21.6 5.5 3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7 3.3-.5 6.6-.9 10-1.4-3.3.5-6.6 1-10 1.4-93.9 14-177.3 48.2-67.9 169.9C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4 102.4-103.4 28.1-156-65.8-169.9-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3 64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "header.autohide", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
