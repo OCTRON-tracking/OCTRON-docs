@@ -61,6 +61,10 @@
         ```
         Look for the **"CUDA Version"** in the top-right corner of the output (e.g. `CUDA Version: 12.4`). Then use the matching install command below:
 
+        === "CUDA 13.2"
+            ```
+            pip install --extra-index-url https://download.pytorch.org/whl/cu132 "octron[all] @ git+https://github.com/OCTRON-tracking/OCTRON-GUI.git"
+            ```
         === "CUDA 12.8"
             ```
             pip install --extra-index-url https://download.pytorch.org/whl/cu128 "octron[all] @ git+https://github.com/OCTRON-tracking/OCTRON-GUI.git"
