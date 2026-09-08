@@ -24,7 +24,7 @@ Segmentation and detection are color coded throughout the GUI.
 
 
 ## Generate training data
-OCTRON needs to generate data to train the model on, i.e. it takes your annotations and splits them into a training dataset and a testing dataset. This enables it to evaluate how well the training is going by comparing its predictions against the ground truth. First, consider these options:
+OCTRON needs to generate data to train the model on: it takes your annotations and splits them into a **training**, **validation**, and **test** set. The validation set lets OCTRON track how well training is going on held-out frames, and the test set is kept aside for a final, unbiased check. First, consider these options:
 
 - **Prune:** select this if there are frames in which it is likely that not all of your objects were annotated despite them all being present. By selecting this option OCTRON will 'prune' the annotated frames so that only those where all labels are present are used. Otherwise you will be counteracting the training (the model will think that if one object isn't annotated in a certain frame, but the other objects are, this means the un-annotated object isn't there).
 - **Watershed:** If you have labeled multiple instances of the *same kind of object* on *the same* annotation layer, then you can use a watershedding operation to make sure that when two or more of these objects touch slightly (for example when they bump into each other over time), they still form separate masks. You can see a visual explanation of this process [here](https://github.com/horsto/OCTRON-GUI/issues/1).
@@ -33,7 +33,33 @@ OCTRON needs to generate data to train the model on, i.e. it takes your annotati
 Once you click *Generate*, you can observe the progress in the two progress bars:
 
 - **label:** the progress for a given label.
-- **label and split:** the progress of splitting up the annotated data into a training and testing dataset.
+- **label and split:** the progress of exporting the annotated data into the train/val/test sets.
+
+### How the split works
+OCTRON annotations often contain long runs of near-identical frames, because SAM propagates a mask you draw across many neighbouring frames. A naive random split would scatter these near-duplicates across train and validation, so the model would effectively be validated on frames it already trained on — and your metrics would look better than they really are.
+
+To avoid this, OCTRON splits **by episode, then by contiguous block**: annotated frames are grouped into *episodes* (bursts of annotation separated by long gaps), each episode is cut into short contiguous chunks, and whole chunks are assigned to train/val/test. Neighbouring near-duplicate frames therefore stay on the same side, and a small buffer frame is dropped wherever a train chunk meets a val/test chunk. The amounts are chosen across the whole video, so the realized proportions track your target (e.g. 70/15/15).
+
+### Reading the split summary
+After splitting, OCTRON prints a summary table and a colored timeline to the terminal — both in the GUI and via [`octron split`](cli.md#octron-split):
+```
+Split summary  (seed=88)
+----------------------------------------------
+Subfolder  Label        Train  Val  Test  Total
+----------------------------------------------
+43aace64   grey ovals     246   58    59    372
+----------------------------------------------
+
+Timeline: 43aace64  (10490 frames, 363 assigned, 9 buffered, 4 episode(s))
+0 ██████ … ████ … ██ 10490
+Legend: █ train  █ val  █ test  ░ unannotated  … gap
+```
+
+- The **summary table** lists, per subfolder and label, how many frames are in Train / Val / Test and the Total. `Total` is often a little larger than Train+Val+Test: the difference is the *buffered* frames dropped at chunk boundaries.
+- The **timeline** shows where annotations fall across the whole video. Colored blocks mark train (green), val (blue) and test (yellow); long unannotated stretches are collapsed to ` … `. Each annotated episode is sized in proportion to its frame count, so you can see at a glance how train/val/test are distributed.
+
+!!! tip "Changing the split fractions"
+    The GUI uses the split fractions and random seed stored in your `config.yaml` (defaults: 70% train, 15% validation, 15% test, seed 88). Edit `split_train_fraction`, `split_val_fraction` and `split_seed` there to change the split the GUI produces. From the command line you can additionally override them per run with `octron split --train ... --val ... --seed ...` (see [`octron split`](cli.md#octron-split)).
 
 ## Train
 Once the training data has been generated, OCTRON is ready to train your model.

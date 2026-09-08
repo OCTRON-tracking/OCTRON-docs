@@ -51,7 +51,7 @@ Example: `octron transcode -o /path/to/videos/mp4_transcoded /path/to/videos`
 
 
 ### **`octron split`**
-Prepare and export the train/val/test split from an annotated OCTRON project, without training. Useful if you want to inspect the split first, and then run `octron train --no-split`. See [Training › Generate training data](training.md#generate-training-data).
+Prepare and export the train/val/test split from an annotated OCTRON project, without training. It prints a split summary table and a colored timeline showing where train/val/test fall across each video, so it is handy for inspecting the split before you run `octron train --no-split`. See [Training › Generate training data](training.md#generate-training-data).
 
 Usage: `octron split [OPTIONS] PROJECT_PATH`
 
@@ -61,10 +61,13 @@ Example: `octron split --train 0.7 --val 0.15 --dry-run /path/to/project`
 | --- | --- | --- |
 | `PROJECT_PATH` | *(required)* | Path to the OCTRON project directory. |
 | `--mode` | `segment` | `segment` (instance segmentation) or `detect` (bounding boxes). |
-| `--train` | `0.7` | Fraction of frames used for training. |
-| `--val` | `0.15` | Fraction of frames for validation (the remainder of train+val frames becomes the test split). |
-| `--seed` | `88` | Random seed for a reproducible split. |
+| `--train` | from `config.yaml` (default `0.7`) | Fraction of frames used for training. |
+| `--val` | from `config.yaml` (default `0.15`) | Fraction of frames for validation (the remainder becomes the test split). |
+| `--seed` | from `config.yaml` (default `88`) | Random seed for a reproducible split. |
 | `--dry-run` | off | Print the split sizes without writing any files. |
+
+!!! tip "Split defaults live in `config.yaml`"
+    `--train`, `--val` and `--seed` default to `split_train_fraction`, `split_val_fraction` and `split_seed` in your `config.yaml`; passing a flag overrides the config for that run. The GUI uses the same config values (without per-run overrides), so the CLI and GUI produce the same split by default.
 
 ### **`octron train`**
 Prepare training data (by default) and train a YOLO model. This is the command-line equivalent of [Training › Train](training.md#train).
@@ -85,7 +88,7 @@ Example: `octron train --model yolo26m --mode segment --epochs 250 --device auto
 | `--overwrite` | off | Overwrite an existing trained model (default: skip if `best.pt` exists). |
 | `--resume` | off | Resume from an existing `last.pt` checkpoint. |
 | `--no-split` | off | Skip data preparation (use when `octron split` has already run). |
-| `--train` / `--val` / `--seed` | `0.7` / `0.15` / `88` | Split fractions and seed (ignored with `--no-split`). |
+| `--train` / `--val` / `--seed` | from `config.yaml` (default `0.7` / `0.15` / `88`) | Split fractions and seed (ignored with `--no-split`). |
 
 ### **`octron predict`**
 Run a trained model on new videos to produce detections/masks and tracks. This is the command-line equivalent of [Analyze (new) videos](analysing.md); the output layout is documented under [File system › Analysis](file-system.md#analysis).
