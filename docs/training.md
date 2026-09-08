@@ -40,6 +40,8 @@ OCTRON annotations often contain long runs of near-identical frames, because SAM
 
 To avoid this, OCTRON splits **by episode, then by contiguous block**: annotated frames are grouped into *episodes* (bursts of annotation separated by long gaps), each episode is cut into short contiguous chunks, and whole chunks are assigned to train/val/test. Neighbouring near-duplicate frames therefore stay on the same side, and a small buffer frame is dropped wherever a train chunk meets a val/test chunk. The amounts are chosen across the whole video, so the realized proportions track your target (e.g. 70/15/15).
 
+When a project has several labels, the split is decided **once per frame** over all labels together, so a frame annotated for more than one object always lands in the same set — the same image is never used for training on one label and validation on another. The width of the boundary buffer is adjustable, so you can leave a larger temporal gap between train and val/test when your frames are very densely annotated.
+
 ### Reading the split summary
 After splitting, OCTRON prints a summary table and a colored timeline to the terminal — both in the GUI and via [`octron split`](cli.md#octron-split):
 ```
@@ -59,7 +61,7 @@ Legend: █ train  █ val  █ test  ░ unannotated  … gap
 - The **timeline** shows where annotations fall across the whole video. Colored blocks mark train (green), val (blue) and test (yellow); long unannotated stretches are collapsed to ` … `. Each annotated episode is sized in proportion to its frame count, so you can see at a glance how train/val/test are distributed.
 
 !!! tip "Changing the split fractions"
-    The GUI uses the split fractions and random seed stored in your `config.yaml` (defaults: 70% train, 15% validation, 15% test, seed 88). Edit `split_train_fraction`, `split_val_fraction` and `split_seed` there to change the split the GUI produces. From the command line you can additionally override them per run with `octron split --train ... --val ... --seed ...` (see [`octron split`](cli.md#octron-split)).
+    The GUI uses the split fractions, random seed and boundary buffer stored in your `config.yaml` (defaults: 70% train, 15% validation, 15% test, seed 88, buffer 1). Edit `split_train_fraction`, `split_val_fraction`, `split_seed` and `split_buffer` there to change the split the GUI produces. From the command line you can additionally override them per run with `octron split --train ... --val ... --seed ... --buffer ...` (see [`octron split`](cli.md#octron-split)).
 
 ## Train
 Once the training data has been generated, OCTRON is ready to train your model.
