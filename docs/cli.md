@@ -198,10 +198,11 @@ Example: `octron gpu-test`
 ### **`octron config`**
 View and edit the OCTRON settings stored in `config.yaml` (model/prediction cache directories, compute device, and the train/val/test split defaults). The GUI reads the same file, so a change here applies to both. See [Configuration](configuration.md) for the full settings reference.
 
-Usage: `octron config [list|get|set|path|edit] ...`
+Usage: `octron config [init|list|get|set|path|edit] ...`
 
 | Sub-command | Description |
 | --- | --- |
+| `init` | Write a commented `config.yaml` template of every setting (`--force` overwrites; also written on first GUI launch). |
 | `list` | Show every setting with its current value, default and source. |
 | `get KEY` | Print a single value to stdout (only the value, safe in scripts). |
 | `set KEY VALUE` | Validate and save a value to `config.yaml` (created if needed). |
@@ -210,6 +211,7 @@ Usage: `octron config [list|get|set|path|edit] ...`
 
 Examples:
 ```
+octron config init
 octron config list
 octron config set model_cache_dir /nas/octron_models
 octron config set split_train_fraction 0.8

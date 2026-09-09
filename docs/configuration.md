@@ -1,7 +1,7 @@
 # Configuration (`config.yaml`)
 OCTRON keeps a small set of user-tunable settings in a `config.yaml` file — things like where to cache downloaded models and the default train/val/test split. The same file is read by both the GUI and the [command line interface](cli.md), so a setting you change once applies everywhere.
 
-You rarely need to edit this file by hand: the [`octron config`](#viewing-and-editing-settings) commands read and write it for you (with validation), and the GUI writes to it when you change the relevant options.
+You rarely need to edit this file by hand: the [`octron config`](#viewing-and-editing-settings) commands read and write it for you (with validation). The GUI only **reads** these settings (it has no config-backed widgets), so `config.yaml` is created when you first save a setting (`octron config set`), scaffold a commented template (`octron config init`), or open it (`octron config edit`) — and the GUI writes the template automatically on first launch. Until it exists, `octron config path` reports it as *not created yet* and OCTRON uses the built-in defaults.
 
 ## Where it lives
 The file lives in your platform's per-user configuration directory:
@@ -38,6 +38,7 @@ The `octron config` sub-commands are the recommended way to inspect and change s
 
 | Command | What it does |
 | --- | --- |
+| `octron config init` | Write a commented template of every setting to `config.yaml` (`--force` overwrites; the GUI also writes it on first launch). The template is inert until you uncomment a line. |
 | `octron config list` | Show every setting with its current value, default and source (default vs `config.yaml`). |
 | `octron config get KEY` | Print a single value to stdout — only the value, so it is safe in scripts. |
 | `octron config set KEY VALUE` | Validate `VALUE` and save it to `config.yaml` (created if needed). |
@@ -46,6 +47,9 @@ The `octron config` sub-commands are the recommended way to inspect and change s
 
 Examples:
 ```
+# Create a commented config.yaml you can edit (also written on first GUI launch)
+octron config init
+
 # See everything at a glance
 octron config list
 
