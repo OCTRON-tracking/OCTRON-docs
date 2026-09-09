@@ -25,6 +25,14 @@ A setting's effective value is resolved with the following precedence (later win
 
 A malformed file never breaks OCTRON: unknown keys are ignored and invalid values fall back to their default (both with a warning).
 
+## What belongs here
+`config.yaml` is deliberately small: a setting lives here only when it needs a **persistent default shared by the GUI and the CLI**, and it falls into one of two groups:
+
+- **Machine-level settings** — `model_cache_dir`, `prediction_cache_dir` and `device` describe your environment (where downloads and scratch output go, and which compute device to use), not a single run. The GUI has no widget for them, so `config.yaml` is the only place to change them there.
+- **Defaults the GUI applies but doesn't expose** — the split parameters (`split_train_fraction`, `split_val_fraction`, `split_seed`, `split_buffer`) and `prediction_buffer_size` are used automatically by the GUI but have no on-screen control, so the config file is the only way a GUI user can change them. They are admittedly low-level; the CLI additionally mirrors them as per-run flags (`--train`/`--val`/`--seed`/`--buffer`, `--buffer-size`) for scripting.
+
+Knobs that already have a GUI control, or that are inherently per-run, stay **out** of `config.yaml`: training options such as `--epochs`, `--imagesz`, `--model` and `--save-period` have Train-tab widgets; `--prune`/`--watershed` and the prediction thresholds (`--conf-thresh`, `--iou-thresh`, `--opening-radius`, `--skip-frames`) have GUI controls; and tracker parameters live in their own YAML via [`octron dump-tracker-config`](cli.md#octron-dump-tracker-config).
+
 ## Viewing and editing settings
 The `octron config` sub-commands are the recommended way to inspect and change settings:
 
@@ -58,6 +66,8 @@ octron config set prediction_cache_dir ""
     Available settings can change between OCTRON versions. `octron config list` always reflects exactly what your installed version supports, including each setting's description.
 
 ## Settings reference
+This is the **complete** set of `config.yaml` settings — see [What belongs here](#what-belongs-here) for why the list is intentionally short.
+
 | Key | Default | Description |
 | --- | --- | --- |
 | `prediction_cache_dir` | *(unset)* | Local directory used to stage [prediction](analysing.md) output before moving it to the final destination (e.g. fast NVMe scratch). Empty = write directly to the destination (caching off). Overridden per run by `octron predict --local-cache-dir`. |
@@ -66,5 +76,7 @@ octron config set prediction_cache_dir ""
 | `split_val_fraction` | `0.15` | Fraction used for validation; the remainder becomes the test split. Overridden by `--val`. |
 | `split_seed` | `88` | Random seed for the reproducible [train/val/test split](training.md#how-the-split-works). Overridden by `--seed`. |
 | `split_buffer` | `1` | Frames dropped at each split block boundary to add a temporal gap between train and val/test (`0` disables). Overridden by `--buffer`. |
+| `device` | `auto` | Compute device for training and prediction (`auto`/`cpu`/`cuda`/`mps`); `auto` picks CUDA → MPS → CPU. The GUI has no device selector, so this is the only way to change it there. Overridden per run by `octron train`/`predict --device`. |
+| `prediction_buffer_size` | `500` | Frames buffered before writing prediction output to zarr; lower it to reduce memory use on constrained machines. Overridden by `octron predict --buffer-size`. |
 
 The split settings are explained in more detail under [Training › How the split works](training.md#how-the-split-works).
