@@ -24,6 +24,7 @@ The table below lists every command and links to the relevant part of the docume
 | `octron render` | Render annotated overlays or per-animal tracklet crops from predictions. |[Analyze (new) videos › Results](analysing.md#results), [Access output data](access-data.md) |
 | `octron dump-tracker-config` | Print/write a tracker's default config YAML to customize it. | [BoxMOT trackers](analysing.md#boxmot-trackers) |
 | `octron gpu-test` | Check CUDA / MPS (GPU) availability. | [Installation](installation.md) |
+| `octron config` | View or edit `config.yaml` settings (cache paths, split defaults). | [Configuration](configuration.md) |
 | `octron download-yolo` | Download/refresh YOLO base weights into the model cache. | [Installation](installation.md) |
 | `octron download-sam2` | Download/refresh SAM2 checkpoints into the model cache. | [Installation](installation.md) |
 | `octron download-sam3` | Download/refresh the SAM3 checkpoint (needs HuggingFace access). | [Installation](installation.md) |
@@ -193,6 +194,27 @@ Example: `octron gui`
 Check and report whether a CUDA or MPS (Apple Silicon) GPU is available — useful to confirm that your install can use hardware acceleration (see [Installation](installation.md)). No options available.
 
 Example: `octron gpu-test`
+
+### **`octron config`**
+View and edit the OCTRON settings stored in `config.yaml` (model/prediction cache directories and the train/val/test split defaults). The GUI reads the same file, so a change here applies to both. See [Configuration](configuration.md) for the full settings reference.
+
+Usage: `octron config [list|get|set|path|edit] ...`
+
+| Sub-command | Description |
+| --- | --- |
+| `list` | Show every setting with its current value, default and source. |
+| `get KEY` | Print a single value to stdout (only the value, safe in scripts). |
+| `set KEY VALUE` | Validate and save a value to `config.yaml` (created if needed). |
+| `path` | Print the `config.yaml` location and whether it exists yet. |
+| `edit` | Open `config.yaml` in your `$EDITOR`. |
+
+Examples:
+```
+octron config list
+octron config set model_cache_dir /nas/octron_models
+octron config set split_train_fraction 0.8
+SEED=$(octron config get split_seed)
+```
 
 ### **`octron download-yolo` / `download-sam2` / `download-sam3`**
 You can manually initiate the download of model weights and checkpoints into the per-user model cache directory. SAM3 requires HuggingFace access (see *How to access SAM3* under [Model selection](annotating.md#model-selection)).

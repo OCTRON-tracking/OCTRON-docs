@@ -22,6 +22,7 @@ nav:
     - analysing.md
     - access-data.md
     - cli.md
+    - configuration.md
 
   - file-system.md
   #- troubleshooting.md
