@@ -24,6 +24,7 @@ The table below lists every command and links to the relevant part of the docume
 | `octron render` | Render annotated overlays or per-animal tracklet crops from predictions. |[Analyze (new) videos › Results](analysing.md#results), [Access output data](access-data.md) |
 | `octron dump-tracker-config` | Print/write a tracker's default config YAML to customize it. | [BoxMOT trackers](analysing.md#boxmot-trackers) |
 | `octron gpu-test` | Check CUDA / MPS (GPU) availability. | [Installation](installation.md) |
+| `octron config` | View or edit `config.yaml` settings (cache paths, device, split defaults). | [Configuration](configuration.md) |
 | `octron download-yolo` | Download/refresh YOLO base weights into the model cache. | [Installation](installation.md) |
 | `octron download-sam2` | Download/refresh SAM2 checkpoints into the model cache. | [Installation](installation.md) |
 | `octron download-sam3` | Download/refresh the SAM3 checkpoint (needs HuggingFace access). | [Installation](installation.md) |
@@ -84,7 +85,7 @@ Example: `octron train --model yolo26m --mode segment --epochs 250 --device auto
 | `PROJECT_PATH` | *(required)* | Path to the OCTRON project directory. |
 | `--model` | `yolo26m` | YOLO base model to train. |
 | `--mode` | `segment` | `segment` (instance segmentation) or `detect` (bounding boxes). |
-| `--device` | `auto` | `auto`, `cpu`, `cuda`, or `mps` (`auto` picks CUDA → MPS → CPU). |
+| `--device` | from `config.yaml` (default `auto`) | `auto`, `cpu`, `cuda`, or `mps` (`auto` picks CUDA → MPS → CPU). |
 | `--epochs` | `250` | Number of training epochs. |
 | `--imagesz` | `640` | Input image size. |
 | `--save-period` | `50` | Save a checkpoint every N epochs. |
@@ -108,7 +109,7 @@ Example: `octron predict --model /path/to/best.pt --tracker bytetrack --device a
 | `--model` | *(required)* | Path to a trained YOLO `.pt` file (or a directory containing `best.pt`). |
 | `--tracker` | `bytetrack` | Tracker algorithm — see [BoxMOT trackers](analysing.md#boxmot-trackers). |
 | `--tracker-config` | – | Custom tracker YAML, overrides `--tracker` (create one with [`octron dump-tracker-config`](#octron-dump-tracker-config)). |
-| `--device` | `auto` | `auto`, `cpu`, `cuda`, or `mps`. |
+| `--device` | from `config.yaml` (default `auto`) | `auto`, `cpu`, `cuda`, or `mps`. |
 | `--conf-thresh` | `0.5` | Detection confidence threshold. |
 | `--iou-thresh` | `0.7` | IoU threshold for non-maximum suppression. |
 | `--skip-frames` | `0` | Skip frames between predictions (0 = analyze every frame). |
@@ -116,7 +117,7 @@ Example: `octron predict --model /path/to/best.pt --tracker bytetrack --device a
 | `--opening-radius` | `0` | Morphological opening radius applied to masks (0 = off). |
 | `--detailed` | – | Region properties to extract — a comma-separated list or `all` (see [Analysis](file-system.md#analysis) › Explanation of .csv data). |
 | `--overwrite` | off | Replace existing predictions (default: skip already-analysed videos). |
-| `--buffer-size` | `500` | Frames buffered before writing to zarr. |
+| `--buffer-size` | from `config.yaml` (default `500`) | Frames buffered before writing to zarr. |
 | `--output-dir`, `-o` | alongside each video | Directory where `octron_predictions/` is written. |
 | `--local-cache-dir` | from `config.yaml` | Stage output on a fast local disk, then move each finished video to `--output-dir`. |
 
@@ -193,6 +194,29 @@ Example: `octron gui`
 Check and report whether a CUDA or MPS (Apple Silicon) GPU is available — useful to confirm that your install can use hardware acceleration (see [Installation](installation.md)). No options available.
 
 Example: `octron gpu-test`
+
+### **`octron config`**
+View and edit the OCTRON settings stored in `config.yaml` (model/prediction cache directories, compute device, and the train/val/test split defaults). The GUI reads the same file, so a change here applies to both. See [Configuration](configuration.md) for the full settings reference.
+
+Usage: `octron config [init|list|get|set|path|edit] ...`
+
+| Sub-command | Description |
+| --- | --- |
+| `init` | Write a commented `config.yaml` template of every setting (`--force` overwrites; also written on first GUI launch). |
+| `list` | Show every setting with its current value, default and source. |
+| `get KEY` | Print a single value to stdout (only the value, safe in scripts). |
+| `set KEY VALUE` | Validate and save a value to `config.yaml` (created if needed). |
+| `path` | Print the `config.yaml` location and whether it exists yet. |
+| `edit` | Open `config.yaml` in your `$EDITOR`. |
+
+Examples:
+```
+octron config init
+octron config list
+octron config set model_cache_dir /nas/octron_models
+octron config set split_train_fraction 0.8
+SEED=$(octron config get split_seed)
+```
 
 ### **`octron download-yolo` / `download-sam2` / `download-sam3`**
 You can manually initiate the download of model weights and checkpoints into the per-user model cache directory. SAM3 requires HuggingFace access (see *How to access SAM3* under [Model selection](annotating.md#model-selection)).
