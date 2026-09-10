@@ -83,7 +83,7 @@ Example: `octron train --model yolo26m --mode segment --epochs 250 --device auto
 | Option | Default | Description |
 | --- | --- | --- |
 | `PROJECT_PATH` | *(required)* | Path to the OCTRON project directory. |
-| `--model` | `yolo26m` | YOLO base model to train. |
+| `--model` | `yolo26m` | Base model to train — a YOLO model (segmentation or detection) or an RT-DETR model (`rtdetr-l`, `rtdetr-x`; **detection-only**, use with `--mode detect`). |
 | `--mode` | `segment` | `segment` (instance segmentation) or `detect` (bounding boxes). |
 | `--device` | from `config.yaml` (default `auto`) | `auto`, `cpu`, `cuda`, or `mps` (`auto` picks CUDA → MPS → CPU). |
 | `--epochs` | `250` | Number of training epochs. |
@@ -95,6 +95,9 @@ Example: `octron train --model yolo26m --mode segment --epochs 250 --device auto
 | `--train` / `--val` / `--seed` / `--buffer` | from `config.yaml` (default `0.7` / `0.15` / `88` / `1`) | Split fractions, seed and boundary buffer (ignored with `--no-split`). |
 | `--prune` / `--no-prune` | off | Drop frames where not every label is annotated (ignored with `--no-split`). |
 | `--watershed` / `--no-watershed` | off | Split touching same-label masks into separate instances (ignored with `--no-split`). |
+
+!!! note "RT-DETR is detection-only"
+    RT-DETR models (`rtdetr-l`, `rtdetr-x`) support only `--mode detect`. Running e.g. `octron train --model rtdetr-l --mode segment` stops with a clear message; use `--mode detect`, or pick a segmentation-capable YOLO model.
 
 ### **`octron predict`**
 Run a trained model on new videos to produce detections/masks and tracks. This is the command-line equivalent of [Analyze (new) videos](analysing.md); the output layout is documented under [File system › Analysis](file-system.md#analysis).

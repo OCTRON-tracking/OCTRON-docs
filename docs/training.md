@@ -22,6 +22,9 @@ Segmentation and detection are color coded throughout the GUI.
 | **Downstream analysis**  | Limited measurements (position, size, shape) | Extensive measurements (shape properties, texture, intensity, and more) |
 | **Tracking robustness**  | Reliable (same as for segmentation because bounding boxes are used) | Reliable (bounding boxes are used)
 
+!!! info "RT-DETR: a detection-only model family"
+    Besides YOLO, OCTRON can also train **RT-DETR** models — a transformer-based, **detection-only** family. Because they produce bounding boxes (no masks), they appear in the model dropdown **only when Detection is selected**. RT-DETR is end-to-end and **NMS-free** (there is no IoU/NMS threshold to tune) and uses transformer *global context* that can help in cluttered scenes or when animals overlap, while still running in real time. The trade-offs: no segmentation masks, and it is more data- and memory-hungry than YOLO, so it benefits from a larger annotated dataset. See [Which model should I choose?](#train) for the available variants.
+
 
 ## Generate training data
 OCTRON needs to generate data to train the model on: it takes your annotations and splits them into a **training**, **validation**, and **test** set. The validation set lets OCTRON track how well training is going on held-out frames, and the test set is kept aside for a final, unbiased check. First, consider these options:
@@ -80,6 +83,13 @@ Once the training data has been generated, OCTRON is ready to train your model.
 
         - **YOLO26m:** medium model – improved accuracy over YOLO11, smaller than YOLO11l
         - **YOLO26l:** large model – state-of-the-art accuracy
+
+        **RT-DETR Models** (Transformer-based, **detection-only** – shown only when *Detection* is selected):
+
+        - **RT-DETR-l:** large real-time detection transformer
+        - **RT-DETR-x:** extra-large variant – highest accuracy, most resource-intensive
+
+        *Advantages:* end-to-end and **NMS-free** (no IoU/NMS threshold to tune), with transformer global context that helps in cluttered or overlapping scenes, at real-time speed. *Costs:* detection-only (no masks) and more data- and memory-hungry than YOLO, so they benefit from larger annotated datasets. Choose RT-DETR when you only need boxes and expect crowded scenes; choose YOLO when you also want masks or have a smaller dataset.
 
 
 - **Img. size:** choose which image size OCTRON should train on. If your input videos have a high native resolution (for example 1920x1080 pixels), then training OCTRON with an image size of 1024 makes sense to get higher resolution out of your predictions. This especially helps with smaller labeled structures that cover only a minute fraction of your field of view. However, if your input videos have smaller resolution (for example 640x480 or smaller), then training the model atr 1024 image size makes little sense and might even make training worse. You can type in your own image size here and click enter if you want something else than appears in the dropdown.
