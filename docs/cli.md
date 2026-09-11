@@ -25,7 +25,7 @@ The table below lists every command and links to the relevant part of the docume
 | `octron dump-tracker-config` | Print/write a tracker's default config YAML to customize it. | [BoxMOT trackers](analysing.md#boxmot-trackers) |
 | `octron gpu-test` | Check CUDA / MPS (GPU) availability. | [Installation](installation.md) |
 | `octron config` | View or edit `config.yaml` settings (cache paths, device, split defaults). | [Configuration](configuration.md) |
-| `octron download-yolo` | Download/refresh YOLO base weights into the model cache. | [Installation](installation.md) |
+| `octron download-models` | Download/refresh YOLO base weights into the model cache. | [Installation](installation.md) |
 | `octron download-sam2` | Download/refresh SAM2 checkpoints into the model cache. | [Installation](installation.md) |
 | `octron download-sam3` | Download/refresh the SAM3 checkpoint (needs HuggingFace access). | [Installation](installation.md) |
 | `octron gif` | Convert MP4/MOV/AVI videos to GIF (opens a small GUI helper). | [`octron gif`](cli.md#octron-gif) |
@@ -221,12 +221,14 @@ octron config set split_train_fraction 0.8
 SEED=$(octron config get split_seed)
 ```
 
-### **`octron download-yolo` / `download-sam2` / `download-sam3`**
+### **`octron download-models` / `download-sam2` / `download-sam3`**
 You can manually initiate the download of model weights and checkpoints into the per-user model cache directory. SAM3 requires HuggingFace access (see *How to access SAM3* under [Model selection](annotating.md#model-selection)).
+
+`octron download-yolo` is kept as a hidden alias for `octron download-models` for backward compatibility.
 
 Examples:
 ```
-octron download-yolo
+octron download-models
 octron download-sam2
 octron download-sam3
 ```

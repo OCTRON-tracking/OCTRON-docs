@@ -100,13 +100,13 @@ Once the training data has been generated, OCTRON is ready to train your model.
 
 - **Resume:** if you've previously started training a model but had to abort for some reason, you can continue from where the training stopped by selecting this option 
 - **Overwrite:** if you've previously trained a model and want to replace it, select this option.
-- **Tensorboard:** *(currently selected by default)* select this if you want to follow the training progress live in your browser via [tensorboard](https://www.tensorflow.org/tensorboard). After the training has started you can open a new terminal, conda activate your OCTRON environment, and do `tensorboard --logdir "YOUR_TRAINING_FOLDER"`. This will then show you a link you can click or copy+paste into your browser to view a tensorboard instance showing the training progress.
+- **MLflow:** *(selected by default)* select this to follow the training progress live in your browser via [MLflow](https://mlflow.org/) — a fully local experiment tracker (no account or internet required). When enabled, OCTRON starts a local MLflow UI and opens it in your browser once training begins. Metrics are logged to an `mlflow` folder inside your project's `model` folder, so you can also open the dashboard any time from a terminal: `conda activate` your OCTRON environment and run `mlflow ui --backend-store-uri "YOUR_MODEL_FOLDER/mlflow"`, then click the printed `http://127.0.0.1:5000` link.
 
 When you're happy with your training settings, click *Train*.
 
 
 ## Check training progress and results
-**While the model is training** you can track its progress in the terminal window (and with graphs in your browser if you selected the *Tensorboard* option). Once OCTRON has finished one epoch, it will provide an estimate of how long the total training will take, based on how long the first epoch took to complete and how many epochs you've told it to train for. 
+**While the model is training** you can track its progress in the terminal window (and with live metric curves in your browser if you selected the *MLflow* option). Once OCTRON has finished one epoch, it will provide an estimate of how long the total training will take, based on how long the first epoch took to complete and how many epochs you've told it to train for. 
 
 **Once the training has finished**, you can check how it went by opening the *model* folder in your project folder, and then the *training* folder. Key files within this folder:
 

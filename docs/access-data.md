@@ -7,22 +7,22 @@ To learn more about the output that OCTRON saves for each analysed video file se
 
 ```python
 # To access any prediction results programmatically, 
-# you can use the YOLO_results class.
-from octron import YOLO_results
+# you can use the AnalysisResults class.
+from octron import AnalysisResults
 
 results_dir = 'path_to_folder/predictions/some_output_bytetrack'
-yolo_results = YOLO_results(results_dir, verbose=True)
+results = AnalysisResults(results_dir, verbose=True)
 
-# yolo_results contains quite a bit of information now ... 
-print(yolo_results.height, yolo_results.width, yolo_results.num_frames)
+# results contains quite a bit of information now ... 
+print(results.height, results.width, results.num_frames)
 # The track_id_label is a dictionary that contains the 
 # track id as key and the label as value
-print(yolo_results.track_id_label)
+print(results.track_id_label)
 
 # to access tracking data
-tracking = yolo_results.get_tracking_data(interpolate=False)
+tracking = results.get_tracking_data(interpolate=False)
 # to access mask data 
-masks = yolo_results.get_mask_data()
+masks = results.get_mask_data()
 ```
 Check out the [tutorial notebook](https://github.com/OCTRON-tracking/OCTRON-GUI/blob/main/octron/notebooks/OCTRON_results_loading.ipynb) for a more comprehensive guide.
 
@@ -31,19 +31,19 @@ Check out the [tutorial notebook](https://github.com/OCTRON-tracking/OCTRON-GUI/
 You can either drag and drop the folder onto the napari main window, or trigger the same operation like this: 
 
 ```python
-# You can access the yolo_octron class directly if you 
+# You can access the AnalysisOctron class directly if you 
 # want to use it for your own purposes
 # This allows you to plot things in napari like you would when 
 # drag-and-dropping the results into napari
 # This is just a convenience function to load the results, 
 # but should not be used for any serious analysis.
-# In fact, YOLO_octron accesses YOLO_results itself to load the results! 
-from octron import YOLO_octron
+# In fact, AnalysisOctron accesses AnalysisResults itself to load the results! 
+from octron import AnalysisOctron
 results_dir = 'path_to_folder/predictions/some_output_bytetrack'
-yolo_octron = YOLO_octron()
+analysis = AnalysisOctron()
 
 # Loop over all results and add them to napari one by one
-for frame_results in yolo_octron.load_predictions(save_dir=results_dir, 
+for frame_results in analysis.load_predictions(save_dir=results_dir, 
                                                   sigma_tracking_pos=2, 
                                                   open_viewer=True
                                                   ):
