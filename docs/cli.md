@@ -25,7 +25,7 @@ The table below lists every command and links to the relevant part of the docume
 | `octron dump-tracker-config` | Print/write a tracker's default config YAML to customize it. | [BoxMOT trackers](analysing.md#boxmot-trackers) |
 | `octron gpu-test` | Check CUDA / MPS (GPU) availability. | [Installation](installation.md) |
 | `octron config` | View or edit `config.yaml` settings (cache paths, device, split defaults). | [Configuration](configuration.md) |
-| `octron download-yolo` | Download/refresh YOLO base weights into the model cache. | [Installation](installation.md) |
+| `octron download-models` | Download/refresh YOLO base weights into the model cache. | [Installation](installation.md) |
 | `octron download-sam2` | Download/refresh SAM2 checkpoints into the model cache. | [Installation](installation.md) |
 | `octron download-sam3` | Download/refresh the SAM3 checkpoint (needs HuggingFace access). | [Installation](installation.md) |
 | `octron gif` | Convert MP4/MOV/AVI videos to GIF (opens a small GUI helper). | [`octron gif`](cli.md#octron-gif) |
@@ -83,7 +83,7 @@ Example: `octron train --model yolo26m --mode segment --epochs 250 --device auto
 | Option | Default | Description |
 | --- | --- | --- |
 | `PROJECT_PATH` | *(required)* | Path to the OCTRON project directory. |
-| `--model` | `yolo26m` | YOLO base model to train. |
+| `--model` | `yolo26m` | Base model to train — a YOLO model (segmentation or detection) or an RT-DETR model (`rtdetr-l`, `rtdetr-x`; **detection-only**, use with `--mode detect`). |
 | `--mode` | `segment` | `segment` (instance segmentation) or `detect` (bounding boxes). |
 | `--device` | from `config.yaml` (default `auto`) | `auto`, `cpu`, `cuda`, or `mps` (`auto` picks CUDA → MPS → CPU). |
 | `--epochs` | `250` | Number of training epochs. |
@@ -95,6 +95,9 @@ Example: `octron train --model yolo26m --mode segment --epochs 250 --device auto
 | `--train` / `--val` / `--seed` / `--buffer` | from `config.yaml` (default `0.7` / `0.15` / `88` / `1`) | Split fractions, seed and boundary buffer (ignored with `--no-split`). |
 | `--prune` / `--no-prune` | off | Drop frames where not every label is annotated (ignored with `--no-split`). |
 | `--watershed` / `--no-watershed` | off | Split touching same-label masks into separate instances (ignored with `--no-split`). |
+
+!!! note "RT-DETR is detection-only"
+    RT-DETR models (`rtdetr-l`, `rtdetr-x`) support only `--mode detect`. Running e.g. `octron train --model rtdetr-l --mode segment` stops with a clear message; use `--mode detect`, or pick a segmentation-capable YOLO model.
 
 ### **`octron predict`**
 Run a trained model on new videos to produce detections/masks and tracks. This is the command-line equivalent of [Analyze (new) videos](analysing.md); the output layout is documented under [File system › Analysis](file-system.md#analysis).
@@ -218,12 +221,14 @@ octron config set split_train_fraction 0.8
 SEED=$(octron config get split_seed)
 ```
 
-### **`octron download-yolo` / `download-sam2` / `download-sam3`**
+### **`octron download-models` / `download-sam2` / `download-sam3`**
 You can manually initiate the download of model weights and checkpoints into the per-user model cache directory. SAM3 requires HuggingFace access (see *How to access SAM3* under [Model selection](annotating.md#model-selection)).
+
+`octron download-yolo` is kept as a hidden alias for `octron download-models` for backward compatibility.
 
 Examples:
 ```
-octron download-yolo
+octron download-models
 octron download-sam2
 octron download-sam3
 ```

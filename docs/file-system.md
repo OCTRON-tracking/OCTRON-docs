@@ -111,7 +111,7 @@ Your project folder
 
 ## Training
 With the creation of training output (in OCTRON's training tab), a `model` subfolder is created in your project folder.
-Within it you will find a `training_data` subfolder that contains the actual training data for YOLO and a `yolo_config.yaml`, that contains all parameters that the model is being trained with. 
+Within it you will find a `training_data` subfolder that contains the actual training data and an `ultralytics_config.yaml`, that contains all parameters that the model is being trained with. 
 You can use the training data for multiple training runs (if you unticked `Overwrite` in the training tab of the GUI). 
 
 Once you start training the YOLO model, a `training` subfolder is created. It will gradually fill up with info during training and contain evaluation metrics and figures after training has finished. 
@@ -127,7 +127,7 @@ Your project folder
 │     └─ train
 │     └─ test
 │     └─ val
-│     └─ yolo_config.yaml
+│     └─ ultralytics_config.yaml
 │  └─ training
 │     └─ results.csv
 │     └─ weights
