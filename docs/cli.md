@@ -154,6 +154,7 @@ octron render --no-nvenc /path/to/octron_predictions/video1_bytetrack
 | `--masks` / `--no-masks` | mode-dependent | Draw segmentation masks. |
 | `--boxes` / `--no-boxes` | mode-dependent | Draw bounding boxes. |
 | `--labels` / `--no-labels` | on | Draw label text (overlay only). |
+| `--tracking-frames` | `0` | Overlay each track's recent trajectory as a thin fading trail spanning this many past frames (opacity fades to ~10% at the oldest end); `inf` shows the full history without fading. `0` = off. Overlay mode only (ignored with `--tracklets`). |
 | `--min-confidence` | `0.5` | Skip detections below this confidence value. |
 | `--min-observations` | `0` | Skip tracks with fewer than N observations. |
 | `--track-ids` | all | Comma-separated track IDs to render (e.g. `1,3,5`). |
