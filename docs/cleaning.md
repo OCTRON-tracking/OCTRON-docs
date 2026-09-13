@@ -9,7 +9,7 @@ The **Prediction cleaner** is a second napari dock widget built exactly for this
 </video>
 
 ## Opening the cleaner
-The cleaner widget pops up automatically whenever you load a set of prediction results — either right after [analysing](analysing.md) a video (when you clicked on the checkbox "View results"), or by dragging a results folder onto the napari window. You can also open it any time from napari's **Plugins** menu in the menubar.
+The cleaner widget pops up automatically whenever you load a set of prediction results — either right after [analysing](analysing.md) a video (when you clicked on the checkbox "View result"), or by dragging a results folder onto the napari window. You can also open it any time from napari's **Plugins** menu in the menubar.
 
 ## Picking a track to fix
 Use the **source track** dropdown to pick the track you want to work on. Every entry is colour-coded by label name and shows how much of the video that track actually covers (in percent). Tracks with low coverage are usually the fragmented ones most in need of fixing, so they float to the top of the list.
