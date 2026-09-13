@@ -58,3 +58,6 @@ Nothing is ever edited in place, and nothing is ever truly deleted. Every fuse o
 - **Revert** looks up the most recent archive subfolder, reads its manifest, and undoes it: the archived `.csv.bak` file(s) move back to their original names, any renamed mask arrays are renamed back, and - for a fuse - the new track's `.csv` and mask array that were created are deleted again. **Reset** simply calls Revert repeatedly until the archive is empty, walking all the way back to how your results looked before you opened the cleaner.
 
 After every save, revert or reset, OCTRON doesn't try to patch what's currently shown in napari - it clears every layer and reloads everything straight from what's now on disk. This guarantees the viewer always matches the real state of your files, rather than risking the two drifting out of sync.
+
+!!! info "Coming soon: splitting tracks"
+    Right now the cleaner only helps with joining fragments or deleting junk. We're planning an analogous **splitter** tool for the opposite problem - when the tracker quietly hands the same ID to a different animal partway through a video - so keep an eye out for that in a future update.
