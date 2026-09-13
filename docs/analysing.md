@@ -61,4 +61,6 @@ OCTRON will now analyze your video(s) and display the progress. If multiple vide
 ## Results
 If you selected *View results* above, then a new window will open once the analysis is complete where you can evaluate how well the model did frame by frame. A track will appear showing the trajectory of the tracked object, and you can adjust the length and color of this track in the *Layer controls* panel. You can, for example, color the track according to the confidence of the model or the area covered by the mask.
 
+Noticed that the tracker lost an animal partway through and picked it up again under a new ID? Head over to [Cleaning tracks](cleaning.md) to stitch those fragments back together (or throw out any junk tracks).
+
 To learn what output OCTRON saves for each analysed video file see the [File System - Analysis](file-system.md#analysis) page.

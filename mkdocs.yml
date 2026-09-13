@@ -20,6 +20,7 @@ nav:
     - annotating.md
     - training.md
     - analysing.md
+    - cleaning.md
     - access-data.md
     - cli.md
     - configuration.md
