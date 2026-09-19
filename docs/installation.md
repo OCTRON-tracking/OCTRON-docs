@@ -61,6 +61,12 @@
         ```
         Look for the **"CUDA Version"** in the top-right corner of the output (e.g. `CUDA Version: 12.4`). Then use the matching install command below:
 
+        ??? tip "nvidia-smi needs admin rights or isn't on your PATH? (Windows)"
+            Query the driver directly instead — no admin rights or install needed:
+            ```
+            python -c "import ctypes; v=ctypes.c_int(); ctypes.windll.LoadLibrary('nvcuda.dll').cuDriverGetVersion(ctypes.byref(v)); print(f'{v.value // 1000}.{(v.value % 1000) // 10}')"
+            ```
+
         === "CUDA 13.2"
             ```
             pip install --extra-index-url https://download.pytorch.org/whl/cu132 "octron[all] @ git+https://github.com/OCTRON-tracking/OCTRON-GUI.git"
@@ -82,6 +88,9 @@
             PyTorch only provides pre-built wheels for select CUDA versions. If your version isn't listed above (e.g. CUDA 12.6), use the wheel for the **closest older version** (e.g. `cu124`). CUDA is generally backwards-compatible within a major version, so this will work in most cases.
 
             Using a PyTorch wheel that doesn't match your CUDA version can cause cryptic runtime errors (e.g. `CUBLAS_STATUS_INVALID_VALUE`) when running models. If you're unsure which version to pick, check [pytorch.org/get-started](https://pytorch.org/get-started/locally/) to find the right wheel for your system.
+
+        !!! danger "A wrong/mistyped CUDA tag fails silently"
+            `pip` won't error on a bad tag — it just quietly installs a plain PyPI `torch` build instead. Always confirm with the GPU check in step 6.
 
 
     === "No NVIDIA GPU"
