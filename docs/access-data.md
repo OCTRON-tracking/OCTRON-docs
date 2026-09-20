@@ -43,8 +43,9 @@ results_dir = 'path_to_folder/predictions/some_output_bytetrack'
 analysis = AnalysisOctron()
 
 # Loop over all results and add them to napari one by one
+# (positions are shown raw by default - pass sigma_tracking_pos=2
+# or higher if you want a smoothed, less jittery display instead)
 for frame_results in analysis.load_predictions(save_dir=results_dir, 
-                                                  sigma_tracking_pos=2, 
                                                   open_viewer=True
                                                   ):
     # you can access the tracking_df and features_df here if you want to ...

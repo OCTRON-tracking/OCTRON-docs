@@ -34,6 +34,9 @@ Tick the checkbox next to a candidate you think belongs to your source track. OC
 
 The end of the earlier track fades from blue into black **towards** the join point, and the beginning of the later track picks up right there in black and brightens into yellow moving **away** from it. If the animal's position and movement line up nicely right where the colors meet, you've probably found a genuine match.
 
+!!! note "What you see is exactly what's on disk"
+    Tracks are shown raw here - no smoothing, no gap-filling. A jittery or gappy trajectory right at the join point is the actual recorded data, not a display artifact, so you can trust what you see when deciding whether two tracks belong together.
+
 ## Saving a join
 Happy with your pick(s)? Hit **Save**. OCTRON immediately fuses your source track and every checked candidate into a single, new track ID - merging the underlying .csv files and, for segmentation projects, the mask data too.
 
