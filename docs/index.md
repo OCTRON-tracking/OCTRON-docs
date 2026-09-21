@@ -6,7 +6,7 @@ OCTRON is built on [Napari](https://www.napari.org), [Segment Anything (SAM2/SAM
 
 Main repository: [OCTRON-GUI](https://github.com/OCTRON-tracking/OCTRON-GUI)
 
-The main steps implemented in OCTRON typically include: Loading video data from behavioral experiments, annotating frames to create training data for segmentation, training machine learning models for segmentation and tracking, and finally applying models to new data for automated tracking.
+The main steps implemented in OCTRON typically include: Loading video data from behavioral experiments, annotating frames with SAM2/SAM3 assistance to create training data, training machine learning models for detection or segmentation, and finally applying these models to new data for automated tracking.
 <br>
 <br>
 <img src="assets/workflow.png" alt="OCTRON workflow" width="92%" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: .5rem;" />
