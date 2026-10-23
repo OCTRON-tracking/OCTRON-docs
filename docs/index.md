@@ -6,6 +6,9 @@ OCTRON is built on [Napari](https://www.napari.org), [Segment Anything (SAM2/SAM
 
 Main repository: [OCTRON-GUI](https://github.com/OCTRON-tracking/OCTRON-GUI)
 
+!!! info "New preprint version available — v2"
+    We have just uploaded a revised version of the OCTRON preprint! [Read version 2 on bioRxiv](https://www.biorxiv.org/content/10.64898/2025.12.20.695663v2).
+
 The main steps implemented in OCTRON typically include: Loading video data from behavioral experiments, annotating frames with SAM2/SAM3 assistance to create training data, training machine learning models for detection or segmentation, and finally applying these models to new data for automated tracking.
 <br>
 <br>
@@ -23,7 +26,8 @@ The main steps implemented in OCTRON typically include: Loading video data from 
 
 
 !!! quote "How to cite"
-    Using OCTRON for your project? Please cite this paper to share the word! 
+    Using OCTRON for your project? Please cite this paper to share the word!
+    [Read the newly uploaded version 2 on bioRxiv](https://www.biorxiv.org/content/10.64898/2025.12.20.695663v2).
     <br>
     Jacobsen, R. I., van Eekelen, N. M., Humphrey, L., Renton, J., van Rooij, E., Rivera, J., Arenas, O. M., Lumpkin, E. A., Maccuro, S., Buresch, K. C., Seuntjens, E., & Obenhaus, H. A. (2025). OCTRON - a general purpose segmentation and tracking pipeline for behavioral experiments. *bioRxiv*, 2025.12.20.695663. [https://doi.org/10.64898/2025.12.20.695663](https://doi.org/10.64898/2025.12.20.695663)
     ```{bibtex}
@@ -36,6 +40,8 @@ The main steps implemented in OCTRON typically include: Loading video data from 
                   Buresch, Kendra C and Seuntjens, Eve and Obenhaus, Horst A",
       journal  = "bioRxiv",
       pages    = "2025.12.20.695663",
+      doi      = "10.64898/2025.12.20.695663",
+      url      = "https://www.biorxiv.org/content/10.64898/2025.12.20.695663v2",
       abstract = "OCTRON is a pipeline for markerless segmentation and tracking of
                   animals in behavioral experiments. By combining Segment Anything
                   Models (SAM 2) for rapid annotation, YOLO11 models for training,
