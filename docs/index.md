@@ -62,20 +62,33 @@ The main steps implemented in OCTRON typically include: Loading video data from 
 !!! info "Attributions"
     - Interface button and icon images were created by user [Arkinasi](https://thenounproject.com/browse/collection-icon/marketing-agency-239829/) from Noun Project (CC BY 3.0)
     - Logo font: [datalegreya](https://datalegreya.figs-lab.com/?lang=en)
+    - OCTRON's viewer and graphical interface are built on [napari](https://napari.org), developed by the napari contributors. Software citation: [napari: a multi-dimensional image viewer for Python](https://doi.org/10.5281/zenodo.3555620).
     - OCTRON mp4 video reading is based on [napari-pyav](https://github.com/danionella/napari-pyav)
-    - OCTRON training is accomplished via ultralytics: 
+    - Annotation and object-label colour maps are provided by [CMasher](https://github.com/1313e/CMasher):
     ```{bibtex}
-    @software{yolo11_ultralytics,
-      author = {Glenn Jocher and Jing Qiu},
-      title = {Ultralytics YOLO11},
-      version = {11.0.0},
-      year = {2024},
+    @article{vanderVelden2020cmasher,
+      author = {van der Velden, Ellert},
+      title = {{CMasher}: Scientific colormaps for making accessible, informative and 'cmashing' plots},
+      journal = {Journal of Open Source Software},
+      volume = {5},
+      number = {46},
+      pages = {2004},
+      year = {2020},
+      doi = {10.21105/joss.02004},
+      url = {https://doi.org/10.21105/joss.02004}
+    }
+    ```
+    - OCTRON model training and prediction use [Ultralytics YOLO](https://github.com/ultralytics/ultralytics), including the YOLO11 model family:
+    ```{bibtex}
+    @software{ultralytics_yolo,
+      author = {Jocher, Glenn and Qiu, Jing and Chaurasia, Ayush},
+      title = {Ultralytics YOLO},
+      year = {2023},
       url = {https://github.com/ultralytics/ultralytics},
-      orcid = {0000-0001-5950-6979, 0000-0002-7603-6750, 0000-0003-3783-7069},
       license = {AGPL-3.0}
     }
     ```
-    - OCTRON annotation data is generated via Segment Anything:
+    - OCTRON annotation uses the Segment Anything model family. The original SAM work is credited below:
     ```{bibtex}
     @article{kirillov2023segany,
       title={Segment Anything},
@@ -84,14 +97,31 @@ The main steps implemented in OCTRON typically include: Loading video data from 
       year={2023}
     }
     ```
+    - SAM 2 / SAM 2.1 provide image and video segmentation:
+    ```{bibtex}
+    @article{ravi2024sam2,
+      title={SAM 2: Segment Anything in Images and Videos},
+      author={Ravi, Nikhila and Gabeur, Valentin and Hu, Yuan-Ting and Hu,
+              Ronghang and Ryali, Chaitanya and Ma, Tengyu and Khedr,
+              Haitham and R{\"a}dle, Roman and Rolland, Chloe and Gustafson,
+              Laura and Mintun, Eric and Pan, Junting and Alwala, Kalyan
+              Vasudev and Carion, Nicolas and Wu, Chao-Yuan and Girshick,
+              Ross and Doll{\'a}r, Piotr and Feichtenhofer, Christoph},
+      journal={arXiv preprint arXiv:2408.00714},
+      url={https://arxiv.org/abs/2408.00714},
+      year={2024}
+    }
+    ```
+    - OCTRON's SAM 2 HQ option uses [HQ-SAM 2](https://github.com/SysCV/sam-hq/tree/main/sam-hq2), which extends the HQ-SAM approach to SAM 2. Its authors recommend the following HQ-SAM citation, in addition to crediting SAM 2:
     ```{bibtex}
     @inproceedings{sam_hq,
         title={Segment Anything in High Quality},
         author={Ke, Lei and Ye, Mingqiao and Danelljan, Martin and Liu, Yifan and Tai, Yu-Wing and Tang, Chi-Keung and Yu, Fisher},
         booktitle={NeurIPS},
         year={2023}
-    }  
+    }
     ```
+    - SAM 3 provides concept-prompted segmentation:
     ```{bibtex}
     @misc{carion2025sam3segmentconcepts,
       title={SAM 3: Segment Anything with Concepts}, 
@@ -103,16 +133,15 @@ The main steps implemented in OCTRON typically include: Loading video data from 
       url={https://arxiv.org/abs/2511.16719}, 
     }
     ```
-     - OCTRON multi-object tracking is achieved via BoxMot trackers:
-    ```yaml
-    cff-version: 15.0.2
-    preferred-citation:
-      type: software
-      authors:
-        - family-names: Broström
-          given-names: Mikel
-      title: "BoxMOT: pluggable SOTA tracking modules..."
-      version: 15.0.2
+    - OCTRON multi-object tracking is provided by [BoxMOT](https://github.com/mikel-brostrom/boxmot):
+    ```{bibtex}
+    @software{boxmot,
+      author = {Broström, Mikel and Kozak, Mikhail},
+      title = {{BoxMOT}: pluggable state-of-the-art multi-object tracking modules},
+      year = {2023},
+      url = {https://github.com/mikel-brostrom/boxmot},
+      license = {AGPL-3.0}
+    }
     ```
    
 
