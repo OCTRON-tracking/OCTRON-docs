@@ -5,7 +5,7 @@ site_description: >-
   Documentation for the OCTRON project
 # Repository
 repo_name: OCTRON-tracking
-repo_url: https://github.com/OCTRON-tracking/OCTRON-gui
+repo_url: https://github.com/OCTRON-tracking/OCTRON-GUI
 
 # Copyright
 copyright: Copyright &copy; 2025-2035 Horst Obenhaus
@@ -31,6 +31,7 @@ nav:
 # Configuration
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/header_logo.svg
   features:
     - announce.dismiss

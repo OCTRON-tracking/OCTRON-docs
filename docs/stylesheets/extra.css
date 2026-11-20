@@ -14,6 +14,18 @@ body .md-content__inner h1 {
   );
 }
 
+/* Cached GitHub badges work without a visitor-side GitHub API request. */
+.octron-repo-stats {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.15rem;
+}
+
+.octron-repo-stats img {
+  height: 20px;
+  max-width: none;
+}
+
 /* Navigation tabs gradient (slightly darker) */
 .md-tabs {
   background: linear-gradient(

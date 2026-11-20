@@ -1,0 +1,22 @@
+{# Use cached badges instead of Material's per-visitor GitHub API requests. #}
+<a href="{{ config.repo_url }}" title="{{ lang.t('source') }}" class="md-source">
+  <div class="md-source__icon md-icon">
+    {% set icon = config.theme.icon.repo or "fontawesome/brands/git-alt" %}
+    {% include ".icons/" ~ icon ~ ".svg" %}
+  </div>
+  <div class="md-source__repository">
+    {{ config.repo_name }}
+    <div class="octron-repo-stats">
+      <img
+        src="https://img.shields.io/github/stars/OCTRON-tracking/OCTRON-GUI?style=social"
+        alt="GitHub stars"
+        height="20"
+      />
+      <img
+        src="https://img.shields.io/github/forks/OCTRON-tracking/OCTRON-GUI?style=social"
+        alt="GitHub forks"
+        height="20"
+      />
+    </div>
+  </div>
+</a>
