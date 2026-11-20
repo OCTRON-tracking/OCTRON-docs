@@ -7,16 +7,26 @@
   <div class="md-source__repository">
     {{ config.repo_name }}
     <div class="octron-repo-stats">
-      <img
-        src="https://img.shields.io/github/stars/OCTRON-tracking/OCTRON-GUI?style=social"
-        alt="GitHub stars"
-        height="20"
-      />
-      <img
-        src="https://img.shields.io/github/forks/OCTRON-tracking/OCTRON-GUI?style=social"
-        alt="GitHub forks"
-        height="20"
-      />
+      <span class="octron-repo-stat">
+        <span class="md-icon" aria-hidden="true">
+          {% include ".icons/material/star-outline.svg" %}
+        </span>
+        <img
+          src="https://img.shields.io/github/stars/OCTRON-tracking/OCTRON-GUI?style=flat-square&amp;label=Stars&amp;labelColor=transparent&amp;color=transparent"
+          alt="GitHub stars"
+          height="16"
+        />
+      </span>
+      <span class="octron-repo-stat">
+        <span class="md-icon" aria-hidden="true">
+          {% include ".icons/material/source-fork.svg" %}
+        </span>
+        <img
+          src="https://img.shields.io/github/forks/OCTRON-tracking/OCTRON-GUI?style=flat-square&amp;label=Forks&amp;labelColor=transparent&amp;color=transparent"
+          alt="GitHub forks"
+          height="16"
+        />
+      </span>
     </div>
   </div>
 </a>

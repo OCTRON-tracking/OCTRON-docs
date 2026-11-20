@@ -17,12 +17,31 @@ body .md-content__inner h1 {
 /* Cached GitHub badges work without a visitor-side GitHub API request. */
 .octron-repo-stats {
   display: flex;
-  gap: 0.25rem;
-  margin-top: 0.15rem;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.1rem;
+  opacity: 0.8;
+  transition: opacity 150ms;
+}
+
+.md-source:hover .octron-repo-stats,
+.md-source:focus-visible .octron-repo-stats {
+  opacity: 1;
+}
+
+.octron-repo-stat {
+  display: inline-flex;
+  align-items: center;
+}
+
+.octron-repo-stat .md-icon svg {
+  width: 0.65rem;
+  height: 0.65rem;
 }
 
 .octron-repo-stats img {
-  height: 20px;
+  display: block;
+  height: 16px;
   max-width: none;
 }
 
